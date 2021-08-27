@@ -15,8 +15,7 @@ git pull --rebase upstream master
 
 ## push to a feature branch on YOUR fork
 git push origin feature-branch
-
-## make a pull request on GitHub
+make a pull request on GitHub
 
 ## if pull request is rejected, fix bugs, commit
 git add .
