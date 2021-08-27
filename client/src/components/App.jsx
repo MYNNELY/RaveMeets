@@ -1,5 +1,12 @@
+import React from 'react';
+import Profile from './Profile/Profile.jsx';
+
 const test = () => {
-  return 'Hello World';
+  return (
+    <>
+      <Profile />
+    </>
+  );
 };
 
 
