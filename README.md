@@ -18,16 +18,13 @@ git push origin feature-branch
 
 ## make a pull request on GitHub
 
-## if pull request is rejected
-## fix bugs, commit
+## if pull request is rejected, fix bugs, commit
 git add .
 git commit
 git pull --rebase upstream master
 git push origin feature-branch
 
-## make a pull request on GitHub
-
-## if pull request is accepted
+## make a pull request on GitHub, if pull request is accepted
 git checkout master
 git pull --rebase upstream master
 git branch -d feature-branch
