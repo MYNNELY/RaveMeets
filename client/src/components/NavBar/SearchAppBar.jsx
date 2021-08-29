@@ -2,17 +2,20 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import {alpha, makeStyles} from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import {Grid, Link} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  toolBar: {
+    backgroundColor: '#01387A',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -23,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  links: {
+    maxWidth: '70%',
   },
   search: {
     'position': 'relative',
@@ -57,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      'width': '12ch',
+      'width': '15ch',
       '&:focus': {
         width: '20ch',
       },
@@ -71,7 +77,7 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolBar}>
           {/* <IconButton
             edge="start"
             className={classes.menuButton}
@@ -84,7 +90,9 @@ export default function SearchAppBar() {
             RAVEmeets
           </Typography>
           <Grid
+            className={classes.links}
             container
+            item
             xs={9}
             spacing={0}
             direction="row"
@@ -92,17 +100,17 @@ export default function SearchAppBar() {
             alignItems="center"
           >
             <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="#FFF">
+              <Link href="#" className="nav-bar" color="inherit">
               Events
               </Link>
             </Grid>
             <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="#FFF">
+              <Link href="#" className="nav-bar" color="inherit">
               Groups
               </Link>
             </Grid>
             <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="#FFF">
+              <Link href="#" className="nav-bar" color="inherit">
               My Profile
               </Link>
             </Grid>

@@ -1,24 +1,24 @@
-body {
+/* body {
   background-color: #01387A;
-}
+} */
 
 /* NavBar */
-.nav-bar-container {
+/* .nav-bar-container {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   background-color: #01387A;
   color: #FFF;
   border-bottom: solid 1px #FFF;
-}
+} */
 
-.nav-bar {
+/* .nav-bar {
   color: #FFF;
-}
+} */
 
 /* Group List Page */
-.group-list-container {
+/* .group-list-container {
   color: #FFF;
   margin: 50px auto;
   text-align: center;
-}
+} */
