@@ -1,15 +1,36 @@
 import React from 'react';
-// import NavBar from './NavBar/NavBar.jsx';
-// import SearchAppBar from './NavBar/SearchAppBar.jsx';
-import GroupListPage from './GroupListPage/GroupListPage.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import EventsList from './EventsList/EventsList.jsx';
+import GroupsList from './GroupsList/GroupsList.jsx';
+import Profile from './Profile/Profile.jsx';
 
-const test = () => {
-  // return 'Hello World';
+const App = () => {
   return (
-    <div>
-      <GroupListPage />
-    </div>
+    <Router>
+      <div>
+        <Link to="/events">Events</Link>
+        <Link to="/groups">Groups</Link>
+        <Link to="/profile">profile</Link>
+        <Switch>
+          <Route path="/events">
+            <EventsList />
+          </Route>
+          <Route path="/groups">
+            <GroupsList />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
-export default test;
+
+export default App;
