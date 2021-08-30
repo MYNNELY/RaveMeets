@@ -1,30 +1,35 @@
 import React from 'react';
-import EventList from './EventList/EventList.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import EventsList from './EventsList/EventsList.jsx';
+import GroupsList from './GroupsList/GroupsList.jsx';
+import Profile from './Profile/Profile.jsx';
 
 const App = () => {
   return (
-     <Router>
-     <div>
-       <ul>
-         <li>
-           <Link to="/">Home</Link>
-         </li>
-         <li>
-           <Link to="/about">About</Link>
-         </li>
-         <li>
-           <Link to="/topics">Topics</Link>
-         </li>
-       </ul>
-
-       <Switch>
-         <Route path="/events">
-           <EventList />
-         </Route>
-       </Switch>
-     </div>
-   </Router>
-  )
+    <Router>
+      <div>
+        <Link to="/events">Events</Link>
+        <Link to="/groups">Groups</Link>
+        <Link to="/profile">profile</Link>
+        <Switch>
+          <Route path="/events">
+            <EventsList />
+          </Route>
+          <Route path="/groups">
+            <GroupsList />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 };
 
 

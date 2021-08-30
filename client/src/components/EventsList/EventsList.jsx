@@ -1,16 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 import {Button} from '@material-ui/core';
 
 const EventList = () => {
   const [raves, setRaves] = useState([]);
-  useEffect(() => {
-    axios.get('https://edmtrain.com/api/events?locationIds=36,94&client=a587cd4f-79ec-49ac-9db9-e3465ca6c192')
-      .then((data) => {setRaves(data)})
-      .catch((err) => {console.error(err)});
-  });
+  let match = useRouteMatch();
   return (
     <div>
-      GroupList
+      Event List
+      <Link to={`${match.url}/eventpage`}>Event Page</Link>
     </div>
   );
 };
