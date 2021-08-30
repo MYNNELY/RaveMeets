@@ -11,7 +11,7 @@ const AddFriend = () => (
       height: '30px',
       left: '124px',
       top: '472px',
-      background: '#EC349B',
+      background: '#01387A',
     }}
   >
     Add Friend

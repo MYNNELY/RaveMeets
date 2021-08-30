@@ -9,7 +9,7 @@ const BioDetails = () => (
       height: '427px',
       left: '87px',
       top: '534px',
-      background: '#72C3B4',
+      background: '#BBC2D3',
     }}
   >
     <div
