@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/MYNNELY/RaveMeets#readme",
   "dependencies": {
+    "@fontsource/roboto": "^4.5.0",
     "@material-ui/core": "^4.12.3",
     "axios": "^0.21.1",
     "express": "^4.17.1",

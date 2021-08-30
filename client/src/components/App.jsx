@@ -1,6 +1,14 @@
-const test = () => {
-  return 'Hello World';
+import React from 'react';
+
+import SingleGroupPage from './SingleGroupPage/SingleGroupPage.jsx'
+
+const App = () => {
+  return (<div>
+    <SingleGroupPage />
+
+    </div>
+  )
 };
 
 
-export default test;
+export default App;
