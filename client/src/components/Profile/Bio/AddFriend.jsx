@@ -6,11 +6,8 @@ const AddFriend = () => (
     variant="contained"
     color="primary"
     style={{
-      position: 'absolute',
       width: '200px',
       height: '30px',
-      left: '124px',
-      top: '472px',
       background: '#01387A',
     }}
   >

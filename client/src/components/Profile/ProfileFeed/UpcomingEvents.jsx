@@ -5,9 +5,7 @@ const UpcomingEvents = () => {
   return (
     <div
       style={{
-        position: 'absolute',
-        left: '434px',
-        top: '484px',
+        marginRight: '50px',
         width: '375px',
         fontWeight: '600',
         fontSize: '24px',

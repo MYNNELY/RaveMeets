@@ -5,11 +5,18 @@ import BioDetails from './BioDetails.jsx';
 
 const BioSection = () => {
   return (
-    <>
+    <div
+      className="bio_container"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
       <Picture />
       <AddFriend />
       <BioDetails />
-    </>
+    </div>
   );
 };
 

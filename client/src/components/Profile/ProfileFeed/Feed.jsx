@@ -4,10 +4,15 @@ import PastEvents from './PastEvents.jsx';
 
 const Feed = () => {
   return (
-    <>
+    <div
+      className='feed_container'
+      style={{
+        display: 'flex',
+      }}
+    >
       <UpcomingEvents />
       <PastEvents />
-    </>
+    </div>
   );
 };
 

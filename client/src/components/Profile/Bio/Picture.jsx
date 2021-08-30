@@ -6,7 +6,6 @@ const Picture = () => {
       <img
         src="404image"
         style={{
-          position: 'absolute',
           width: '200px',
           height: '200px',
           left: '124px',
@@ -16,7 +15,6 @@ const Picture = () => {
       </img>
       <div
         style={{
-          position: 'absolute',
           width: '274px',
           height: '56px',
           left: '87px',

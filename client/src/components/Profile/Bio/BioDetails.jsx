@@ -4,11 +4,9 @@ import {Paper} from '@material-ui/core';
 const BioDetails = () => (
   <Paper
     style={{
-      position: 'absolute',
       width: '274px',
       height: '427px',
-      left: '87px',
-      top: '534px',
+      marginTop: '20px',
       background: '#BBC2D3',
     }}
   >
