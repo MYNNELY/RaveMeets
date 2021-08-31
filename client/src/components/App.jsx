@@ -8,6 +8,9 @@ import {
 import EventsList from './EventsList/EventsList.jsx';
 import GroupsList from './GroupsList/GroupsList.jsx';
 import Profile from './Profile/Profile.jsx';
+import GroupImg from './SingleGroupPage/GroupImg.jsx';
+import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
+
 
 const App = () => {
   return (
@@ -34,3 +37,4 @@ const App = () => {
 
 
 export default App;
+
