@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BioSection from './Bio/BioSection.jsx';
 import Groups from './Groups/Groups.jsx';
 import Feed from './ProfileFeed/Feed.jsx';
+import EditBioModal from './Bio/EditBioModal.jsx';
 
 const Profile = () => {
+  const [editModal, setEditModal] = useState(false);
+
+  const handleEditModal = (e) => {
+    console.log(e);
+    setEditModal(!editModal);
+  };
+
   return (
     <div
       className="profile"
@@ -16,7 +24,9 @@ const Profile = () => {
         marginRight: 'auto',
       }}
     >
-      <BioSection />
+      <BioSection
+        handleEditModal={handleEditModal}
+      />
       <div
         style={{
           marginLeft: '50px',
@@ -27,6 +37,9 @@ const Profile = () => {
         <Groups />
         <Feed />
       </div>
+      <EditBioModal
+        editModal={editModal}
+      />
     </div>
   );
 };

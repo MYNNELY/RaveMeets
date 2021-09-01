@@ -1,9 +1,9 @@
 import React from 'react';
 import Picture from './Picture.jsx';
-import AddFriend from './AddFriend.jsx';
+import ActionButton from './ActionButton.jsx';
 import BioDetails from './BioDetails.jsx';
 
-const BioSection = () => {
+const BioSection = ({ handleEditModal }) => {
   return (
     <div
       className="bio_container"
@@ -14,7 +14,9 @@ const BioSection = () => {
       }}
     >
       <Picture />
-      <AddFriend />
+      <ActionButton
+        handleEditModal={handleEditModal}
+      />
       <BioDetails />
     </div>
   );
