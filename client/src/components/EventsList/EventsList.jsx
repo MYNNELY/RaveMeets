@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable */
+import React, {useState, useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,5 @@ const EventList = () => {
     </div>
   );
 };
-
 
 export default EventList;

@@ -15,7 +15,7 @@ const App = () => {
       <div>
         <Link to="/events">Events</Link>
         <Link to="/groups">Groups</Link>
-        <Link to="/profile">profile</Link>
+        <Link to="/profile">Profile</Link>
         <Switch>
           <Route path="/events">
             <EventsList />
