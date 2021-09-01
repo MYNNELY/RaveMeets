@@ -1,9 +1,9 @@
-const path = require('path')
 
 require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const port = 3000;
 const authRoutes = require('./routes/auth.js');
@@ -18,8 +18,16 @@ app.use('/auth', authRoutes);
 
 app.use('/', express.static('./client/dist'));
 
-app.get('/', (req, res) => {
-  res.status(200).send();
+// app.get('/', (req, res) => {
+//   res.status(200).send();
+// });
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 
 
