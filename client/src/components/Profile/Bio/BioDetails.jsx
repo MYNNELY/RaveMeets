@@ -16,7 +16,6 @@ const BioDetails = () => (
           margin: '12px',
           fontSize: '18px',
           fontWeight: 700,
-          letterSpacing: '.05em',
           color: '#FFFFFF',
         }}
       >
@@ -45,7 +44,6 @@ const BioDetails = () => (
           margin: '12px',
           fontSize: '18px',
           fontWeight: 700,
-          letterSpacing: '.05em',
           color: '#FFFFFF',
         }}
       >

@@ -10,3 +10,12 @@ const App = () => {
 
 export default App;
 
+
+// import SingleGroupPage from './SingleGroupPage/SingleGroupPage.jsx'
+
+// const App = () => {
+//   return (<div>
+//     <SingleGroupPage />
+
+//     </div>
+//   )
