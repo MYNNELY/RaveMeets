@@ -18,6 +18,7 @@ import {
 import EventsList from '../EventsList/EventsList.jsx';
 import GroupsList from '../GroupsList/GroupsList.jsx';
 import Profile from '../Profile/Profile.jsx';
+import Login from '../Login/Login.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -154,6 +155,9 @@ export default function SearchAppBar() {
             </Route>
             <Route path="/groups">
               <GroupsList />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/profile">
               <Profile />
