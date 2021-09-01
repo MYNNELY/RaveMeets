@@ -11,8 +11,6 @@ const Groups = () => {
         style={{
           width: '187px',
           height: '36px',
-          fontFamily: 'Poppins',
-          fontStyle: 'normal',
           fontWeight: '600',
           fontSize: '24px',
           lineHeight: '36px',

@@ -2,37 +2,66 @@ import React from 'react';
 import {Paper} from '@material-ui/core';
 
 const BioDetails = () => (
-  <Paper
-    style={{
-      width: '274px',
-      height: '427px',
-      marginTop: '20px',
-      background: '#BBC2D3',
-    }}
-  >
-    <div
+  <>
+    <Paper
       style={{
-        position: 'relative',
-        margin: '12px',
-        fontSize: '24px',
-        letterSpacing: '.05em',
-        color: '#FFFFFF',
+        width: '275px',
+        marginTop: '20px',
+        background: '#555CA5',
       }}
     >
-      Jack's Bio
-    </div>
-    <div
+      <div
+        style={{
+          position: 'relative',
+          margin: '12px',
+          fontSize: '18px',
+          fontWeight: 700,
+          letterSpacing: '.05em',
+          color: '#FFFFFF',
+        }}
+      >
+      BIO
+        <div
+          style={{
+            marginLeft: '12px',
+            fontWeight: 400,
+            fontSize: '14px',
+          }}
+        >
+        Yeah my name is Jack and I like to go to raves.
+        </div>
+      </div>
+    </Paper>
+    <Paper
       style={{
-        position: 'relative',
-        margin: '12px',
-        fontSize: '24px',
-        letterSpacing: '.05em',
-        color: '#FFFFFF',
+        width: '275px',
+        marginTop: '10px',
+        background: '#555CA5',
       }}
     >
-      Jack's Genres
-    </div>
-  </Paper>
+      <div
+        style={{
+          position: 'relative',
+          margin: '12px',
+          fontSize: '18px',
+          fontWeight: 700,
+          letterSpacing: '.05em',
+          color: '#FFFFFF',
+        }}
+      >
+      GENRES
+        <ul
+          style={{
+            marginLeft: '24px',
+            fontWeight: 400,
+            fontSize: '14px',
+          }}
+        >
+          <li>Rave music</li>
+        </ul>
+      </div>
+    </Paper>
+  </>
 );
 
 export default BioDetails;

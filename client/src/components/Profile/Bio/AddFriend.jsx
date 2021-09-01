@@ -8,7 +8,7 @@ const AddFriend = () => (
     style={{
       width: '200px',
       height: '30px',
-      background: '#01387A',
+      background: '#72C3B4',
     }}
   >
     Add Friend

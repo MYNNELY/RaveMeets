@@ -1,10 +1,13 @@
 import React from 'react';
 
 const Picture = () => {
+  const picture = '../../../../assets/jackwu.png';
+
   return (
     <>
       <img
-        src="404image"
+        src=""
+        alt=''
         style={{
           width: '200px',
           height: '200px',

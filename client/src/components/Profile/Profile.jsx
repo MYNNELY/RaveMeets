@@ -8,11 +8,10 @@ const Profile = () => {
     <div
       className="profile"
       style={{
-        position: 'relative',
-        top: '215px',
         display: 'flex',
         justifyContent: 'center',
         width: '100%',
+        marginTop: '50px',
         marginLeft: 'auto',
         marginRight: 'auto',
       }}
