@@ -12,20 +12,21 @@ const Groups = () => {
           width: '187px',
           height: '36px',
           fontWeight: '600',
-          fontSize: '24px',
-          lineHeight: '36px',
-          /* identical to box height */
-
-          letterSpacing: '0.05em',
+          fontSize: '18px',
+          lineHeight: '48px',
         }}
       >
-        Jack's Group
+        Groups
       </div>
       <Grid
         container
         direction='row'
         justifyContent='flex-start'
         alignItems='baseline'
+        style={{
+          marginTop: '15px',
+          marginBottom: '30px',
+        }}
       >
         {array.map((index, key) => (
           <GroupIcon key={key}/>

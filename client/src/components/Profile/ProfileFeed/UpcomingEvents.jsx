@@ -8,11 +8,16 @@ const UpcomingEvents = () => {
         marginRight: '50px',
         width: '375px',
         fontWeight: '600',
-        fontSize: '24px',
-        letterSpacing: '0.05em',
+        fontSize: '18px',
       }}
     >
-      Upcoming Events
+      <div
+        style={{
+          marginBottom: '15px',
+        }}
+      >
+        Upcoming Events
+      </div>
       <Posts />
     </div>
   );
