@@ -16,7 +16,7 @@ const EventList = () => {
   return (
     <div>
       Event List
-      <Link to={`${match.url}/eventpage`}>Event Page</Link>
+      {/* <Link to={`${match.url}/eventpage`}>Event Page</Link> */}
     </div>
   );
 };
