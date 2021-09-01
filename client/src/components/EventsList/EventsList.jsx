@@ -13,20 +13,22 @@ import {Button, ImageList, ImageListItem, ImageListItemBar} from '@material-ui/c
 import EventTile from './EventTile.jsx';
 import styled from 'styled-components';
 
-const Banner = styled.div`
+const Banner = styled.img`
 height: 300px;
 width: 1500px;
 background-color: whitesmoke;
-margin: 20px;
+object-fit: cover;
 `
 const Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin: 20px;
 `
 
 const Grid_div = styled.div`
+margin: 20px;
 width: 1500px;
 display: flex;
 justifyContent: 'space-around';
@@ -38,73 +40,77 @@ flex-wrap: wrap;
 const EventList = () => {
   const [raves, setRaves] = useState([
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
-      author: '@bkristastucchio',
+      img: 'https://www.rivermendhealth.com/wp-content/uploads/2016/02/tumblr_static_filename_640_v2.png',
+      title: 'Porter Robinson',
+      author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
-      author: '@rollelflex_graphy726',
+      img: 'https://media-prd.coachella.com/content/content_images/76/l9p4FisVDiBKRjVfhJ8W3O3OjDw6lV0wMYtOd0NV.jpeg',
+      title: 'Coachella',
+      author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
-      author: '@helloimnik',
+      img: 'https://ichef.bbci.co.uk/news/976/cpsprodpb/B16A/production/_112981454_rave.jpg',
+      title: 'Audiotistic',
+      author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
-      author: '@nolanissac',
+      img: 'https://media.pitchfork.com/photos/5df07bc086d8e90008993d22/16:9/w_4640,h_2610,c_limit/Coachella.jpg',
+      title: 'Burning Man',
+      author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-      title: 'Hats',
-      author: '@hjrc33',
+      img: 'https://www.hollywoodreporter.com/wp-content/uploads/2020/03/coachella.jpg?w=1024',
+      title: 'Escape',
+      author: 'October 25, 20213',
     },
     {
-      img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-      title: 'Honey',
-      author: '@arwinneil',
+      img: 'https://themusicessentials.com/wp-content/uploads/2020/10/student-raves.jpg',
+      title: 'Wonderland',
+      author: '@October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-      title: 'Basketball',
-      author: '@tjdragotta',
+      img: 'https://thumbs.dreamstime.com/b/lasers-rave-party-club-lasers-rave-party-club-bright-blue-purple-colors-104108163.jpg',
+      title: 'Lost Lands',
+      author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-      title: 'Fern',
-      author: '@katie_wasserman',
+      img: 'https://i.ytimg.com/vi/WKuaujIHBT4/maxresdefault.jpg',
+      title: 'Ultra Miami',
+      author: 'October 25, 2021n',
     },
     {
-      img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-      title: 'Mushrooms',
-      author: '@silverdalex',
+      img: 'https://i.pinimg.com/originals/09/7a/8e/097a8e449723a79b7bb6bc32d311141f.jpg',
+      title: 'RL Grime',
+      author: 'October 25, 2021',
     },
     {
       img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
       title: 'Tomato basil',
-      author: '@shelleypauls',
+      author: 'October 25, 2021',
     },
     {
       img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
       title: 'Sea star',
-      author: '@peterlaster',
+      author: 'October 25, 2021',
     },
     {
       img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
       title: 'Bike',
-      author: '@southside_customs',
+      author: 'October 25, 2021s',
     },
   ]);
   let match = useRouteMatch();
   return (
     <Container>
-      Event List
-      <Banner/>
+      <ImageList  rowHeight={300} cols={1} >
+      <ImageListItem >
+        <Banner src={`https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg?w=248&fit=crop&auto=format`}/>
+        <ImageListItemBar  title={'Lost in Dreams'} subtitle={'September 19'}/>
+      </ImageListItem>
+      </ImageList>
       <Grid_div>
-        <ImageList rowHeight={300} cols={4} >
+        <ImageList rowHeight={250} cols={4} >
           {raves.map(rave => (
             <ImageListItem>
               <img
