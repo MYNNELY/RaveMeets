@@ -67,7 +67,7 @@ const EventList = () => {
     {
       img: 'https://themusicessentials.com/wp-content/uploads/2020/10/student-raves.jpg',
       title: 'Wonderland',
-      author: '@October 25, 2021',
+      author: 'October 25, 2021',
     },
     {
       img: 'https://thumbs.dreamstime.com/b/lasers-rave-party-club-lasers-rave-party-club-bright-blue-purple-colors-104108163.jpg',
