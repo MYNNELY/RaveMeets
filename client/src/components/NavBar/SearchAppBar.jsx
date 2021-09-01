@@ -8,7 +8,16 @@ import InputBase from '@material-ui/core/InputBase';
 import {alpha, makeStyles} from '@material-ui/core/styles';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import {Grid, Link} from '@material-ui/core';
+import {Grid, Link as MaterialUILink} from '@material-ui/core';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import EventsList from '../EventsList/EventsList.jsx';
+import GroupsList from '../GroupsList/GroupsList.jsx';
+import Profile from '../Profile/Profile.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,9 +85,10 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar className={classes.toolBar}>
-          {/* <IconButton
+      <Router>
+        <AppBar position="static">
+          <Toolbar className={classes.toolBar}>
+            {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -86,50 +96,72 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography className={classes.title} variant="h6" noWrap>
-            RAVEmeets
-          </Typography>
-          <Grid
-            className={classes.links}
-            container
-            item
-            xs={9}
-            spacing={0}
-            direction="row"
-            justifyContent="space-around"
-            alignItems="center"
-          >
-            <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="inherit">
+            <Typography className={classes.title} variant="h6" noWrap>
+              <Link to="/">
+              RAVEmeets
+              </Link>
+            </Typography>
+            <Grid
+              className={classes.links}
+              container
+              item
+              xs={9}
+              spacing={0}
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <Grid container item xs={1} spacing={0} justifyContent="center">
+                <MaterialUILink>
+                  <Link to="/events" className="nav-bar" color="#FFF">
               Events
-              </Link>
-            </Grid>
-            <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="inherit">
+                  </Link>
+                </MaterialUILink>
+              </Grid>
+              <Grid container item xs={1} spacing={0} justifyContent="center">
+                <MaterialUILink>
+                  <Link to="/groups" className="nav-bar" color="secondary">
               Groups
-              </Link>
-            </Grid>
-            <Grid container item xs={1} spacing={0} justifyContent="center">
-              <Link href="#" className="nav-bar" color="inherit">
+                  </Link>
+                </MaterialUILink>
+              </Grid>
+              <Grid container item xs={1} spacing={0} justifyContent="center">
+                <MaterialUILink>
+                  <Link to="/profile" className="nav-bar" color="inherit">
               My Profile
-              </Link>
+                  </Link>
+                </MaterialUILink>
+              </Grid>
             </Grid>
-          </Grid>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{'aria-label': 'search'}}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{'aria-label': 'search'}}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+        <main>
+          <Switch>
+            <Route path="/events">
+              <EventsList />
+            </Route>
+            <Route path="/groups">
+              <GroupsList />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }
