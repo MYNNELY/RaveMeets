@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   links: {
     maxWidth: '70%',
+    color: '#FFF',
+    textDecoration: 'none',
   },
   search: {
     'position': 'relative',
@@ -97,7 +99,7 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/">
+              <Link to="/" className={classes.links}>
               RAVEmeets
               </Link>
             </Typography>
@@ -112,24 +114,21 @@ export default function SearchAppBar() {
               alignItems="center"
             >
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink>
-                  <Link to="/events" className="nav-bar" color="#FFF">
+                <MaterialUILink component={Link}
+                  to="/events" className={classes.links}>
               Events
-                  </Link>
                 </MaterialUILink>
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink>
-                  <Link to="/groups" className="nav-bar" color="secondary">
+                <MaterialUILink component={Link}
+                  to="/groups" className={classes.links}>
               Groups
-                  </Link>
                 </MaterialUILink>
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink>
-                  <Link to="/profile" className="nav-bar" color="inherit">
-              My Profile
-                  </Link>
+                <MaterialUILink component={Link}
+                  to="/profile" className={classes.links}>
+              Profile
                 </MaterialUILink>
               </Grid>
             </Grid>
