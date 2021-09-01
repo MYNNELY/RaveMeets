@@ -85,17 +85,17 @@ const EventList = () => {
       author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+      img: 'https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1489706284000/photosp/4a5ce05b-493b-4dc6-867c-01b2887932fd/stock-photo-light-love-music-festival-lights-rave-coachella-plur-4a5ce05b-493b-4dc6-867c-01b2887932fd.jpg',
       title: 'Tomato basil',
       author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+      img: 'https://www.edmsauce.com/wp-content/uploads/2017/09/edm-3.jpg',
       title: 'Sea star',
       author: 'October 25, 2021',
     },
     {
-      img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+      img: 'https://static.billboard.com/files/media/northern-lights-music-festival-by-peter-karas-2019-billboard-1548-768x433.jpg',
       title: 'Bike',
       author: 'October 25, 2021s',
     },
