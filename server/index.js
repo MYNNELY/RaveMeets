@@ -1,12 +1,11 @@
-
-require('dotenv').config({ path: path.resolve(__dirname, './.env') })
-
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
 const port = 3000;
 const authRoutes = require('./routes/auth.js');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+
 app.use(cors());
 app.use(express.json());
 const api_key = process.env.STREAM_API_KEY;

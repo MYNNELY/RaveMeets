@@ -7,7 +7,7 @@ const Post = () => {
     <div
       className='post_container'
       style={{
-        marginTop: '30px',
+        marginBottom: '30px',
       }}
     >
       <div

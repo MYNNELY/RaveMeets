@@ -6,7 +6,7 @@ const Picture = () => {
   return (
     <>
       <img
-        src=""
+        src="./client/assets/jackwu.png"
         alt=''
         style={{
           width: '200px',
@@ -18,16 +18,9 @@ const Picture = () => {
       </img>
       <div
         style={{
-          width: '274px',
-          height: '56px',
-          left: '87px',
-          top: '426px',
-          fontStyle: 'normal',
+          margin: '10px',
           fontWeight: '600',
-          fontSize: '24px',
-          lineHeight: '36px',
-          textAlign: 'center',
-          letterSpacing: '0.05em',
+          fontSize: '36px',
         }}
       >
         Jack Wu
