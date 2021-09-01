@@ -1,8 +1,9 @@
 import React from 'react';
+import {Button} from '@material-ui/core';
 
 const CreateGroup = () => {
   return (
-    <div>Create group button</div>
+    <Button>Create group Button</Button>
   );
 };
 
