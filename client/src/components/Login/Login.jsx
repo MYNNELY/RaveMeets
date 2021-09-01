@@ -43,6 +43,7 @@ const Login = () => {
             label="Email Address"
             name="email"
             autoFocus
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -55,6 +56,7 @@ const Login = () => {
             label="Password"
             type="password"
             id="password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
