@@ -1,11 +1,20 @@
+/* eslint-disable require-jsdoc */
 import React from 'react';
+import {Box} from '@material-ui/core';
+import GroupsListCard from './GroupsListCard.jsx';
 
-const GroupsList = () => {
-  return (
-    <div>
-      Groups List
-    </div>
-  );
-};
+class GroupsList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <Box className="group-list-container" component="div">
+        <GroupsListCard />
+      </Box>
+    );
+  }
+}
 
 export default GroupsList;
