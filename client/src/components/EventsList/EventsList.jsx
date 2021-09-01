@@ -1,13 +1,5 @@
 /* eslint-disable */
 import React, {useState, useEffect} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
 import {Button, ImageList, ImageListItem, ImageListItemBar} from '@material-ui/core';
 
 import EventTile from './EventTile.jsx';
@@ -100,7 +92,7 @@ const EventList = () => {
       author: 'October 25, 2021s',
     },
   ]);
-  let match = useRouteMatch();
+
   return (
     <Container>
       <ImageList  rowHeight={300} cols={1} >
