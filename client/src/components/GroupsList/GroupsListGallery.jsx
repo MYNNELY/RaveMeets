@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   imageList: {
     // position: 'fixed',
-    width: '700px',
+    width: '750px',
     maxHeight: '320px',
     overflow: 'auto',
   },

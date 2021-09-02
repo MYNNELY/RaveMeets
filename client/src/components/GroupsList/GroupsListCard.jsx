@@ -5,13 +5,16 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   groupsListCard: {
+    width: '1500px',
     justifyContent: 'center',
     marginTop: '5px',
+    marginLeft: '0',
+    marginRight: '0',
   },
   groupsListInfo: {
     position: 'relative',
-
     color: '#FFF',
+    width: '600px',
     maxHeight: '356px',
     overflow: 'hidden',
   },
@@ -31,7 +34,7 @@ const GroupsListCard = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid container spacing={5} className={classes.groupsListCard} key="1">
+      <Grid container spacing={1} className={classes.groupsListCard} key="1">
         <Grid item xs={5} className={classes.groupsListInfo}>
           <img src="https://static01.nyt.com/images/2020/03/10/arts/10virus-coachella1/10virus-coachella1-mediumSquareAt3X.jpg" className={classes.mainImage} />
           <div className={classes.topLeft}>
@@ -46,7 +49,7 @@ const GroupsListCard = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={5} className={classes.groupsListCard} key="2">
+      <Grid container spacing={1} className={classes.groupsListCard} key="2">
         <Grid item xs={5} className={classes.groupsListInfo}>
           <img src="https://static01.nyt.com/images/2020/03/10/arts/10virus-coachella1/10virus-coachella1-mediumSquareAt3X.jpg" className={classes.mainImage} />
           <div className={classes.topLeft}>
@@ -61,7 +64,7 @@ const GroupsListCard = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={5} className={classes.groupsListCard} key="3">
+      <Grid container spacing={1} className={classes.groupsListCard} key="3">
         <Grid item xs={5} className={classes.groupsListInfo}>
           <img src="https://static01.nyt.com/images/2020/03/10/arts/10virus-coachella1/10virus-coachella1-mediumSquareAt3X.jpg" className={classes.mainImage} />
           <div className={classes.topLeft}>
