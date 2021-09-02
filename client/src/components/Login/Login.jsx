@@ -2,16 +2,30 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  let history = useHistory();
+
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
   const classes = useStyles();
 
   const onSignInSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    setError(false);
+    axios.post('http://54.176.43.199:3000/login', {
+      username,
+      password,
+    })
+        .then((result) => {
+          history.push(`/u/${username}`);
+        })
+        .catch((err) => {
+          setError(true);
+        });
   };
 
 
@@ -33,8 +47,8 @@ const Login = () => {
             name="username"
             autoFocus
             autoComplete="username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -49,6 +63,13 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error &&
+            <div className={classes.errorDiv}>
+              <span className={classes.errorFont}>
+                Wrong username/password
+              </span>
+            </div>
+          }
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -99,6 +120,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textColor: 'black',
     textSize: 20,
+  },
+  errorFont: {
+    color: 'red',
+    fontWeight: 600,
+  },
+  errorDiv: {
+    textAlign: 'center',
   },
 }));
 
