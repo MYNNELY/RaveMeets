@@ -12,7 +12,7 @@ const PastEvents = () => {
     >
       <div
         style={{
-          marginBottom: '15px',
+          marginBottom: '2.5%',
         }}
       >
         Past Events

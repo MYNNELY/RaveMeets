@@ -21,7 +21,7 @@ const login = async (req, res)=>{
     const client = StreamChat.getInstance(api_key, api_secret);
 
     const {users} = await client.queryUsers({name: username});
-    if(!user.length) return res.status(400).json({message: 'user not found'});
+    if(!users.length) return res.status(400).json({message: 'user not found'});
 
     const success = await bcrypt.compare(password, users[0].hashedPassword);
 
