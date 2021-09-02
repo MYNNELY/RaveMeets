@@ -6,7 +6,7 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   groupsListCard: {
     width: '1500px',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     marginTop: '5px',
     marginLeft: '0',
     marginRight: '0',
@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
   groupsListInfo: {
     position: 'relative',
     color: '#FFF',
-    width: '600px',
-    maxHeight: '356px',
+    width: '650px',
+    maxHeight: '485px',
     overflow: 'hidden',
   },
   mainImage: {

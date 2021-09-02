@@ -5,8 +5,8 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   imageList: {
     // position: 'fixed',
-    width: '750px',
-    maxHeight: '320px',
+    width: '871px',
+    maxHeight: '480px',
     overflow: 'auto',
   },
 }));
@@ -78,7 +78,7 @@ const GroupsListGallery = () => {
     title: 'Breakfast',
   }];
   return (
-    <ImageList rowHeight={160} className={classes.imageList} cols={4}>
+    <ImageList rowHeight={240} className={classes.imageList} cols={3}>
       {itemData.map((item) => (
         <ImageListItem key={item.img} cols={item.cols || 1}>
           <img src={item.img} alt={item.title} />
