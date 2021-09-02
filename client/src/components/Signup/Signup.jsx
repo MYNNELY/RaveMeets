@@ -31,7 +31,7 @@ const SignUp = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography color="common.black" component="h1" variant="h5">
           Sign Up
         </Typography>
         <form className={classes.form} onSubmit={onSignUpSubmit}>
@@ -86,10 +86,6 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -115,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    // backgroundColor: 'blue',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
