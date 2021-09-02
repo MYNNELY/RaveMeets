@@ -1,18 +1,21 @@
 import React from 'react';
 
-const Picture = () => {
-  const picture = '../../../../assets/jackwu.png';
-
+const Picture = ({ profile }) => {
+  if (!profile) {
+    return (<></>);
+  }
+  console.log(profile);
   return (
     <>
       <img
-        src="https://media-exp1.licdn.com/dms/image/C5603AQECKx8uYB7oQA/profile-displayphoto-shrink_800_800/0/1622615030744?e=1635984000&v=beta&t=kpEsNkPPR4MtiwD5hOEUrNe3arDF9lVgT7YiqncPRdY"
+        src="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
         alt=''
         style={{
           width: '200px',
           height: '200px',
           left: '124px',
           top: '213px',
+          border: '5px solid #999999',
           borderRadius: '100px',
         }}>
       </img>
@@ -23,7 +26,7 @@ const Picture = () => {
           fontSize: '36px',
         }}
       >
-        Jack Wu
+        {profile[0].name}
       </div>
     </>
   );

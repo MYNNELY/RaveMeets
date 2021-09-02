@@ -1,41 +1,128 @@
-import React from 'react';
-import {Paper, Button, TextField} from '@material-ui/core';
-import { makeStyles } from "@material-ui/core/styles";
+/* eslint-disable max-len */
+import React, { useState } from 'react';
+import {
+  Paper,
+  Button,
+  TextField,
+  FormLabel,
+  FormControl,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from '@material-ui/core';
+import axios from 'axios';
 
-const EditBioModal = ({editModal}) => {
+const EditBioModal = ({profile, editModal}) => {
+  if (!profile) {
+    return (
+      <></>
+    );
+  };
+
+  const musicTaste = (genre) => {
+    const genres = profile[0].music_taste;
+    for (let i = 0; i < genres.length; i++) {
+      if (genres[i].genre_name === genre) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const artistTaste = () => {
+    const artistArray = [];
+    for (let i in profile[0].artist_taste) {
+      console.log(profile[0].artist_taste[i].artist_name)
+      artistArray.push(profile[0].artist_taste[i].artist_name);
+    }
+    return artistArray.join(', ');
+  };
+
+  const [genreState, setGenreState] = useState({
+    'RnB': musicTaste('RnB'),
+    'HipHop': musicTaste('HipHop'),
+    'Pop': musicTaste('Pop'),
+    'EDM': musicTaste('EDM'),
+    'KPop': musicTaste('KPop'),
+    'Rock': musicTaste('Rock'),
+    'Jazz': musicTaste('Jazz'),
+  });
+
+  // const [artistState, setArtistState] = useState(artistTaste());
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const likedGenres = [];
+    for (let i in genreState) {
+      if (genreState[i]) {
+        likedGenres.push({genre_name: i});
+      }
+    }
+
+    const artistInput = document.getElementById('artist_input').value.split(',');
+    const likedArtists = [];
+    artistInput.forEach((artist) => {
+      console.log(artist);
+      likedArtists.push({artist_name: artist});
+    });
+
+    console.log(likedArtists);
+
+    axios.put(`http://54.176.43.199:3000/u/${profile[0].username}`, {
+      name: document.getElementById('name_input').value,
+      bio: document.getElementById('bio_input').value,
+      music_taste: likedGenres,
+      artist_taste: likedArtists,
+    });
+  };
+
+  const handleGenreChange = (event) => {
+    setGenreState({ ...genreState, [event.target.name]: event.target.checked });
+  };
+
+  const { RnB, HipHop, Pop, EDM, KPop, Rock, Jazz } = genreState;
+
   return (
     <Paper
       elevation={3}
       variant='outlined'
       color='secondary'
       style={{
-        display: editModal ? 'flex' : 'none',
+        display: true ? 'flex' : 'none',
         justifyContent: 'center',
         position: 'fixed',
-        marginTop: 'auto',
+        marginTop: '20to',
         marginBottom: 'auto',
         width: '500px',
-        backgroundColor: 'darkgrey',
+        backgroundColor: '#353535',
       }}
     >
       <form
+        onSubmit={handleUpdate}
         style={{
-          margin: '10%',
+          margin: '7.5%',
           width: '90%',
           color: 'black',
         }}
-      >
+      > <div style={{
+          fontWeight: 600,
+          fontSize: '24px',
+          marginBottom: '15px',
+        }}>
+          Edit Profile
+        </div>
         <Button
           variant='outlined'
           component='label'
           style={{
             width: '200px',
             height: '30px',
-            color: 'black',
+            backgroundColor: 'darkgrey',
           }}
         >
           Update Picture
           <input
+            id='upload_picture'
             type='file'
             accept='image/*'
             hidden
@@ -44,35 +131,80 @@ const EditBioModal = ({editModal}) => {
         <TextField
           fullWidth
           multiline
-          id='bio_input'
-          label='Bio'
+          id='name_input'
+          label='Name'
           InputLabelProps={{
-            style: { color: '#fff' },
+            style: {color: '#fff'},
           }}
+          InputProps={{
+            style: {color: '#fff'},
+          }}
+          defaultValue={profile[0].name}
           style={{
-            marginTop: '10px',
+            marginTop: '20px',
           }}
         />
         <TextField
           fullWidth
           multiline
-          id='genre_input'
-          label='Favorite Genres (Seperate with commas)'
+          id='bio_input'
+          label='Bio'
           InputLabelProps={{
-            style: { color: '#fff' },
+            style: {color: '#fff'},
           }}
+          InputProps={{
+            style: {color: '#fff'},
+          }}
+          defaultValue={profile[0].bio}
           style={{
-            marginTop: '10px',
+            marginTop: '20px',
           }}
         />
+        <FormControl id='genre_input' component='fieldset' style={{marginTop: '20px'}}>
+          <FormLabel component='legend' style={{color: '#fff'}}>Favorite Genres</FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox checked={RnB} onChange={handleGenreChange} name='RnB' />}
+              label='R&B'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={HipHop} onChange={handleGenreChange} name='HipHop' />}
+              label='Hip Hop'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={Pop} onChange={handleGenreChange} name='Pop' />}
+              label='Pop'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={EDM} onChange={handleGenreChange} name='EDM' />}
+              label='EDM'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={KPop} onChange={handleGenreChange} name='KPop' />}
+              label='K-Pop'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={Rock} onChange={handleGenreChange} name='Rock' />}
+              label='Rock'
+            />
+            <FormControlLabel
+              control={<Checkbox checked={Jazz} onChange={handleGenreChange} name='Jazz' />}
+              label='Jazz'
+            />
+          </FormGroup>
+        </FormControl>
         <TextField
           fullWidth
           multiline
           id='artist_input'
           label='Favorite Artists (Seperate with commas)'
           InputLabelProps={{
-            style: { color: '#fff' },
+            style: {color: '#fff'},
           }}
+          InputProps={{
+            style: {color: '#fff'},
+          }}
+          defaultValue={artistTaste()}
           style={{
             marginTop: '10px',
           }}
@@ -84,7 +216,7 @@ const EditBioModal = ({editModal}) => {
           style={{
             width: '200px',
             height: '30px',
-            marginTop: '40px',
+            marginTop: '20px',
             background: '#C974C4',
           }}
         >
