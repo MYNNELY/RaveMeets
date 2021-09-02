@@ -14,7 +14,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    axios.get('http://54.176.43.199:3000/u/mzeinh')
+    axios.get('http://54.176.43.199:3000/u/akhilsf')
         .then((results) => {
           console.log(results.data);
           setProfile(results.data);
