@@ -5,7 +5,7 @@ const UpcomingEvents = () => {
   return (
     <div
       style={{
-        marginRight: '50px',
+        marginRight: '2.5%',
         width: '375px',
         fontWeight: '600',
         fontSize: '18px',
@@ -13,7 +13,7 @@ const UpcomingEvents = () => {
     >
       <div
         style={{
-          marginBottom: '15px',
+          marginBottom: '2.5%',
         }}
       >
         Upcoming Events
