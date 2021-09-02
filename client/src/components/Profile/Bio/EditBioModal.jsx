@@ -51,7 +51,6 @@ const EditBioModal = ({profile, editModal}) => {
   // const [artistState, setArtistState] = useState(artistTaste());
 
   const handleUpdate = (e) => {
-    e.preventDefault();
     const likedGenres = [];
     for (let i in genreState) {
       if (genreState[i]) {
@@ -76,8 +75,12 @@ const EditBioModal = ({profile, editModal}) => {
     });
   };
 
-  const handleGenreChange = (event) => {
-    setGenreState({ ...genreState, [event.target.name]: event.target.checked });
+  const handleGenreChange = (e) => {
+    setGenreState({ ...genreState, [e.target.name]: e.target.checked });
+  };
+
+  const handleClose = (e) => {
+    location.reload();
   };
 
   const { RnB, HipHop, Pop, EDM, KPop, Rock, Jazz } = genreState;
@@ -88,7 +91,7 @@ const EditBioModal = ({profile, editModal}) => {
       variant='outlined'
       color='secondary'
       style={{
-        display: true ? 'flex' : 'none',
+        display: editModal ? 'flex' : 'none',
         justifyContent: 'center',
         position: 'fixed',
         marginTop: '20to',
@@ -111,6 +114,16 @@ const EditBioModal = ({profile, editModal}) => {
         }}>
           Edit Profile
         </div>
+        <Button
+          onClick={handleClose}
+          variant='Text'
+          style={{
+            fontSize: '18px',
+            float: 'right',
+            top: '-50px',
+          }}
+        >&#10006;
+        </Button>
         <Button
           variant='outlined'
           component='label'

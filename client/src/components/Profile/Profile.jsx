@@ -30,7 +30,7 @@ const Profile = () => {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        width: '1500px',
+        width: '100%',
         marginTop: '50px',
         marginLeft: 'auto',
         marginRight: 'auto',
