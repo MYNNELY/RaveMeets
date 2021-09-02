@@ -1,6 +1,5 @@
 
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 
 const express = require('express');
 const cors = require('cors');
@@ -11,6 +10,8 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const messagingServiceSid = process.env.TWILIO_AUTH_TOKEN;
 const twilioClient = require('twilio')(accountSid, authToken);
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+
 app.use(cors());
 app.use(express.json());
 //might need to remove true

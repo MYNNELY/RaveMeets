@@ -7,11 +7,16 @@ const PastEvents = () => {
       style={{
         width: '375px',
         fontWeight: '600',
-        fontSize: '24px',
-        letterSpacing: '0.05em',
+        fontSize: '18px',
       }}
     >
-      Past Events
+      <div
+        style={{
+          marginBottom: '2.5%',
+        }}
+      >
+        Past Events
+      </div>
       <Posts />
     </div>
   );

@@ -1,36 +1,32 @@
 import React from 'react';
 
-const Picture = () => {
-  const picture = '../../../../assets/jackwu.png';
-
+const Picture = ({ profile }) => {
+  if (!profile) {
+    return (<></>);
+  }
+  console.log(profile);
   return (
     <>
       <img
-        src=""
+        src="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
         alt=''
         style={{
           width: '200px',
           height: '200px',
           left: '124px',
           top: '213px',
+          border: '5px solid #999999',
           borderRadius: '100px',
         }}>
       </img>
       <div
         style={{
-          width: '274px',
-          height: '56px',
-          left: '87px',
-          top: '426px',
-          fontStyle: 'normal',
+          margin: '10px',
           fontWeight: '600',
-          fontSize: '24px',
-          lineHeight: '36px',
-          textAlign: 'center',
-          letterSpacing: '0.05em',
+          fontSize: '36px',
         }}
       >
-        Jack Wu
+        {profile[0].name}
       </div>
     </>
   );

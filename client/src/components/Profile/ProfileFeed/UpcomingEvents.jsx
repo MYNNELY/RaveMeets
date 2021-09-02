@@ -5,14 +5,19 @@ const UpcomingEvents = () => {
   return (
     <div
       style={{
-        marginRight: '50px',
+        marginRight: '2.5%',
         width: '375px',
         fontWeight: '600',
-        fontSize: '24px',
-        letterSpacing: '0.05em',
+        fontSize: '18px',
       }}
     >
-      Upcoming Events
+      <div
+        style={{
+          marginBottom: '2.5%',
+        }}
+      >
+        Upcoming Events
+      </div>
       <Posts />
     </div>
   );

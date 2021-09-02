@@ -2,19 +2,23 @@
 import React from 'react';
 import {Box} from '@material-ui/core';
 import GroupsListCard from './GroupsListCard.jsx';
+import {makeStyles} from '@material-ui/core/styles';
 
-class GroupsList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const useStyles = makeStyles((theme) => ({
+  groupsListContainer: {
+    width: '1500px',
+    justifyContent: 'flex-start',
+    margin: '0',
+  },
+}));
 
-  render() {
-    return (
-      <Box className="group-list-container" component="div">
-        <GroupsListCard />
-      </Box>
-    );
-  }
-}
+const GroupsList = () => {
+  const classes = useStyles();
+  return (
+    <Box component="div" className={classes.groupsListContainer}>
+      <GroupsListCard />
+    </Box>
+  );
+};
 
 export default GroupsList;

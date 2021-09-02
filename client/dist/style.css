@@ -21,7 +21,7 @@ body {
   border-bottom: solid 1px #FFF;
 } */
 
-.nav-bar {
+/* .nav-bar {
   color: #FFF;
 }
 
@@ -31,11 +31,19 @@ a {
 
 a:visited {
   color: #FFF;
-}
+} */
 
 /* Group List Page */
 /* .group-list-container {
   color: #FFF;
   margin: 50px auto;
   text-align: center;
+} */
+
+/* .group-list-container {
+  width: 1000px;
+} */
+
+/* .carousel-container {
+  width: 600px;
 } */

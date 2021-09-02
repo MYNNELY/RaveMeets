@@ -6,9 +6,6 @@ const Post = () => {
   return (
     <div
       className='post_container'
-      style={{
-        marginTop: '30px',
-      }}
     >
       <div
         className='main_image'
@@ -26,7 +23,7 @@ const Post = () => {
           marginTop: '10px',
         }}
       >
-        {array.map((index, key) => (
+        {/* {array.map((index, key) => (
           <span
             key={key}
             style={{
@@ -35,7 +32,7 @@ const Post = () => {
               background: '#C4C4C4',
             }}
           />
-        ))}
+          ))} */}
       </div>
     </div>
   );
