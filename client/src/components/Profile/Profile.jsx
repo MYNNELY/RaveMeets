@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {
+  useParams,
+} from 'react-router-dom';
 import BioSection from './Bio/BioSection.jsx';
 import Groups from './Groups/Groups.jsx';
 import Feed from './ProfileFeed/Feed.jsx';
@@ -13,10 +16,13 @@ const Profile = () => {
     setEditModal(!editModal);
   };
 
+  let { username } = useParams();
+
   useEffect(() => {
-    axios.get('http://54.176.43.199:3000/u/akhilsf')
+    console.log({username});
+
+    axios.get(`http://54.176.43.199:3000/u/${username}`)
         .then((results) => {
-          console.log(results.data);
           setProfile(results.data);
         })
         .catch((error) => {

@@ -6,7 +6,6 @@ const BioDetails = ({profile}) => {
     return (<></>);
   }
 
-  console.log(profile);
   return (
     <>
       <Paper
