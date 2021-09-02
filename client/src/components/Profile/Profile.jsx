@@ -8,7 +8,6 @@ const Profile = () => {
   const [editModal, setEditModal] = useState(false);
 
   const handleEditModal = (e) => {
-    console.log(e);
     setEditModal(!editModal);
   };
 
