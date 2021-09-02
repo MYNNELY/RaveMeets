@@ -3,7 +3,9 @@ import SearchAppBar from './NavBar/SearchAppBar.jsx';
 
 const App = () => {
   return (
-    <SearchAppBar />
+    <>
+      <SearchAppBar />
+    </>
   );
 };
 

@@ -8,11 +8,12 @@ import {Container} from '@material-ui/core';
 
 const EventPage = () => {
   return (
-    <Container>
+    <Container style={{width: '90%'}}>
       <Banner />
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
         width: '100%'}}
       >
         <Title>Title</Title>
