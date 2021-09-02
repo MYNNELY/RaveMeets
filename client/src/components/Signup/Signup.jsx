@@ -1,16 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
-const Login = () => {
+const SignUp = () => {
+  const [username, setusername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const classes = useStyles();
 
-  const onSignInSubmit = (e) => {
+  const onSignUpSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    axios.post('http://54.176.43.199:3000/u', {
+      username,
+      name,
+      email,
+      password,
+    })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   };
 
 
@@ -19,9 +32,9 @@ const Login = () => {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign Up
         </Typography>
-        <form className={classes.form} onSubmit={onSignInSubmit}>
+        <form className={classes.form} onSubmit={onSignUpSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -32,6 +45,31 @@ const Login = () => {
             name="username"
             autoFocus
             autoComplete="username"
+            value={username}
+            onChange={(e) => setusername(e.target.value)}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="name"
+            label="Name"
+            type="name"
+            id="name"
+            autoComplete="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -59,19 +97,9 @@ const Login = () => {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
           </Grid>
         </form>
       </div>
@@ -102,4 +130,4 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default Login;
+export default SignUp;
