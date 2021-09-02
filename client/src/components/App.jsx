@@ -15,25 +15,24 @@ import Chatroom from './SingleGroupPage/Chatroom.jsx';
 
 const App = () => {
   return (
-    // <Router>
-    //   <div>
-    //     <Link to="/events">Events</Link>
-    //     <Link to="/groups">Groups</Link>
-    //     <Link to="/profile">profile</Link>
-    //     <Switch>
-    //       <Route path="/events">
-    //         <EventsList />
-    //       </Route>
-    //       <Route path="/groups">
-    //         <GroupsList />
-    //       </Route>
-    //       <Route path="/profile">
-    //         <Profile />
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
-    <Chatroom />
+    <Router>
+      <div>
+        <Link to="/events">Events</Link>
+        <Link to="/groups">Groups</Link>
+        <Link to="/profile">profile</Link>
+        <Switch>
+          <Route path="/events">
+            <EventsList />
+          </Route>
+          <Route path="/groups">
+            <GroupsList />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
