@@ -15,11 +15,6 @@ import SearchAppBar from './NavBar/SearchAppBar.jsx';
 
 const App = () => {
   return (
-<<<<<<< HEAD
-    <>
-      <SearchAppBar />
-    </>
-=======
     <SearchAppBar />
     // <Router>
     //   <div>
@@ -39,7 +34,6 @@ const App = () => {
     //     </Switch>
     //   </div>
     // </Router>
->>>>>>> 8b5db4f29730dad024abe9e635d884330a310ae4
   );
 };
 
