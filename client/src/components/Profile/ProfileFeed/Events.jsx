@@ -155,11 +155,12 @@ const Events = ({events, feedTitle}) => {
                   src={`${rave.img}?w=248&fit=crop&auto=format`}
                   srcSet={`${rave.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={rave.title}
-                  loading="lazy"
+                  loading='lazy'
                 />
                 <ImageListItemBar title={rave.title} subtitle={rave.author} />
                 <Button
-                  variant="contained"
+                  variant='contained'
+                  size='small'
                   disableElevation
                   style={{
                     position: 'absolute',
@@ -167,7 +168,7 @@ const Events = ({events, feedTitle}) => {
                     right: 0,
                   }}
                 >
-                  <span style={{color: 'black'}}>Attended</span>
+                  <span style={{color: 'black'}}>Attending</span>
                 </Button>
               </ImageListItem>
             ))}

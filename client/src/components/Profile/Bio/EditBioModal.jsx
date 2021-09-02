@@ -93,7 +93,7 @@ const EditBioModal = ({profile, editModal}) => {
         display: editModal ? 'flex' : 'none',
         justifyContent: 'center',
         position: 'fixed',
-        marginTop: '20to',
+        marginTop: '20px',
         marginBottom: 'auto',
         width: '500px',
         backgroundColor: '#353535',

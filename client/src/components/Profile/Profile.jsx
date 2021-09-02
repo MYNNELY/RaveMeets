@@ -28,14 +28,7 @@ const Profile = () => {
 
   if (!profile) {
     return (
-      <div
-        style={{
-          width: '100%',
-          margin: 'auto',
-        }}
-      >
-        User Does Not Exist
-      </div>
+      <></>
     );
   }
   return (
