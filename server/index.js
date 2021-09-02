@@ -1,19 +1,46 @@
 
+const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const app = express();
 const port = 3000;
 const authRoutes = require('./routes/auth.js');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const messagingServiceSid = process.env.TWILIO_AUTH_TOKEN;
+const twilioClient = require('twilio')(accountSid, authToken);
 app.use(cors());
 app.use(express.json());
-const api_key = process.env.STREAM_API_KEY;
-console.log(api_key, 'is this right');
 //might need to remove true
 app.use(express.urlencoded({ extended: true }));
 app.use('/auth', authRoutes);
+
+
+app.post('/', (req, res) => {
+  const { message, user: sender, type, members } = req.body;
+
+  if (type === 'message.new') {
+    members
+      .filter((member) => member.user_id !== sender.id)
+      .forEach(({ user }) => {
+        if (!user.online) {
+          twilioClient.messages.create({
+            body: `You have a new message from ${message.user.fullName} - ${message.text}`,
+            messagingServiceSid: messagingServiceSid,
+            to: user.phoneNumber
+          })
+            .then(() => console.log('Message sent!'))
+            .catch((err) => console.log(err));
+        }
+      })
+
+    return res.status(200).send('Message sent!');
+  }
+
+  return res.status(200).send('Not a new message request');
+});
 
 
 app.use('/', express.static('./client/dist'));
