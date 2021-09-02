@@ -32,7 +32,6 @@ const EditBioModal = ({profile, editModal}) => {
   const artistTaste = () => {
     const artistArray = [];
     for (let i in profile[0].artist_taste) {
-      console.log(profile[0].artist_taste[i].artist_name)
       artistArray.push(profile[0].artist_taste[i].artist_name);
     }
     return artistArray.join(', ');
@@ -133,7 +132,7 @@ const EditBioModal = ({profile, editModal}) => {
             backgroundColor: 'darkgrey',
           }}
         >
-          Update Picture
+          Upload Picture
           <input
             id='upload_picture'
             type='file'
@@ -230,7 +229,7 @@ const EditBioModal = ({profile, editModal}) => {
             width: '200px',
             height: '30px',
             marginTop: '20px',
-            background: '#C974C4',
+            background: '#F02C6F',
           }}
         >
           Update

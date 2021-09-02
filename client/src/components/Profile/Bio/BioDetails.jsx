@@ -12,7 +12,7 @@ const BioDetails = ({profile}) => {
         style={{
           width: '275px',
           marginTop: '20px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div
@@ -40,7 +40,7 @@ const BioDetails = ({profile}) => {
         style={{
           width: '275px',
           marginTop: '10px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div
@@ -70,7 +70,7 @@ const BioDetails = ({profile}) => {
         style={{
           width: '275px',
           marginTop: '10px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div

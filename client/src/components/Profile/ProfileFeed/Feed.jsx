@@ -1,17 +1,17 @@
 import React from 'react';
-import UpcomingEvents from './UpcomingEvents.jsx';
-import PastEvents from './PastEvents.jsx';
+import Events from './Events.jsx';
 
-const Feed = () => {
+const Feed = ({ pastEvents, upcomingEvents }) => {
   return (
     <div
       className='feed_container'
       style={{
         display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
-      <UpcomingEvents />
-      <PastEvents />
+      <Events events={upcomingEvents} feedTitle={'Upcoming Events'}/>
+      <Events events={pastEvents} feedTitle={'Past Events'}/>
     </div>
   );
 };

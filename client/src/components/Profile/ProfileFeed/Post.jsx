@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Post = () => {
-  const array = [1, 2, 3, 4, 5, 6];
-
+const Post = ({ event }) => {
   return (
     <div
       className='post_container'
@@ -15,25 +13,6 @@ const Post = () => {
           background: '#C4C4C4',
         }}
       />
-      <div
-        className='image_gallery'
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginTop: '10px',
-        }}
-      >
-        {/* {array.map((index, key) => (
-          <span
-            key={key}
-            style={{
-              height: '40px',
-              width: '40px',
-              background: '#C4C4C4',
-            }}
-          />
-          ))} */}
-      </div>
     </div>
   );
 };
