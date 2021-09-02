@@ -11,28 +11,29 @@ import Profile from './Profile/Profile.jsx';
 import GroupImg from './SingleGroupPage/GroupImg.jsx';
 import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
 import Chatroom from './SingleGroupPage/Chatroom.jsx';
-
+import SearchAppBar from './NavBar/SearchAppBar.jsx';
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <Link to="/events">Events</Link>
-        <Link to="/groups">Groups</Link>
-        <Link to="/profile">profile</Link>
-        <Switch>
-          <Route path="/events">
-            <EventsList />
-          </Route>
-          <Route path="/groups">
-            <GroupsList />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <SearchAppBar />
+    // <Router>
+    //   <div>
+    //     <Link to="/events">Events</Link>
+    //     <Link to="/groups">Groups</Link>
+    //     <Link to="/profile">profile</Link>
+    //     <Switch>
+    //       <Route path="/events">
+    //         <EventsList />
+    //       </Route>
+    //       <Route path="/groups">
+    //         <GroupsList />
+    //       </Route>
+    //       <Route path="/profile">
+    //         <Profile />
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    // </Router>
   );
 };
 
