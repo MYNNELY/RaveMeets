@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Paper} from '@material-ui/core';
 
 const BioDetails = ({profile}) => {
+  const [bio, setBio] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [artists, setArtists] = useState([]);
+
+  useEffect(() => {
+    setBio(profile[0].bio);
+    setGenres(profile[0].music_taste);
+    setArtists(profile[0].artist_taste);
+  }, [bio, genres, artists]);
+
   if (!profile) {
     return (<></>);
   }
@@ -32,7 +42,7 @@ const BioDetails = ({profile}) => {
               fontSize: '14px',
             }}
           >
-            {profile[0].bio}
+            {bio}
           </div>
         </div>
       </Paper>
@@ -60,7 +70,7 @@ const BioDetails = ({profile}) => {
               fontSize: '14px',
             }}
           >
-            {profile[0].music_taste.map((genre) => (
+            {genres.map((genre) => (
               <li>{genre.genre_name}</li>
             ))}
           </ul>
@@ -90,7 +100,7 @@ const BioDetails = ({profile}) => {
               fontSize: '14px',
             }}
           >
-            {profile[0].artist_taste.map((artist) => (
+            {artists.map((artist) => (
               <li>{artist.artist_name}</li>
             ))}
           </ul>

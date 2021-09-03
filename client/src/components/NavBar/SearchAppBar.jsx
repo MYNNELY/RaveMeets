@@ -14,7 +14,6 @@ import {
   Switch,
   Route,
   Link,
-  useHistory,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
 import EventPage from '../EventPage/EventPage.jsx';
@@ -23,6 +22,8 @@ import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
 import UserContext from '../userContext.jsx';
+import SingleGroupPage from '../SingleGroupPage/SingleGroupPage.jsx';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,9 +91,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
-  const [user, setUser] = useState('Login');
+  const [user, setUser] = useState('login');
   const [tag, setTag] = useState('Login');
-  const history = useHistory();
 
   useEffect(() => {
     let u;
@@ -189,6 +189,11 @@ export default function SearchAppBar() {
             <Route path="/u/:username" exact>
               <Profile />
             </Route>
+
+            <Route path="/grouppage/:id">
+              <SingleGroupPage />
+            </Route>
+
           </Switch>
         </main>
       </Router>

@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {Box} from '@material-ui/core';
 import GroupsListCard from './GroupsListCard.jsx';
 import {makeStyles} from '@material-ui/core/styles';
-import UserContext from '../userContext.jsx';
+// import UserContext from '../userContext.jsx';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,17 +13,23 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     margin: '0',
   },
+  message: {
+    textAlign: 'center',
+    marginTop: '25%',
+  },
 }));
 
 const GroupsList = () => {
+  const username = localStorage.getItem('username');
   const history = useHistory();
-  const {userInfo} = useContext(UserContext);
-
-  if (!userInfo) {
+  // const {userInfo} = useContext(UserContext);
+  // if (!userInfo) {
+  //   history.push('/login');
+  // }
+  // const {username} = userInfo;
+  if (!username) {
     history.push('/login');
   }
-
-  const {username = 'andy'} = userInfo;
   const [groups, setGroups] = useState([]);
 
   const getGroups = () => {
@@ -49,11 +55,18 @@ const GroupsList = () => {
   // }];
 
   return (
-    <Box component="div" className={classes.groupsListContainer}>
-      {groups.map((group) => {
-        return <GroupsListCard group={group} key={group.group_id}/>;
-      })}
-    </Box>
+    <div>
+      {groups.length > 0 ?
+        (<Box component="div" className={classes.groupsListContainer}>
+          {groups.map((group) => {
+            return <GroupsListCard group={group} key={group.group_id}/>;
+          })}
+        </Box>) :
+          (<div className={classes.message}>
+            You are not subscribed to any groups.
+          </div>)
+      }
+    </div>
   );
 };
 

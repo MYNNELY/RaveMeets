@@ -1,15 +1,11 @@
 import React from 'react';
+import {StyledBannerContainer, StyledBannerImage} from './Styled';
 
-const Banner = () => {
+const Banner = ({url}) => {
   return (
-    <div style={{
-      width: '100%',
-      margin: '1em 0',
-      height: '300px',
-      backgroundColor: 'black'}}
-    >
-      <img src='#' alt='Banner image for event' style={{width: '100%'}} />
-    </div>
+    <StyledBannerContainer>
+      <StyledBannerImage src={url} alt='Banner image for event' />
+    </StyledBannerContainer>
   );
 };
 
