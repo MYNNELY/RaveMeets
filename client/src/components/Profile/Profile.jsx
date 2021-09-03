@@ -13,7 +13,7 @@ const Profile = () => {
   const [profile, setProfile] = useState();
   const [myProfile, setMyProfile] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  let {username} = useParams();
+  // let {username} = useParams();
   const {userInfo, setUserInfo} = useContext(UserContext);
 
   const handleEditModal = (e) => {
@@ -21,9 +21,14 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    const urlComponents = window.location.href.split('/');
+    const username = urlComponents[urlComponents.length - 1];
+    console.log(userInfo, username, 'look here')
     if (userInfo) {
       if (userInfo.username === username) {
         setMyProfile(true);
+      } else {
+        setMyProfile(false);
       }
     }
 
@@ -78,6 +83,7 @@ const Profile = () => {
       <EditBioModal
         profile={profile}
         editModal={editModal}
+        handleEditModal={handleEditModal}
       />
     </div>
   );

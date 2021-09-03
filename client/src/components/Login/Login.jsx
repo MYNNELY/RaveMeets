@@ -25,7 +25,7 @@ const Login = () => {
         .then((result) => {
           setUserInfo({ username })
           localStorage.setItem('username', username);
-          history.push(`/${username}`);
+          history.push(`u/${username}`);
         })
         .catch((err) => {
           setError(true);

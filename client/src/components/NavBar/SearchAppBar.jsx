@@ -14,6 +14,7 @@ import {
   Switch,
   Route,
   Link,
+  useHistory,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
 import EventPage from '../EventPage/EventPage.jsx';
@@ -90,18 +91,19 @@ export default function SearchAppBar() {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
   const [user, setUser] = useState('Login');
+  const [tag, setTag] = useState('Login');
+  const history = useHistory();
 
   useEffect(() => {
     let u;
     if (!userInfo) {
       u = 'Login';
     } else {
-      u = userInfo.username;
+      u = `u/${userInfo.username}`;
+      setTag(userInfo.username);
     }
-
-    console.log(userInfo, 'Look here');
     setUser(u);
-  }, [userInfo]);
+  }, [user, userInfo]);
 
   return (
     <div className={classes.root}>
@@ -119,7 +121,8 @@ export default function SearchAppBar() {
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/events" className={classes.links}>
                 <img style={{height: 40}}
-                  src={'./RaveMeetsLogo-01.png'}/>
+                  src={'./RaveMeetsLogo-01.png'}
+                />
               </Link>
             </Typography>
             <Grid
@@ -147,7 +150,7 @@ export default function SearchAppBar() {
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
                   to={{pathname: `/${user}`}} className={classes.links}>
-                  {user}
+                  {tag}
                 </MaterialUILink>
               </Grid>
             </Grid>
@@ -183,7 +186,7 @@ export default function SearchAppBar() {
             <Route path="/signup">
               <Signup />
             </Route>
-            <Route path="/:username">
+            <Route path="/u/:username" exact>
               <Profile />
             </Route>
           </Switch>
