@@ -24,7 +24,7 @@ const Login = () => {
     })
         .then((result) => {
           setUserInfo({ username })
-          history.push(`/${userInfo}`);
+          history.push(`/${username}`);
         })
         .catch((err) => {
           setError(true);
