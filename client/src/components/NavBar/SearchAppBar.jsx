@@ -14,7 +14,6 @@ import {
   Switch,
   Route,
   Link,
-  useHistory,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
 import EventPage from '../EventPage/EventPage.jsx';
@@ -92,9 +91,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
-  const [user, setUser] = useState('Login');
+  const [user, setUser] = useState('login');
   const [tag, setTag] = useState('Login');
-  const history = useHistory();
 
   useEffect(() => {
     let u;
