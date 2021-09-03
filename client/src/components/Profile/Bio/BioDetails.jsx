@@ -24,7 +24,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      BIO
+      Bio
           <div
             style={{
               marginLeft: '12px',
@@ -52,7 +52,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      GENRES
+      Favorite Genres
           <ul
             style={{
               marginLeft: '24px',
@@ -82,7 +82,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      Artists
+      Favorite Artists
           <ul
             style={{
               marginLeft: '24px',
