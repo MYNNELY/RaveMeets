@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-require('dotenv').config({ path: path.resolve(__dirname, './.env') })
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 const {connect} = require('getstream');
 const bcrypt = require('bcrypt');
@@ -15,7 +15,7 @@ const app_id = process.env.STREAM_API_ID;
 console.log(api_key, 'what is this');
 
 
-console.log('hello');
+console.log('hello are we here in the right place in auth');
 
 const login = async (req, res)=>{
   try {
