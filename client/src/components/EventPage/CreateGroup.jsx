@@ -81,8 +81,8 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
 const CreateGroup = ({event = {}}) => {
   const {_id='id', event_banner_url='banner'} = event;
   const [create, setCreate] = useState(false);
-  // let loggedIn = useContext(UserContext);
-  let loggedIn = {userInfo: 'momo'};
+  let loggedIn = useContext(UserContext);
+  // let loggedIn = {userInfo: 'momo'};
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
