@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import {Button, ImageList, ImageListItem, ImageListItemBar} from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import EventTile from './EventTile.jsx';
 import styled from 'styled-components';
@@ -36,7 +37,7 @@ const EventList = () => {
       .then(({data}) => {setRaves(data)})
       .catch((err) => console.error(err));
   }, [])
-
+  const history = useHistory();
   return (
     <Container>
       <ImageList  rowHeight={300} cols={1} >
@@ -54,6 +55,7 @@ const EventList = () => {
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={rave.name}
                 loading="lazy"
+                onClick={(e) => {history.push(`/events/${rave.id}`)}}
               />
               <ImageListItemBar title={rave.name} subtitle={new Date(rave.start_date).toUTCString()}/>
             </ImageListItem>
