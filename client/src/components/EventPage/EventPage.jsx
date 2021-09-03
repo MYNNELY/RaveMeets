@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Banner from './Banner.jsx';
 import CreateGroup from './CreateGroup.jsx';
 import Description from './Description.jsx';
+import SideInfo from './SideInfo.jsx';
 import Title from './Title.jsx';
 import {Container} from '@material-ui/core';
 import {useParams} from 'react-router-dom';
+import {InfoContainer} from './Styled'
 
 import {getEvent} from './functions';
 
@@ -28,7 +30,10 @@ const EventPage = () => {
         <Title info={event}></Title>
         <CreateGroup event={event}/>
       </div>
-      <Description description={event.description || ''} />
+      <InfoContainer>
+        <Description description={event.description || ''} />
+        <SideInfo lineup={event.artist_list || [{}]} />
+      </InfoContainer>
     </Container>
   );
 };

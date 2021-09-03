@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {Box} from '@material-ui/core';
 import GroupsListCard from './GroupsListCard.jsx';
 import {makeStyles} from '@material-ui/core/styles';
-import UserContext from '../userContext.jsx';
+// import UserContext from '../userContext.jsx';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,14 +20,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GroupsList = () => {
+  const username = localStorage.getItem('username');
   const history = useHistory();
-  const {userInfo} = useContext(UserContext);
-
-  if (!userInfo) {
+  // const {userInfo} = useContext(UserContext);
+  // if (!userInfo) {
+  //   history.push('/login');
+  // }
+  // const {username} = userInfo;
+  if (!username) {
     history.push('/login');
   }
-
-  const {username = 'andy'} = userInfo;
   const [groups, setGroups] = useState([]);
 
   const getGroups = () => {
