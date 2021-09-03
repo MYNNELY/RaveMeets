@@ -28,11 +28,12 @@ const StyledSearchCardContainerDiv = styled.div`
 cursor:pointer;
 display: flex;
     width: 90%;
-    height: 60px;
+    height: 70px;
     border-radius: 10px;
     color: black;
     background: #C4C4C4;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     align-items: center;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -71,6 +72,7 @@ const StyledEventDateContainer = styled.div`
 `;
 
 const StyledEventInformation = styled.div`
+height: fit-content;
 display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -87,9 +89,9 @@ width: 50px;
 
 const StyledEventImg = styled.img`
 margin-right: 8px;
-height: 50px;
-width: 50px;
-border-radius: 2px;
+height: 55px;
+width: 55px;
+border-radius: 3px;
 `;
 
 const StyledTitle = styled.span`
@@ -101,6 +103,17 @@ margin-left: 5px;
 const StyledDate = styled.span`
 margin-left: 5px;
 font-size: 12px;
+`;
+
+const StyledUserTag = styled.div`
+position: relative;
+font-size: 10px;
+margin-bottom:2px
+`;
+const StyledEventTag = styled.div`
+position: relative;
+font-size: 10px;
+margin-bottom:2px
 `;
 
 const dumbyData = [{}, {}];
@@ -187,6 +200,7 @@ const SearchBar = ({placeholder}) =>{
               window.location.href=`http://localhost:3000/u/${user.username}`;
             }}>
             <StyledEventInformation>
+              <StyledUserTag>User</StyledUserTag>
               <StyledTitle>{user.name}</StyledTitle>
 
             </StyledEventInformation>
@@ -201,7 +215,9 @@ const SearchBar = ({placeholder}) =>{
               e.preventDefault();
               window.location.href=`http://localhost:3000/eventpage/${event._id}`;
             }}>
+
             <StyledEventInformation>
+              <StyledEventTag> Event </StyledEventTag>
               <StyledTitle>{event.name}</StyledTitle>
               <StyledDate>{event.start_date.slice(0, 10)}</StyledDate>
 

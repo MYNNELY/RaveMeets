@@ -6,7 +6,8 @@ import SideInfo from './SideInfo.jsx';
 import Title from './Title.jsx';
 import {Container} from '@material-ui/core';
 import {useParams} from 'react-router-dom';
-import {InfoContainer} from './Styled'
+import {InfoContainer, ButtonHolder} from './Styled';
+import EventSiteButton from './EventSiteButton.jsx';
 
 import {getEvent} from './functions';
 
@@ -28,7 +29,10 @@ const EventPage = () => {
         width: '100%'}}
       >
         <Title info={event}></Title>
-        <CreateGroup event={event}/>
+        <ButtonHolder>
+          <CreateGroup event={event} />
+          <EventSiteButton url={event.link || ''}/>
+        </ButtonHolder>
       </div>
       <InfoContainer>
         <Description description={event.description || ''} />
