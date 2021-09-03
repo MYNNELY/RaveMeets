@@ -1,9 +1,10 @@
 /* eslint-disable */
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Button, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import UserContext from '../userContext';
 
 const Login = () => {
   let history = useHistory();
@@ -11,7 +12,10 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const classes = useStyles();
+
+
 
   const onSignInSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +25,8 @@ const Login = () => {
       password,
     })
         .then((result) => {
-          history.push(`/${username}`);
+          setUserInfo({ username })
+          history.push(`/${userInfo}`);
         })
         .catch((err) => {
           setError(true);

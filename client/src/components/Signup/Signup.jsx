@@ -29,7 +29,6 @@ const SignUp = () => {
         });
   };
 
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
