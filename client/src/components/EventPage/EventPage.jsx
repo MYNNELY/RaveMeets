@@ -8,7 +8,7 @@ import {Container} from '@material-ui/core';
 
 const EventPage = () => {
   return (
-    <Container style={{width: '90%'}}>
+    <Container style={{maxWidth: '1500px'}}>
       <Banner />
       <div style={{
         display: 'flex',

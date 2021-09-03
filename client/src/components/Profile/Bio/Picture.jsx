@@ -4,7 +4,7 @@ const Picture = ({ profile }) => {
   if (!profile) {
     return (<></>);
   }
-  console.log(profile);
+
   return (
     <>
       <img
