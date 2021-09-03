@@ -5,10 +5,21 @@ import AddIcon from '@material-ui/icons/Add';
 import UserContext from '../userContext.jsx';
 import axios from 'axios';
 
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles, MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#57c'
+    },
+    secondary: {
+      main: '#ddd'
+    }
+  }
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,17 +97,19 @@ const CreateGroup = ({event = {}}) => {
   };
   return (
     <>
-      <Button
-        variant='contained'
-        startIcon={<AddIcon />}
-        color='primary'
-        style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
-        onClick={(ev) => {
-          loggedIn.userInfo ? handleOpen() : location.href = '/Login';
-        }}
-      >
-      Create Group
-      </Button>
+      <MuiThemeProvider theme={theme}>
+        <Button
+          variant='contained'
+          startIcon={<AddIcon />}
+          color='primary'
+          style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
+          onClick={(ev) => {
+            loggedIn.userInfo ? handleOpen() : location.href = '/Login';
+          }}
+        >
+        Create Group
+        </Button>
+      </MuiThemeProvider>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
