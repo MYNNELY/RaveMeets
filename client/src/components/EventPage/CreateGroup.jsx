@@ -89,7 +89,7 @@ const CreateGroup = ({event = {}}) => {
       <Button
         variant='contained'
         startIcon={<AddIcon />}
-        color='secondary'
+        color='primary'
         style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
         onClick={(ev) => {
           loggedIn.userInfo ? handleOpen() : location.href = '/Login';
