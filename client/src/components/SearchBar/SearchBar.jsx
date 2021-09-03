@@ -1,28 +1,10 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import {alpha, makeStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const StyledSearchContainer = styled.div`
-width: 307px;
-height: 50px;
-background: #014d7a;
-border-radius: 25px;
-color: black;
-z-index: 1000;
-`;
-
-
-const StyledSearchInputs = styled.div`
-margin-bottom: 25px;
-display: flex;
-justify-content: center;
-align-items: center;
-align-content: center;
-flex-wrap: nowrap;
-`;
 
 const StyledSearchCardContainerDiv = styled.div`
 cursor:pointer;
@@ -38,23 +20,15 @@ display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
 `;
-const StyledInput = styled.input`
-height: 50px;
-background: #014d7a;
-color: black;
-font-size: 18px;
-border: none;
-`;
-const StyledSearchIconContainer = styled.div`
-color: black;
-`;
+
 
 const StyledDataContainer = styled.div`
 display: flex;
 margin: 10px;
+margin-top: 2px;
 width: 100%;
 border-radius: 10px;
-background-color: #01387A;
+background-color: white;
 position: absolute;
 left: -10px;
 flex-direction: column;
@@ -64,12 +38,6 @@ align-items: center;
 
 `;
 
-
-const StyledEventContainer = styled.div`
-`;
-
-const StyledEventDateContainer = styled.div`
-`;
 
 const StyledEventInformation = styled.div`
 height: fit-content;
@@ -82,10 +50,6 @@ display: flex;
     margin-left: 5px;
 `;
 
-const StyledEventPicture = styled.div`
-height: 50px;
-width: 50px;
-`;
 
 const StyledEventImg = styled.img`
 margin-right: 8px;
@@ -95,46 +59,40 @@ border-radius: 3px;
 `;
 
 const StyledTitle = styled.span`
+color: black;
 font-size: 17px;
 font-style: italic;
 margin-left: 5px;
 `;
 
 const StyledDate = styled.span`
+color: black;
 margin-left: 5px;
 font-size: 12px;
 `;
 
 const StyledUserTag = styled.div`
+color: black;
 position: relative;
 font-size: 10px;
 margin-bottom:2px
 `;
 const StyledEventTag = styled.div`
+color: black;
 position: relative;
 font-size: 10px;
 margin-bottom:2px
 `;
 
-const dumbyData = [{}, {}];
-
 
 const SearchBar = ({placeholder}) =>{
   const classes = useStyles();
-  const [display, setDisplay] = useState(false);
+
   const [search, setSearch] = useState('');
   const [peopleData, setPeopleData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const wrapperRef = useRef(null);
-  const placeHolderRef = useRef(null);
 
 
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
   useEffect(() => {
     console.log(search.length, 'testing');
     if (search.length >= 2) {
@@ -147,14 +105,8 @@ const SearchBar = ({placeholder}) =>{
     }
     if (search.length < 2) {
       setSearchData([]);
+      setPeopleData([]);
     }
-
-
-    // if (search.length < 3) {
-    //   setDisplay(true);
-    // } else {
-    //   setDisplay(false);
-    // }
   }, [search]);
 
 
@@ -177,19 +129,6 @@ const SearchBar = ({placeholder}) =>{
           setSearch(e.target.value);
         }}
       />
-
-
-      {/* <StyledInput
-          type={'text'}
-          placeholder={'Search...'}
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        /> */}
-      {/* <StyledSearchIconContainer>
-        <SearchIcon cololr='black'/>
-      </StyledSearchIconContainer> */}
 
 
       <StyledDataContainer>
