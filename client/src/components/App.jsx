@@ -14,7 +14,6 @@ import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
 import UserContext from './userContext.jsx'
 
-
 const App = () => {
   const localStorageUsername = localStorage.getItem('username');
   const [userInfo, setUserInfo] = useState();
