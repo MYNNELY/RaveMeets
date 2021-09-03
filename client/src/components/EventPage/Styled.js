@@ -11,6 +11,10 @@ export const StyledDescription = styled.div`
     }
 `;
 
+export const StyledSpan = styled.span`
+    margin-right: 1em;
+`;
+
 export const StyledBannerContainer = styled.div`
     width: 100%;
     height: 400px;
@@ -39,6 +43,14 @@ export const InfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+`;
+
+export const ButtonHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px;
 `;
 
 export const SidePanel = styled.div`
