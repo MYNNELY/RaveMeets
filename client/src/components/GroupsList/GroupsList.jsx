@@ -10,8 +10,9 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   groupsListContainer: {
     width: '1500px',
-    justifyContent: 'flex-start',
-    margin: '0',
+    justifyContent: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   message: {
     textAlign: 'center',
@@ -55,7 +56,7 @@ const GroupsList = () => {
   // }];
 
   return (
-    <div>
+    <div style={{justifyContent: 'center'}}>
       {groups.length > 0 ?
         (<Box component="div" className={classes.groupsListContainer}>
           {groups.map((group) => {

@@ -10,7 +10,7 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   groupsListCard: {
     width: '1500px',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     marginTop: '5px',
     marginLeft: '0',
     marginRight: '0',
