@@ -22,6 +22,7 @@ import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
 import UserContext from '../userContext.jsx';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -141,7 +142,9 @@ export default function SearchAppBar() {
                 </MaterialUILink>
               </Grid>
             </Grid>
-            <div className={classes.search}>
+            <SearchBar />
+            {/* <div className={classes.search}>
+
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -153,7 +156,7 @@ export default function SearchAppBar() {
                 }}
                 inputProps={{'aria-label': 'search'}}
               />
-            </div>
+            </div> */}
           </Toolbar>
         </AppBar>
         <main>

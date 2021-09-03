@@ -6,14 +6,18 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import UserContext from '../userContext.jsx';
 
+
+
 const Login = () => {
+
+  const classes = useStyles()
   let history = useHistory();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserContext);
-  const classes = useStyles();
+  const Classes = useStyles();
 
   const onSignInSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +37,7 @@ const Login = () => {
 
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.font}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
@@ -107,6 +111,11 @@ const Login = () => {
 };
 
 const useStyles = makeStyles((theme) => ({
+
+  font: {
+    fontcolor: 'black'
+  },
+
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,17 +12,22 @@ import GroupImg from './SingleGroupPage/GroupImg.jsx';
 import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
 import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
-import UserContext from './userContext.jsx'
+import UserContext from './userContext.jsx';
+import SearchBar from './SearchBar/SearchBar.jsx';
 
 
 const App = () => {
   const [userInfo, setUserInfo] = useState();
   return (
-    <UserContext.Provider value={{userInfo, setUserInfo}}>
-      <SearchAppBar />
-    </UserContext.Provider>
-    <Router>
-      <div>
+    <div>
+
+
+      <UserContext.Provider value={{userInfo, setUserInfo}}>
+        <SearchAppBar />
+      </UserContext.Provider>
+
+
+      <Router>
         <Link to="/events">Events</Link>
         <Link to="/groups">Groups</Link>
         <Link to="/profile">profile</Link>
@@ -37,8 +42,10 @@ const App = () => {
             <Profile />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+
+    </div>
+
   );
 };
 
