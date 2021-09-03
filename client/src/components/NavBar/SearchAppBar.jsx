@@ -121,7 +121,8 @@ export default function SearchAppBar() {
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/events" className={classes.links}>
                 <img style={{height: 40}}
-                  src={'./RaveMeetsLogo-01.png'}/>
+                  src={'./RaveMeetsLogo-01.png'}
+                />
               </Link>
             </Typography>
             <Grid
