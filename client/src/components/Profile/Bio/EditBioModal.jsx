@@ -52,7 +52,7 @@ const EditBioModal = ({profile, editModal}) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log(document.getElementById('upload_picture').files);
+    console.log(document.getElementById('upload_picture').file[0]);
 
     const likedGenres = [];
     for (let i in genreState) {
