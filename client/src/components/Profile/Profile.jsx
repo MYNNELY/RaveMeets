@@ -11,6 +11,7 @@ import UserContext from '../userContext.jsx';
 
 const Profile = () => {
   const [profile, setProfile] = useState();
+  const [myProfile, setMyProfile] = useState(false);
   const [editModal, setEditModal] = useState(false);
   let {username} = useParams();
   const {userInfo, setUserInfo} = useContext(UserContext);
@@ -20,8 +21,11 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const user = userInfo || username;
-    axios.get(`http://54.176.43.199:3000/u/${user}`)
+    if (username === userInfo) {
+      setMyProfile(true);
+    }
+
+    axios.get(`http://54.176.43.199:3000/u/${username}`)
         .then((results) => {
           setProfile(results.data);
         })
@@ -49,6 +53,7 @@ const Profile = () => {
     >
       <BioSection
         profile={profile}
+        myProfile={myProfile}
         handleEditModal={handleEditModal}
       />
       <Paper

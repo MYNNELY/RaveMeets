@@ -15,8 +15,6 @@ const Login = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const classes = useStyles();
 
-
-
   const onSignInSubmit = (e) => {
     e.preventDefault();
     setError(false);

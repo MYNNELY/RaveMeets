@@ -3,7 +3,7 @@ import Picture from './Picture.jsx';
 import ActionButton from './ActionButton.jsx';
 import BioDetails from './BioDetails.jsx';
 
-const BioSection = ({ profile, handleEditModal }) => {
+const BioSection = ({ profile, myProfile, handleEditModal }) => {
   if (!profile) {
     return (<></>);
   }
@@ -18,7 +18,7 @@ const BioSection = ({ profile, handleEditModal }) => {
       }}
     >
       <Picture profile={profile}/>
-      <ActionButton handleEditModal={handleEditModal} />
+      <ActionButton myProfile={myProfile} handleEditModal={handleEditModal} />
       <BioDetails profile={profile} />
     </div>
   );
