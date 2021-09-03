@@ -10,7 +10,7 @@ import axios from 'axios';
 
 //why can't i just put hook in here?
 
-const AddFriend = () => {
+const AddFriend = ({data}) => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
 
@@ -23,11 +23,11 @@ const AddFriend = () => {
     setRole(event.target.value);
   }
 
-
+  console.log(data._id, 'add stuff');
 
   const addition = (event)=> {
     console.log(name, 'this should be the name');
-    axios.post('/user', {
+    axios.post(`http://54.176.43.199:3000/groups/${data._id}/members`, {
       username: name,
       role: role,
     })

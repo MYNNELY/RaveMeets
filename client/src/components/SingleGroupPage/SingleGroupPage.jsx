@@ -66,7 +66,7 @@ const SingleGroupPage = (props) => {
       <Banner imgSource={data.banner_url}/>
       <GroupImg2 />
       <Members members={data.members} />
-      <AddFriend />
+      <AddFriend data={data}/>
       {/*  might need to fix */}
       <ImagesTogether data={data}/>
       <EventDetails data={data}/>
