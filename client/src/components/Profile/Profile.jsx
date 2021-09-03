@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import {Paper} from '@material-ui/core';
@@ -7,32 +6,24 @@ import BioSection from './Bio/BioSection.jsx';
 import Groups from './Groups/Groups.jsx';
 import Feed from './ProfileFeed/Feed.jsx';
 import EditBioModal from './Bio/EditBioModal.jsx';
-import UserContext from '../userContext.jsx';
 
-const Profile = ({tag}) => {
+const Profile = () => {
   const [profile, setProfile] = useState();
   const [myProfile, setMyProfile] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  const {username} = useParams();
-  const {userInfo, setUserInfo} = useContext(UserContext);
+  let {username} = useParams();
 
   const handleEditModal = (e) => {
     setEditModal(!editModal);
   };
 
   useEffect(() => {
-    const urlComponents = window.location.href.split('/');
-    const user = urlComponents[urlComponents.length - 1];
-
-    console.log(username)
-
-    if (tag === username) {
-      console.log(tag, username);
+    if (window.localStorage.username === username) {
       setMyProfile(true);
+      username = window.localStorage.username;
     } else {
       setMyProfile(false);
     }
-
 
     axios.get(`http://54.176.43.199:3000/u/${username}`)
         .then((results) => {
