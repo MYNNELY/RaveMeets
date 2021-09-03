@@ -3,7 +3,11 @@ import GroupIcon from './GroupIcons.jsx';
 import {Grid} from '@material-ui/core';
 
 const Groups = ({profile}) => {
-  const array = [1, 2, 3, 4, 5];
+  if (!profile) {
+    return (
+      <></>
+    );
+  }
 
   return (
     <div className="groups_container">
@@ -24,12 +28,13 @@ const Groups = ({profile}) => {
         justifyContent='flex-start'
         alignItems='baseline'
         style={{
+          display: 'flex',
           marginTop: '15px',
           marginBottom: '30px',
         }}
       >
-        {array.map((index, key) => (
-          <GroupIcon key={key}/>
+        {profile[0].groups.map((group, key) => (
+          <GroupIcon group={group} key={key}/>
         ))}
       </Grid>
     </div>
