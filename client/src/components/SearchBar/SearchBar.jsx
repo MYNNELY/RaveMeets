@@ -57,24 +57,35 @@ const SearchBar = ({placeholder}) =>{
   const placeHolderRef = useRef(null);
 
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
   useEffect(() => {
     axios.get('http://54.176.43.199:3000/search', {params: {q: search}} )
-        .then((response ) => console.log(response, 'looking here'))
-        .catch((err) => console.log(err));
-  }, [search]);
+        .then((response ) => {
+          setSearchData(response.data.Events);
 
-  const handleClickOutside = (event) => {
-    const {current: wrap} = wrapperRef;
-    if (wrap && !wrap.contains(event.target)) {
+          console.log(searchData);
+        })
+        .catch((err) => console.log(err));
+
+    if (search.length < 3) {
+      setDisplay(true);
+    } else {
       setDisplay(false);
     }
-  };
+  }, [search]);
+
+
+  // const handleClickOutside = (event) => {
+  //   const {current: wrap} = wrapperRef;
+  //   if (wrap && !wrap.contains(event.target)) {
+  //     setDisplay(false);
+  //   }
+  // };
 
   return (
     <StyledSearchContainer ref={wrapperRef}>
@@ -82,21 +93,13 @@ const SearchBar = ({placeholder}) =>{
       <StyledSearchInputs>
 
         <StyledInput
-          ref={placeHolderRef}
           type={'text'}
           placeholder={'Search...'}
           value={search}
           onChange={(e) => {
-            // if (search.length = 3) {
-            //   setDisplay(true);
-            // } else if (search ==='' && display) {
-            //   setDisplay(false);
-            // }
             setSearch(e.target.value);
           }}
-          onClick={() => {
-            setDisplay(!display);
-          }}/>
+        />
         <StyledSearchIconContainer>
           <SearchIcon cololr='black'/>
         </StyledSearchIconContainer>
@@ -105,9 +108,10 @@ const SearchBar = ({placeholder}) =>{
       </ StyledSearchInputs>
 
       {display && ( <StyledDataContainer>
-        {searchData.map((value, key) => {
-          return <div> hey</div>;
-        })}
+        {searchData.map((value, key) => (
+          <StyledSearchCardContainerDiv>testfsdaf
+          </StyledSearchCardContainerDiv>
+        ))}
         {/* <StyledSearchCardContainerDiv tabIndex="0">
           testing
         </StyledSearchCardContainerDiv>
