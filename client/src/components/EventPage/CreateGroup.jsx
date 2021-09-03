@@ -125,7 +125,7 @@ const CreateGroup = ({event = {}}) => {
         <Fade in={open}>
           <form className={classes.paper} onSubmit={
             (e) => {
-              onGroupSubmit(e, {_id, event_banner_url, username: loggedIn.userInfo});
+              onGroupSubmit(e, {_id, event_banner_url, username: loggedIn.userInfo.username});
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <CssTextField
