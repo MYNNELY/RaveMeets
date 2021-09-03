@@ -3,6 +3,7 @@ import {GroupModal} from './Styled';
 import {Button, TextField} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import UserContext from '../userContext.jsx';
+import axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -11,7 +12,7 @@ import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    color: '#fff'
+    color: '#fff',
   },
   modal: {
     display: 'flex',
@@ -27,30 +28,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const onGroupSubmit = (e, {_id, event_banner_url}) => {
+const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  console.log({...formProps, event_id: _id, event_banner_url});
-  // axios.post('http://54.176.43.199:3000/groups', {
-  //   name: groupname,
-  //   banner_url: null,
-  //   event_id: null,
-  //   username: null,
-  // })
-  //     .then((result) => {
-  //       // push to individual group page
-  //       history.push('/group');
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
+  console.log({...formProps, event_id: _id, event_banner_url, username});
+  axios.post('http://54.176.43.199:3000/groups', {
+    ...formProps,
+    event_id: _id,
+    event_banner_url,
+    username})
+      .then((result) => {
+        // push to individual group page
+        console.log(result);
+        location.href = '/groups';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 };
 
 const CreateGroup = ({event = {}}) => {
   const {_id='id', event_banner_url='banner'} = event;
   const [create, setCreate] = useState(false);
-  let loggedIn = useContext(UserContext);
+  // let loggedIn = useContext(UserContext);
+  let loggedIn = {userInfo: 'momo'};
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -91,7 +93,7 @@ const CreateGroup = ({event = {}}) => {
         <Fade in={open}>
           <form className={classes.paper} onSubmit={
             (e) => {
-              onGroupSubmit(e, {_id, event_banner_url});
+              onGroupSubmit(e, {_id, event_banner_url, username: loggedIn.userInfo});
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <TextField
