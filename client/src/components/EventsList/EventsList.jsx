@@ -51,11 +51,12 @@ const EventList = () => {
           {raves.map(rave => (
             <ImageListItem>
               <img
+                style={{display: "block"}}
                 src={`${rave.event_banner_url}?w=248&fit=crop&auto=format`}
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={rave.name}
                 loading="lazy"
-                onClick={(e) => {history.push(`/events/${rave.id}`)}}
+                onClick={(e) => {history.push(`/eventpage/${rave._id}`)}}
               />
               <ImageListItemBar title={rave.name} subtitle={new Date(rave.start_date).toUTCString()}/>
             </ImageListItem>
