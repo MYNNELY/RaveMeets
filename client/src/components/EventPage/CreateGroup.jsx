@@ -5,14 +5,14 @@ import AddIcon from '@material-ui/icons/Add';
 import UserContext from '../userContext.jsx';
 import axios from 'axios';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    color: '#fff',
+    color: '#FFFFFF',
   },
   modal: {
     display: 'flex',
@@ -20,13 +20,32 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     backgroundColor: 'rgba(0, 22, 48, 1)',
+    color: '#fff',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  multilineColor:{
+    color:'#fff'
+}
 }));
+
+const CssTextField = withStyles({
+  root: {
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#45a',
+      },
+      '&:hover fieldset': {
+        borderColor: '#9af',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#9af',
+      },
+    },
+  }
+})(TextField);
 
 const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
   e.preventDefault();
@@ -96,19 +115,26 @@ const CreateGroup = ({event = {}}) => {
               onGroupSubmit(e, {_id, event_banner_url, username: loggedIn.userInfo});
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
-            <TextField
-              id="transition-modal-description"
+            <CssTextField
+              // className={classes.margin}
+              className={classes.root}
               variant="outlined"
+              id="custom-css-outlined-input"
               margin="normal"
               required
               fullWidth
+              multiline
+              InputProps={{
+                className: classes.multilineColor
+              }}
               label="Group name"
+              InputLabelProps={{style: {color: '#fff'}}}
               name="groupname"
               autoFocus
               autoComplete="groupname"
               value={groupname}
               onChange={(e) => setgroupname(e.target.value)}
-            />
+             />
             <Button
               type='submit'
               variant='contained'
