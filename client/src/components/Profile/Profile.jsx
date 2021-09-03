@@ -21,8 +21,10 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (username === userInfo) {
-      setMyProfile(true);
+    if (userInfo) {
+      if (userInfo.username === username) {
+        setMyProfile(true);
+      }
     }
 
     axios.get(`http://54.176.43.199:3000/u/${username}`)

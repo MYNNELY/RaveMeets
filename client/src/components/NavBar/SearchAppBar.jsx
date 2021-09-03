@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import React, {useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import IconButton from '@material-ui/core/IconButton';
@@ -88,7 +88,19 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
-  const user = userInfo || 'Login';
+  const [user, setUser] = useState('Login');
+
+  useEffect(() => {
+    let u;
+    if (!userInfo) {
+      u = 'Login';
+    } else {
+      u = userInfo.username;
+    }
+
+    console.log(userInfo, 'Look here');
+    setUser(u);
+  }, [userInfo]);
 
   return (
     <div className={classes.root}>

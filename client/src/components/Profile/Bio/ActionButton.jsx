@@ -1,8 +1,10 @@
 import React, {useContext} from 'react';
 import {Button} from '@material-ui/core';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import EditIcon from '@material-ui/icons/Edit';
 
 const ActionButton = ({myProfile, handleEditModal}) => {
-  if (myProfile) {
+  if (!myProfile) {
     return (
       <>
         <Button
@@ -14,7 +16,7 @@ const ActionButton = ({myProfile, handleEditModal}) => {
             background: '#72C3B4',
           }}
         >
-          Add Friend +
+          Add Friend&nbsp;<AddCircleIcon fontSize='small'/>
         </Button>
       </>
     );
@@ -32,7 +34,7 @@ const ActionButton = ({myProfile, handleEditModal}) => {
           background: '#72C3B4',
         }}
       >
-        Edit Profile
+        Edit Profile&nbsp;<EditIcon fontSize='small'/>
       </Button>
     </>
   );
