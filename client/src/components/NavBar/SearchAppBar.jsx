@@ -186,7 +186,7 @@ export default function SearchAppBar() {
               <Signup />
             </Route>
             <Route path="/u/:username" exact>
-              <Profile />
+              <Profile tag={tag}/>
             </Route>
           </Switch>
         </main>

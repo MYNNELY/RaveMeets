@@ -9,11 +9,11 @@ import Feed from './ProfileFeed/Feed.jsx';
 import EditBioModal from './Bio/EditBioModal.jsx';
 import UserContext from '../userContext.jsx';
 
-const Profile = () => {
+const Profile = ({tag}) => {
   const [profile, setProfile] = useState();
   const [myProfile, setMyProfile] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  // let {username} = useParams();
+  const {username} = useParams();
   const {userInfo, setUserInfo} = useContext(UserContext);
 
   const handleEditModal = (e) => {
@@ -22,15 +22,17 @@ const Profile = () => {
 
   useEffect(() => {
     const urlComponents = window.location.href.split('/');
-    const username = urlComponents[urlComponents.length - 1];
-    console.log(userInfo, username, 'look here')
-    if (userInfo) {
-      if (userInfo.username === username) {
-        setMyProfile(true);
-      } else {
-        setMyProfile(false);
-      }
+    const user = urlComponents[urlComponents.length - 1];
+
+    console.log(username)
+
+    if (tag === username) {
+      console.log(tag, username);
+      setMyProfile(true);
+    } else {
+      setMyProfile(false);
     }
+
 
     axios.get(`http://54.176.43.199:3000/u/${username}`)
         .then((results) => {
