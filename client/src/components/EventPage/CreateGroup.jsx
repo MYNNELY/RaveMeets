@@ -51,7 +51,6 @@ const CreateGroup = ({event = {}}) => {
   const {_id='id', event_banner_url='banner'} = event;
   const [create, setCreate] = useState(false);
   let loggedIn = useContext(UserContext);
-  loggedIn = true;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -72,7 +71,7 @@ const CreateGroup = ({event = {}}) => {
         color='secondary'
         style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
         onClick={(ev) => {
-          loggedIn ? handleOpen() : location.href = '/Login';
+          loggedIn.userInfo ? handleOpen() : location.href = '/Login';
         }}
       >
       Create Group
