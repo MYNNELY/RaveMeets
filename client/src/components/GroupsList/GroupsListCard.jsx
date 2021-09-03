@@ -98,7 +98,7 @@ const GroupsListCard = ({group}) => {
       <Grid item xs={5} className={classes.groupsListInfo}>
         <img src={banner} alt={groupName} className={classes.mainImage}
           onClick={(e) => {
-            history.push(`/groups/${groupId}`);
+            history.push(`/grouppage/${groupId}`);
           }} />
         <div className={classes.topLeft}>
           {groupName && <h3>{groupName}</h3>}
