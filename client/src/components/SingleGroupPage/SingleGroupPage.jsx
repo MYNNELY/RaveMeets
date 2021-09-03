@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, Box } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import theme from './theme.js';
 import Hook from './Hook.jsx';
@@ -66,28 +66,32 @@ const SingleGroupPage = (props) => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Banner imgSource={data.banner_url} />
-      <GroupImg2 />
-      <Members members={data.members} />
-      <AddFriend data={data} />
-      {/*  might need to fix */}
-      <ImagesTogether data={data} />
-      <EventDetails data={data} />
-      {/* <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-      <Hook /> */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{width: 1500}}>
+        <ThemeProvider theme={theme}>
+          {/* <Banner imgSource={data.banner_url} /> */}
+          <Members members={data.members} />
+          <AddFriend data={data} />
+          <GroupImg2 />
+          {/*  might need to fix */}
+          {/* <ImagesTogether data={data} />
+          <EventDetails data={data} /> */}
+          {/* <Button variant="contained" color="primary">
+            Hello World
+          </Button>
+          <Hook /> */}
+          <br />
+          <br />
+          <br />
+          <br />
+          <div>
 
-        <Chatroom />
+            <Chatroom />
+          </div>
+
+        </ThemeProvider>
       </div>
-
-    </ThemeProvider>
+    </div>
 
 
 

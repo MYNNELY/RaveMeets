@@ -5,9 +5,6 @@ import theme from './theme.js';
 import Hook from './Hook.jsx';
 import SingleMembers from './SingleMembers.jsx';
 
-
-
-
 const Members = ({ members }) => {
   //will make a get request for each person for there image
   console.log(members, 'here in members');
@@ -21,7 +18,7 @@ const Members = ({ members }) => {
     )
   })
   return (
-    <div style={{backgroundColor: "lightblue"}}>
+    <div style={{paddingBottom: '20px'}}>
       <h1>All members</h1>
       {memberElement}
     </div>

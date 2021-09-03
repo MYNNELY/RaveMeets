@@ -50,7 +50,7 @@ const GroupImg = (props) => {
 
   return (
     <>
-      <div>
+      <div style={{paddingTop: '20px'}}>
         <input type="file" onChange={previewFile} />
         <button onClick={fileUpload}>Upload</button>
       </div>
