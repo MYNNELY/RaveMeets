@@ -41,6 +41,13 @@ export const InfoContainer = styled.div`
     width: 100%;
 `;
 
+export const ButtonHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+`;
+
 export const SidePanel = styled.div`
     padding: 1em;
     padding-top: 0;
