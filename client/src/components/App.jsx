@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,10 +12,23 @@ import GroupImg from './SingleGroupPage/GroupImg.jsx';
 import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
 import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
+import UserContext from './userContext.jsx'
+
 
 const App = () => {
+  const localStorageUsername = localStorage.getItem('username');
+  const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    if (localStorageUsername) {
+      setUserInfo({ username: localStorageUsername});
+    }
+  }, []);
+
   return (
-    <SearchAppBar />
+    <UserContext.Provider value={{userInfo, setUserInfo}}>
+      <SearchAppBar />
+    </UserContext.Provider>
     // <Router>
     //   <div>
     //     <Link to="/events">Events</Link>
@@ -42,7 +55,6 @@ export default App;
 
 
 // import SingleGroupPage from './SingleGroupPage/SingleGroupPage.jsx'
-
 // const App = () => {
 //   return (<div>
 //     <SingleGroupPage />

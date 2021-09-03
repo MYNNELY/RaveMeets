@@ -1,8 +1,27 @@
-import React from 'react';
-import EditBioModal from './EditBioModal.jsx';
+import React, {useContext} from 'react';
 import {Button} from '@material-ui/core';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import EditIcon from '@material-ui/icons/Edit';
 
-const ActionButton = ({ handleEditModal }) => {
+const ActionButton = ({myProfile, handleEditModal}) => {
+  if (!myProfile) {
+    return (
+      <>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{
+            width: '200px',
+            height: '30px',
+            background: '#72C3B4',
+          }}
+        >
+          Add Friend&nbsp;<AddCircleIcon fontSize='small'/>
+        </Button>
+      </>
+    );
+  }
+
   return (
     <>
       <Button
@@ -15,7 +34,7 @@ const ActionButton = ({ handleEditModal }) => {
           background: '#72C3B4',
         }}
       >
-    Edit Profile
+        Edit Profile&nbsp;<EditIcon fontSize='small'/>
       </Button>
     </>
   );

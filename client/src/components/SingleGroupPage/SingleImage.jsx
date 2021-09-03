@@ -17,16 +17,16 @@ const useStyles = makeStyles({
 
 
 
-const SingleImage = ({data}) => {
-  const {event_details} = data;
+const SingleImage = ({singlePhoto}) => {
+  // const {event_details} = data;
   const classes = useStyles();
 
 
 
 
-  console.log(event_details, 'this is all the event details')
+  // console.log(event_details, 'this is all the event details')
   return (
-    <div className={classes.singleImage}>{'Event Details Go here.'}
+    <div className={classes.singleImage}>{'Event Details Go here.'}Hello
 
       {/* <img> */}
 

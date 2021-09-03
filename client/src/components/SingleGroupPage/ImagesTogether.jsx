@@ -3,8 +3,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import theme from './theme.js';
 import { makeStyles } from '@material-ui/core/styles';
-import singleImage from './Hook.jsx';
+import SingleImage from './SingleImage.jsx';
 import axios from 'axios';
+// import useStorage from '../../hooks/useStorage.js'
 
 
 const useStyles = makeStyles({
@@ -35,20 +36,20 @@ const ImagesTogether = ({ data }) => {
 
   const submitPhoto = () => {
 
-    // console.log({
-    //   photos: [{
-    //     "url": ImgURL,
-    //     "caption": caption
-    //   }],
-    // }
-
-    // )
-
-    console.log('hello');
-    axios.post(`/groups/${data._id}/photos`, {
+    console.log({
       photos: [{
         "url": ImgURL,
         "caption": caption
+      }],
+    }
+
+    )
+
+    console.log('hello');
+    axios.post(`http://54.176.43.199:3000/groups/${data._id}/photos`, {
+      photos: [{
+        "url": 'https://images.unsplash.com/photo-1630573577896-04e7c5b7fe33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80',
+        "caption": caption,
       }],
     })
       .then(function (response) {
@@ -62,7 +63,7 @@ const ImagesTogether = ({ data }) => {
 
   const handleChangeURL = (event) => {
     console.log(event.target.files[0], 'the file?');
-    setImgURL(event.target.value);
+    setImgURL(event.target.files[0]);
   }
 
   const handleChangeCaption = (event) => {
@@ -71,10 +72,10 @@ const ImagesTogether = ({ data }) => {
 
 
   const imageArray = data.group_photos.map((singlePhoto) => {
-    console.log("inside the map");
+    console.log(singlePhoto, "inside the map, should have images now");
     return (
-      <singleImage singlePhoto={singlePhoto} />
-    )
+        <SingleImage singlePhoto={singlePhoto} />
+      )
 
   })
   console.log(data._id, 'data needs to have photos');

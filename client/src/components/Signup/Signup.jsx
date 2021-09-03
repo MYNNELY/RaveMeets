@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { Button, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
+  let history = useHistory();
   const [username, setusername] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
   const classes = useStyles();
 
   const onSignUpSubmit = (e) => {
@@ -19,19 +22,18 @@ const SignUp = () => {
       password,
     })
         .then((result) => {
-          console.log(result);
+          history.push('/login');
         })
         .catch((err) => {
           console.log(err);
         });
   };
 
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography color="common.black" component="h1" variant="h5">
           Sign Up
         </Typography>
         <form className={classes.form} onSubmit={onSignUpSubmit}>
@@ -86,10 +88,13 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          {error &&
+            <div className={classes.errorDiv}>
+              <span className={classes.errorFont}>
+                Wrong username/password
+              </span>
+            </div>
+          }
           <Button
             type="submit"
             fullWidth
@@ -115,6 +120,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    // backgroundColor: 'blue',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -126,6 +132,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textColor: 'black',
     textSize: 20,
+  },
+  errorFont: {
+    color: 'red',
+    fontWeight: 600,
+  },
+  errorDiv: {
+    textAlign: 'center',
   },
 }));
 
