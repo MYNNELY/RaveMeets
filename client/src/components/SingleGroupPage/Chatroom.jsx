@@ -52,7 +52,7 @@ const Chatroom = () => {
     <div className="app__wrapper">
       <Chat client={client} theme="team light">
 
-        <ChannelContainer
+        <ChannelContainer style={{color: "black"}}
           isCreating={isCreating}
           setIsCreating={setIsCreating}
           isEditing={isEditing}
@@ -61,7 +61,7 @@ const Chatroom = () => {
         />
 
 
-        <ChannelListContainer
+        <ChannelListContainer style={{color: "black"}}
           isCreating={isCreating}
           setIsCreating={setIsCreating}
           isEditing={isEditing}
