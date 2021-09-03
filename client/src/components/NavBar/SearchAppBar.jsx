@@ -117,11 +117,9 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/" className={classes.links}>
-                <span style={{
-                  fontWeight: 700,
-                  fontSize: '36px',
-                }}>RAVEmeets</span>
+              <Link to="/events" className={classes.links}>
+                <img style={{height: 40}}
+                  src={'./RaveMeetsLogo-01.png'}/>
               </Link>
             </Typography>
             <Grid
