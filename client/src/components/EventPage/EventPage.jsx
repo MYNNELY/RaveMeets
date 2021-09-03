@@ -26,7 +26,7 @@ const EventPage = () => {
         width: '100%'}}
       >
         <Title info={event}></Title>
-        <CreateGroup />
+        <CreateGroup event={event}/>
       </div>
       <Description description={event.description || ''} />
     </Container>

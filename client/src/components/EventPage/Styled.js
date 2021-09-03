@@ -22,3 +22,14 @@ export const StyledBannerImage = styled.img`
     object-fit: cover;
     object-position: center;
 `;
+
+export const GroupModal = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+`;
