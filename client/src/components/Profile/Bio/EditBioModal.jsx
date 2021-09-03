@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 
-const EditBioModal = ({profile, editModal}) => {
+const EditBioModal = ({profile, editModal,  handleEditModal}) => {
   if (!profile) {
     return (
       <></>
@@ -48,8 +48,6 @@ const EditBioModal = ({profile, editModal}) => {
     'Jazz': musicTaste('Jazz'),
   });
 
-  // const url = useStorage(profile.profile_pic_url);
-
   const handleUpdate = (e) => {
     e.preventDefault();
     console.log(document.getElementById('upload_picture').file[0]);
@@ -83,7 +81,7 @@ const EditBioModal = ({profile, editModal}) => {
   };
 
   const handleClose = (e) => {
-    location.reload();
+    handleEditModal();
   };
 
   const {RnB, HipHop, Pop, EDM, KPop, Rock, Jazz} = genreState;
@@ -119,7 +117,6 @@ const EditBioModal = ({profile, editModal}) => {
         </div>
         <Button
           onClick={handleClose}
-          variant='Text'
           style={{
             fontSize: '18px',
             float: 'right',
@@ -233,7 +230,7 @@ const EditBioModal = ({profile, editModal}) => {
             width: '200px',
             height: '30px',
             marginTop: '20px',
-            background: '#F02C6F',
+            background: '#F50057',
           }}
         >
           Update

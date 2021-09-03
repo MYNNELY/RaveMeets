@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import React, {useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import IconButton from '@material-ui/core/IconButton';
@@ -14,6 +14,7 @@ import {
   Switch,
   Route,
   Link,
+  useHistory,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
 import EventPage from '../EventPage/EventPage.jsx';
@@ -90,7 +91,20 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
-  const user = userInfo || 'Login';
+  const [user, setUser] = useState('Login');
+  const [tag, setTag] = useState('Login');
+  const history = useHistory();
+
+  useEffect(() => {
+    let u;
+    if (!userInfo) {
+      u = 'Login';
+    } else {
+      u = `u/${userInfo.username}`;
+      setTag(userInfo.username);
+    }
+    setUser(u);
+  }, [user, userInfo]);
 
   return (
     <div className={classes.root}>
@@ -106,11 +120,10 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/" className={classes.links}>
-                <span style={{
-                  fontWeight: 700,
-                  fontSize: '36px',
-                }}>RAVEmeets</span>
+              <Link to="/events" className={classes.links}>
+                <img style={{height: 40}}
+                  src={'./RaveMeetsLogo-01.png'}
+                />
               </Link>
             </Typography>
             <Grid
@@ -138,16 +151,14 @@ export default function SearchAppBar() {
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
                   to={{pathname: `/${user}`}} className={classes.links}>
-                  {user}
+                  {tag}
                 </MaterialUILink>
               </Grid>
             </Grid>
             <SearchBar />
             {/* <div className={classes.search}>
 
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
+
               <InputBase
                 placeholder="Search…"
                 classes={{
@@ -176,7 +187,7 @@ export default function SearchAppBar() {
             <Route path="/signup">
               <Signup />
             </Route>
-            <Route path="/:username">
+            <Route path="/u/:username" exact>
               <Profile />
             </Route>
           </Switch>

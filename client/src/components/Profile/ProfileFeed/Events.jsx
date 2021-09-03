@@ -44,8 +44,6 @@ const Events = ({events, feedTitle}) => {
     );
   }
 
-  console.log(events, feedTitle);
-
   const buttonTagger = (rave) => {
     if (rave.attended) {
       return 'Attended';

@@ -88,8 +88,6 @@ const Feed = (/* { pastEvents, upcomingEvents }*/) => {
     }
   });
 
-  console.log(upcomingEvents, pastEvents);
-
   return (
     <div
       className='feed_container'

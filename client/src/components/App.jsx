@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +17,15 @@ import SearchBar from './SearchBar/SearchBar.jsx';
 
 
 const App = () => {
+  const localStorageUsername = localStorage.getItem('username');
   const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    if (localStorageUsername) {
+      setUserInfo({username: localStorageUsername});
+    }
+  }, []);
+
   return (
     <div>
 
