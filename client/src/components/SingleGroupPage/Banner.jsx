@@ -10,8 +10,9 @@ const useStyles = makeStyles({
   banner: {
     border: 0,
     borderRadius: 3,
-    width: '95%',
-    height: 150,
+    width: '1500px',
+    height: '300px',
+    objectFit: 'cover',
     padding: '0 20px',
   },
 });
