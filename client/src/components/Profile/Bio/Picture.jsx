@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Picture = ({ profile }) => {
+const Picture = ({profile}) => {
   if (!profile) {
     return (<></>);
   }
-  console.log(profile);
+
+  const pictureSource = profile.profile_pic_url || 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
+
   return (
     <>
       <img
-        src="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+        src={pictureSource}
         alt=''
         style={{
           width: '200px',

@@ -20,7 +20,6 @@ import GroupsList from '../GroupsList/GroupsList.jsx';
 import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
-import SingleGroupPage from '../SingleGroupPage/SingleGroupPage.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,6 +87,15 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
   const classes = useStyles();
 
+  const url = window.location.href.split('/');
+  let user = url[url.length - 1];
+
+  // this will need to be dynamic once we set up log in / signup
+  if (user === 'u') {
+    user = 'akhilsf';
+  }
+  user = 'akhilsf';
+
   return (
     <div className={classes.root}>
       <Router>
@@ -130,7 +138,7 @@ export default function SearchAppBar() {
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to="/profile" className={classes.links}>
+                  to={{pathname: `${user}`}} className={classes.links}>
               Profile
                 </MaterialUILink>
               </Grid>
@@ -161,14 +169,11 @@ export default function SearchAppBar() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
             <Route path="/signup">
               <Signup />
             </Route>
-            <Route path="/grouppage">
-              <SingleGroupPage />
+            <Route path="/:username">
+              <Profile />
             </Route>
           </Switch>
         </main>

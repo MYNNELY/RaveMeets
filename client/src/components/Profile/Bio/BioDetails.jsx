@@ -6,14 +6,13 @@ const BioDetails = ({profile}) => {
     return (<></>);
   }
 
-  console.log(profile);
   return (
     <>
       <Paper
         style={{
           width: '275px',
           marginTop: '20px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div
@@ -25,7 +24,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      BIO
+      Bio
           <div
             style={{
               marginLeft: '12px',
@@ -41,7 +40,7 @@ const BioDetails = ({profile}) => {
         style={{
           width: '275px',
           marginTop: '10px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div
@@ -53,7 +52,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      GENRES
+      Favorite Genres
           <ul
             style={{
               marginLeft: '24px',
@@ -71,7 +70,7 @@ const BioDetails = ({profile}) => {
         style={{
           width: '275px',
           marginTop: '10px',
-          background: '#353535',
+          background: '#1b2d46',
         }}
       >
         <div
@@ -83,7 +82,7 @@ const BioDetails = ({profile}) => {
             color: '#FFFFFF',
           }}
         >
-      Artists
+      Favorite Artists
           <ul
             style={{
               marginLeft: '24px',
