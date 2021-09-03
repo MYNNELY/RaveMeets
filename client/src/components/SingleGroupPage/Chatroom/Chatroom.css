@@ -7,7 +7,10 @@
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
   color: rgb(123, 100, 250);
+=======
+>>>>>>> 732c8a17bfe67d8e1347cadc515280663516acc1
 }
 
 html,
@@ -15,6 +18,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  color: rgb(0, 0, 0);
 }
 
 #root {
