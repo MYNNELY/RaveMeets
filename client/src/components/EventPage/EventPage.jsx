@@ -11,7 +11,7 @@ import {getEvent} from './functions';
 
 const EventPage = () => {
   const [event, setEvent] = useState({});
-  let { id } = useParams({});
+  const {id} = useParams({});
   useEffect( () => {
     getEvent(id, setEvent);
   }, []);
