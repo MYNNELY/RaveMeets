@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
-// import useStorage from '../../../hooks/useStorage';
+import React, {useState} from 'react';
+import ImageUploader from './ImageUploader.jsx';
 import {
   Paper,
   Button,
@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 
-const EditBioModal = ({profile, editModal,  handleEditModal}) => {
+const EditBioModal = ({profile, editModal, handleEditModal}) => {
   if (!profile) {
     return (
       <></>
@@ -32,7 +32,7 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
 
   const artistTaste = () => {
     const artistArray = [];
-    for (let i in profile[0].artist_taste) {
+    for (const i in profile[0].artist_taste) {
       artistArray.push(profile[0].artist_taste[i].artist_name);
     }
     return artistArray.join(', ');
@@ -47,13 +47,16 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
     'Rock': musicTaste('Rock'),
     'Jazz': musicTaste('Jazz'),
   });
+  const [profilePic, setProfilePic] = useState('');
+
+
+  const handlePictureUpload = (e) => {
+    setProfilePic(e.target.files[0].name);
+  };
 
   const handleUpdate = (e) => {
-    e.preventDefault();
-    console.log(document.getElementById('upload_picture').file[0]);
-
     const likedGenres = [];
-    for (let i in genreState) {
+    for (const i in genreState) {
       if (genreState[i]) {
         likedGenres.push({genre_name: i});
       }
@@ -62,11 +65,8 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
     const artistInput = document.getElementById('artist_input').value.split(',');
     const likedArtists = [];
     artistInput.forEach((artist) => {
-      console.log(artist);
       likedArtists.push({artist_name: artist});
     });
-
-    console.log(likedArtists);
 
     axios.put(`http://54.176.43.199:3000/u/${profile[0].username}`, {
       name: document.getElementById('name_input').value,
@@ -77,7 +77,7 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
   };
 
   const handleGenreChange = (e) => {
-    setGenreState({ ...genreState, [e.target.name]: e.target.checked });
+    setGenreState({...genreState, [e.target.name]: e.target.checked});
   };
 
   const handleClose = (e) => {
@@ -135,12 +135,13 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
         >
           Upload Picture
           <input
+            onChange={handlePictureUpload}
             id='upload_picture'
             type='file'
             accept='image/*'
             hidden
           />
-        </Button><br />
+        </Button>&nbsp;<span>{profilePic}</span>
         <TextField
           fullWidth
           multiline
