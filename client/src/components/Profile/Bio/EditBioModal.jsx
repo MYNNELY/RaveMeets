@@ -230,7 +230,7 @@ const EditBioModal = ({profile, editModal,  handleEditModal}) => {
             width: '200px',
             height: '30px',
             marginTop: '20px',
-            background: '#F02C6F',
+            background: '#F50057',
           }}
         >
           Update

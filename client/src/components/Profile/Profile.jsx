@@ -21,6 +21,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    console.log(userInfo, username, 'look here')
     if (userInfo) {
       if (userInfo.username === username) {
         setMyProfile(true);
