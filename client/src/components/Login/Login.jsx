@@ -21,7 +21,7 @@ const Login = () => {
       password,
     })
         .then((result) => {
-          history.push(`/u/${username}`);
+          history.push(`/${username}`);
         })
         .catch((err) => {
           setError(true);
