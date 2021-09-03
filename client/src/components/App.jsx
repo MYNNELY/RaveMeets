@@ -15,7 +15,6 @@ import SearchAppBar from './NavBar/SearchAppBar.jsx';
 import UserContext from './userContext.jsx';
 import SearchBar from './SearchBar/SearchBar.jsx';
 
-
 const App = () => {
   const localStorageUsername = localStorage.getItem('username');
   const [userInfo, setUserInfo] = useState();
@@ -27,32 +26,10 @@ const App = () => {
   }, []);
 
   return (
-    <div>
 
-
-      <UserContext.Provider value={{userInfo, setUserInfo}}>
-        <SearchAppBar />
-      </UserContext.Provider>
-
-
-      <Router>
-        <Link to="/events">Events</Link>
-        <Link to="/groups">Groups</Link>
-        <Link to="/profile">profile</Link>
-        <Switch>
-          <Route path="/events">
-            <EventsList />
-          </Route>
-          <Route path="/groups">
-            <GroupsList />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-        </Switch>
-      </Router>
-
-    </div>
+    <UserContext.Provider value={{userInfo, setUserInfo}}>
+      <SearchAppBar />
+    </UserContext.Provider>
 
   );
 };

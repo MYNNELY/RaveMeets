@@ -60,6 +60,7 @@ flex-direction: column;
 flex-wrap: nowrap;
 align-content: center;
 align-items: center;
+
 `;
 
 
@@ -109,6 +110,7 @@ const SearchBar = ({placeholder}) =>{
   const classes = useStyles();
   const [display, setDisplay] = useState(false);
   const [search, setSearch] = useState('');
+  const [peopleData, setPeopleData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const wrapperRef = useRef(null);
   const placeHolderRef = useRef(null);
@@ -126,8 +128,7 @@ const SearchBar = ({placeholder}) =>{
       axios.get('http://54.176.43.199:3000/search', {params: {q: search}} )
           .then((response ) => {
             setSearchData(response.data.Events);
-
-            console.log(searchData);
+            setPeopleData(response.data.Users);
           })
           .catch((err) => console.log(err));
     }
@@ -179,12 +180,27 @@ const SearchBar = ({placeholder}) =>{
 
 
       <StyledDataContainer>
+        {peopleData.map((user, key ) => (
+          <StyledSearchCardContainerDiv key={key}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href=`http://localhost:3000/u/${user.username}`;
+            }}>
+            <StyledEventInformation>
+              <StyledTitle>{user.name}</StyledTitle>
+
+            </StyledEventInformation>
+            <StyledEventImg src={'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'}></StyledEventImg>
+          </StyledSearchCardContainerDiv>
+
+        ))}
+
         {searchData.map((event, key) => (
           <StyledSearchCardContainerDiv key={key}
             onClick={(e) => {
               e.preventDefault();
               window.location.href=`http://localhost:3000/eventpage/${event._id}`;
-            }} >
+            }}>
             <StyledEventInformation>
               <StyledTitle>{event.name}</StyledTitle>
               <StyledDate>{event.start_date.slice(0, 10)}</StyledDate>
@@ -193,6 +209,7 @@ const SearchBar = ({placeholder}) =>{
             <StyledEventImg src={event.event_banner_url}></StyledEventImg>
           </StyledSearchCardContainerDiv>
         ))}
+
 
       </StyledDataContainer>
 

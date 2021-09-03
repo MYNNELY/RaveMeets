@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import GroupsListGallery from './GroupsListGallery.jsx';
 import {Grid} from '@material-ui/core';
+import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import {makeStyles} from '@material-ui/core/styles';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
@@ -20,16 +21,23 @@ const useStyles = makeStyles((theme) => ({
     width: '650px',
     maxHeight: '485px',
     overflow: 'hidden',
+    minHeight: '423px',
   },
   mainImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    color: '#FFF',
   },
   topLeft: {
     position: 'absolute',
     top: '30px',
     left: '30px',
+  },
+  topRight: {
+    position: 'absolute',
+    top: '15px',
+    right: '15px',
   },
 }));
 
@@ -42,6 +50,7 @@ const GroupsListCard = ({group}) => {
   const [eventName, setEventName] = useState('');
   const [venueName, setVenueName] = useState('');
   const [venueAddress, setVenueAddress] = useState('');
+  const [isHidden, setIsHidden] = useState(false);
 
   const getGroupInfo = () => {
     axios.get(`http://54.176.43.199:3000/groups/${groupId}`)
@@ -83,9 +92,11 @@ const GroupsListCard = ({group}) => {
   // }, []);
 
   return (
+    <div>
+      {!isHidden &&
     <Grid container spacing={1} className={classes.groupsListCard} key="1">
       <Grid item xs={5} className={classes.groupsListInfo}>
-        <img src={banner} className={classes.mainImage}
+        <img src={banner} alt={groupName} className={classes.mainImage}
           onClick={(e) => {
             history.push(`/groups/${groupId}`);
           }} />
@@ -95,11 +106,16 @@ const GroupsListCard = ({group}) => {
           {venueName && <p>{venueName}</p>}
           {venueAddress && <p>{venueAddress}</p>}
         </div>
+        <div className={classes.topRight}>
+          <CloseRoundedIcon onClick={()=>setIsHidden(true)} />
+        </div>
       </Grid>
       <Grid item className={classes.groupsListGallery}>
         <GroupsListGallery groupPhotos={groupPhotos} />
       </Grid>
     </Grid>
+      }
+    </div>
   );
 };
 

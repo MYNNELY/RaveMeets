@@ -88,6 +88,7 @@ const Login = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            style={{color: '#388'}}
           >
             Sign In
           </Button>
