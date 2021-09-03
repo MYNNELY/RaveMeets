@@ -56,6 +56,7 @@ export const ButtonHolder = styled.div`
 export const SidePanel = styled.div`
     padding: 1em;
     padding-top: 0;
+    margin-right: 1.7em;
     max-width: 20%;
     text-align: center;
 `;
