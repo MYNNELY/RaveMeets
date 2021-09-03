@@ -1,8 +1,9 @@
 /* eslint-disable require-jsdoc */
-import React from 'react';
+import React, {useContext} from 'react';
 import {Box} from '@material-ui/core';
 import GroupsListCard from './GroupsListCard.jsx';
 import {makeStyles} from '@material-ui/core/styles';
+import UserContext from '../userContext.jsx';
 
 const useStyles = makeStyles((theme) => ({
   groupsListContainer: {
@@ -13,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GroupsList = () => {
+  const {userInfo} = useContext(UserContext);
+  console.log('Groups List userInfo:', userInfo);
   const classes = useStyles();
   return (
     <Box component="div" className={classes.groupsListContainer}>
