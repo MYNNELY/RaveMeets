@@ -9,8 +9,8 @@ const useStyles = makeStyles({
   singleImage: {
     border: 10,
     borderRadius: 3,
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     padding: '0 20px',
   },
 });
@@ -19,6 +19,7 @@ const useStyles = makeStyles({
 
 const SingleImage = ({singlePhoto}) => {
   // const {event_details} = data;
+  console.log(singlePhoto, 'did this get where it needed to go?');
   const classes = useStyles();
 
 
@@ -26,8 +27,8 @@ const SingleImage = ({singlePhoto}) => {
 
   // console.log(event_details, 'this is all the event details')
   return (
-    <div className={classes.singleImage}>{'Event Details Go here.'}Hello
-
+    <div >
+      <img className={classes.singleImage} src={singlePhoto.url} />
       {/* <img> */}
 
 

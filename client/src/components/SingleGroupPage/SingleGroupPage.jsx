@@ -24,6 +24,8 @@ import axios from 'axios';
 //why can't i just put hook in here?
 
 const SingleGroupPage = (props) => {
+  const params = useParams();
+  console.log('hello this is supposed to be params');
 
   const { name } = useParams();
 
@@ -68,11 +70,18 @@ const SingleGroupPage = (props) => {
       {/*  might need to fix */}
       <ImagesTogether data={data}/>
       <EventDetails data={data}/>
-      <Button variant="contained" color="primary">
+      {/* <Button variant="contained" color="primary">
         Hello World
       </Button>
-      <Hook />
+      <Hook /> */}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div>
+
       <Chatroom />
+      </div>
 
     </ThemeProvider>
 
