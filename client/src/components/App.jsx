@@ -13,9 +13,13 @@ import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
 import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
 
+
 const App = () => {
+  const [userInfo, setUserInfo] = useState();
   return (
-    <SearchAppBar />
+    <UserContext.Provider value={{userInfo, setUserInfo}}>
+      <SearchAppBar />
+    </UserContext.Provider>
     // <Router>
     //   <div>
     //     <Link to="/events">Events</Link>
@@ -42,6 +46,7 @@ export default App;
 
 
 // import SingleGroupPage from './SingleGroupPage/SingleGroupPage.jsx'
+import UserContext from './userContext';
 
 // const App = () => {
 //   return (<div>
