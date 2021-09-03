@@ -11,6 +11,10 @@ export const StyledDescription = styled.div`
     }
 `;
 
+export const StyledSpan = styled.span`
+    margin-right: 1em;
+`;
+
 export const StyledBannerContainer = styled.div`
     width: 100%;
     height: 400px;
@@ -41,9 +45,18 @@ export const InfoContainer = styled.div`
     width: 100%;
 `;
 
+export const ButtonHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px;
+`;
+
 export const SidePanel = styled.div`
     padding: 1em;
     padding-top: 0;
+    margin-right: 1.7em;
     max-width: 20%;
     text-align: center;
 `;

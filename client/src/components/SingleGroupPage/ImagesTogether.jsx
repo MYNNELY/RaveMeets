@@ -48,7 +48,7 @@ const ImagesTogether = ({ data }) => {
     console.log('hello');
     axios.post(`http://54.176.43.199:3000/groups/${data._id}/photos`, {
       photos: [{
-        "url": 'https://images.unsplash.com/photo-1630573577896-04e7c5b7fe33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80',
+        "url": ImgURL,
         "caption": caption,
       }],
     })
@@ -63,7 +63,7 @@ const ImagesTogether = ({ data }) => {
 
   const handleChangeURL = (event) => {
     console.log(event.target.files[0], 'the file?');
-    setImgURL(event.target.files[0]);
+    setImgURL(event.target.value);
   }
 
   const handleChangeCaption = (event) => {
@@ -87,16 +87,16 @@ const ImagesTogether = ({ data }) => {
       {imageArray}
       <button onClick={submitPhoto}>Add Image</button>
 
-      <form onSubmit={console.log('nope')}>
+      <form style={{color: "black"}} onSubmit={console.log('nope')}>
         <label>
           ImgURL:
-          <input type="file" id="uploads" accept="image/*" onChange={handleChangeURL} />
+          <input style={{color: "black"}} type="text" id="uploads" onChange={handleChangeURL} />
         </label>
 
 
         <label>
           Caption:
-          <input type="text" value={caption} onChange={handleChangeCaption} />
+          <input style={{color: "black"}} type="text" value={caption} onChange={handleChangeCaption} />
         </label>
 
       </form>
