@@ -190,7 +190,7 @@ export default function SearchAppBar() {
               <Profile />
             </Route>
 
-            <Route path="/grouppage">
+            <Route path="/grouppage/:id">
               <SingleGroupPage />
             </Route>
 
