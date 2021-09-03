@@ -39,8 +39,8 @@ const SingleMembers = ({singleMember}) => {
 
   return (
     <div>
-      <a href={`http://localhost:3000/${singleMember.username}`} >
-      <img src={memberData.profile_pic_url} />
+      <a href={`http://localhost:3000/u/${singleMember.username}`} >
+      <img style={{width: 100}} src={memberData.profile_pic_url} />
       </a>
       <p>{singleMember.name}</p>
       <p>{singleMember.role}</p>

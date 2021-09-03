@@ -12,6 +12,9 @@ const api_key = process.env.STREAM_API_KEY;
 const api_secret = process.env.STREAM_API_SECRET;
 const app_id = process.env.STREAM_API_ID;
 
+console.log(api_key, 'what is this');
+
+
 console.log('hello');
 
 const login = async (req, res)=>{
