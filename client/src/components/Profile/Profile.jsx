@@ -58,7 +58,7 @@ const Profile = () => {
           backgroundColor: '#1b2d46',
         }}
       >
-        <Groups />
+        <Groups profile={profile}/>
         <Feed
           pastEvents={profile.events_attended}
           upcomingEvents={profile.events_upcoming}
