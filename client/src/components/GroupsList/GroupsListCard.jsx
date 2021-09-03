@@ -43,44 +43,44 @@ const GroupsListCard = ({group}) => {
   const [venueName, setVenueName] = useState('');
   const [venueAddress, setVenueAddress] = useState('');
 
-  // const getGroupInfo = () => {
-  //   axios.get(`http://54.176.43.199:3000/groups/${groupId}`)
-  //       .then(({data}) => {
-  //         setBanner(data[0].banner_url);
-  //         setGroupPhotos(data[0].group_photos);
-  //         const eventDetails = data[0].event_details;
-  //         setEventName(eventDetails.name);
-  //         setVenueName(eventDetails.venue.name);
-  //         setVenueAddress(eventDetails.venue.address);
-  //       })
-  //       .catch((err) => {
-  //         console.error(err);
-  //       });
-  // };
-
-  // useEffect(() => {
-  //   getGroupInfo();
-  // }, group);
+  const getGroupInfo = () => {
+    axios.get(`http://54.176.43.199:3000/groups/${groupId}`)
+        .then(({data}) => {
+          setBanner(data[0].banner_url);
+          setGroupPhotos(data[0].group_photos);
+          const eventDetails = data[0].event_details;
+          setEventName(eventDetails.name);
+          setVenueName(eventDetails.venue.name);
+          setVenueAddress(eventDetails.venue.address);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+  };
 
   useEffect(() => {
-    // hard coded sample data
-    setBanner('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRCPyv9mVHSpygk_qk08wGoLQKaNybxhiLzg&usqp=CAU');
-    setGroupPhotos([{
-      'url': 'https://img.jakpost.net/c/2020/06/13/2020_06_13_97619_1592026084._large.jpg',
-      'caption': 'Great time',
-    },
-    {
-      'url': 'https://www.d8aspring.com/hs-fs/hubfs/Eye-on-Asia/20210614-successful-brand-collaborations-with-k-pop-group.jpg?width=807&name=20210614-successful-brand-collaborations-with-k-pop-group.jpg',
-      'caption': 'Fun night',
-    },
-    {
-      'url': 'https://i2.wp.com/koreabyme.com/wp-content/uploads/2020/12/Slide1-8.jpg?fit=1920%2C1280&ssl=1',
-      'caption': 'Yeah!',
-    }]);
-    setEventName('coachella');
-    setVenueName('coachella');
-    setVenueAddress('cali');
-  }, []);
+    getGroupInfo();
+  }, group);
+
+  //   // hard coded sample data
+  // useEffect(() => {
+  //   setBanner('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRCPyv9mVHSpygk_qk08wGoLQKaNybxhiLzg&usqp=CAU');
+  //   setGroupPhotos([{
+  //     'url': 'https://img.jakpost.net/c/2020/06/13/2020_06_13_97619_1592026084._large.jpg',
+  //     'caption': 'Great time',
+  //   },
+  //   {
+  //     'url': 'https://www.d8aspring.com/hs-fs/hubfs/Eye-on-Asia/20210614-successful-brand-collaborations-with-k-pop-group.jpg?width=807&name=20210614-successful-brand-collaborations-with-k-pop-group.jpg',
+  //     'caption': 'Fun night',
+  //   },
+  //   {
+  //     'url': 'https://i2.wp.com/koreabyme.com/wp-content/uploads/2020/12/Slide1-8.jpg?fit=1920%2C1280&ssl=1',
+  //     'caption': 'Yeah!',
+  //   }]);
+  //   setEventName('coachella');
+  //   setVenueName('coachella');
+  //   setVenueAddress('cali');
+  // }, []);
 
   return (
     <Grid container spacing={1} className={classes.groupsListCard} key="1">
