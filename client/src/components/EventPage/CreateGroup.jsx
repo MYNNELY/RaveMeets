@@ -27,11 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const onGroupSubmit = (e, {id, event_banner_url}) => {
+const onGroupSubmit = (e, {_id, event_banner_url}) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  console.log(formProps, id, event_banner_url);
+  console.log({...formProps, event_id: _id, event_banner_url});
   // axios.post('http://54.176.43.199:3000/groups', {
   //   name: groupname,
   //   banner_url: null,
@@ -48,7 +48,7 @@ const onGroupSubmit = (e, {id, event_banner_url}) => {
 };
 
 const CreateGroup = ({event = {}}) => {
-  const {id='id', event_banner_url='banner'} = event;
+  const {_id='id', event_banner_url='banner'} = event;
   const [create, setCreate] = useState(false);
   let loggedIn = useContext(UserContext);
   loggedIn = true;
@@ -90,7 +90,10 @@ const CreateGroup = ({event = {}}) => {
         }}
       >
         <Fade in={open}>
-          <form className={classes.paper} onSubmit={(e) => {onGroupSubmit(e, {id, event_banner_url})}}>
+          <form className={classes.paper} onSubmit={
+            (e) => {
+              onGroupSubmit(e, {_id, event_banner_url});
+            }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <TextField
               id="transition-modal-description"
