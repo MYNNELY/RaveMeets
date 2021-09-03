@@ -3,7 +3,11 @@ import Picture from './Picture.jsx';
 import ActionButton from './ActionButton.jsx';
 import BioDetails from './BioDetails.jsx';
 
-const BioSection = ({ handleEditModal }) => {
+const BioSection = ({ profile, handleEditModal }) => {
+  if (!profile) {
+    return (<></>);
+  }
+
   return (
     <div
       className="bio_container"
@@ -13,11 +17,9 @@ const BioSection = ({ handleEditModal }) => {
         flexDirection: 'column',
       }}
     >
-      <Picture />
-      <ActionButton
-        handleEditModal={handleEditModal}
-      />
-      <BioDetails />
+      <Picture profile={profile}/>
+      <ActionButton handleEditModal={handleEditModal} />
+      <BioDetails profile={profile} />
     </div>
   );
 };

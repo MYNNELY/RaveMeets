@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import React from 'react';
+import React, {useContext} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import IconButton from '@material-ui/core/IconButton';
@@ -16,9 +16,12 @@ import {
   Link,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
+import EventPage from '../EventPage/EventPage.jsx';
 import GroupsList from '../GroupsList/GroupsList.jsx';
 import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
+import Signup from '../Signup/Signup.jsx';
+import UserContext from '../userContext.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,6 +88,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
+  const {userInfo} = useContext(UserContext);
+  const user = userInfo || 'Login';
 
   return (
     <div className={classes.root}>
@@ -101,7 +106,10 @@ export default function SearchAppBar() {
           </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/" className={classes.links}>
-              RAVEmeets
+                <span style={{
+                  fontWeight: 700,
+                  fontSize: '36px',
+                }}>RAVEmeets</span>
               </Link>
             </Typography>
             <Grid
@@ -128,8 +136,8 @@ export default function SearchAppBar() {
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to="/profile" className={classes.links}>
-              Profile
+                  to={{pathname: `/${user}`}} className={classes.links}>
+                  {user}
                 </MaterialUILink>
               </Grid>
             </Grid>
@@ -153,13 +161,19 @@ export default function SearchAppBar() {
             <Route path="/events">
               <EventsList />
             </Route>
+            <Route path="/eventpage/:id">
+              <EventPage />
+            </Route>
             <Route path="/groups">
               <GroupsList />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/profile">
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/:username">
               <Profile />
             </Route>
           </Switch>

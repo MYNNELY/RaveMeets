@@ -2,7 +2,7 @@ import React from 'react';
 import GroupIcon from './GroupIcons.jsx';
 import {Grid} from '@material-ui/core';
 
-const Groups = () => {
+const Groups = ({profile}) => {
   const array = [1, 2, 3, 4, 5];
 
   return (
@@ -12,7 +12,7 @@ const Groups = () => {
           width: '187px',
           height: '36px',
           fontWeight: '600',
-          fontSize: '18px',
+          fontSize: '22px',
           lineHeight: '48px',
         }}
       >
