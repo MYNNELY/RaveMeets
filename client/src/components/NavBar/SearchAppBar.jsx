@@ -16,6 +16,7 @@ import {
   Link,
 } from 'react-router-dom';
 import EventsList from '../EventsList/EventsList.jsx';
+import EventPage from '../EventPage/EventPage.jsx';
 import GroupsList from '../GroupsList/GroupsList.jsx';
 import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
@@ -159,6 +160,9 @@ export default function SearchAppBar() {
           <Switch>
             <Route path="/events">
               <EventsList />
+            </Route>
+            <Route path="/eventpage/:id">
+              <EventPage />
             </Route>
             <Route path="/groups">
               <GroupsList />
