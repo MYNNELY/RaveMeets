@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import {Button, ImageList, ImageListItem, ImageListItemBar} from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import EventTile from './EventTile.jsx';
 import styled from 'styled-components';
@@ -36,12 +37,13 @@ const EventList = () => {
       .then(({data}) => {setRaves(data)})
       .catch((err) => console.error(err));
   }, [])
+  const history = useHistory();
   return (
     <Container>
       <ImageList  rowHeight={300} cols={1} >
       <ImageListItem >
         <Banner src={`https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg?w=248&fit=crop&auto=format`}/>
-        <ImageListItemBar  title={'Lost in Dreams'} subtitle={'September 19'}/>
+        <ImageListItemBar  title={'Neverland'} subtitle={new Date('2022-11-06T20:00:00.000Z').toUTCString()}/>
       </ImageListItem>
       </ImageList>
       <Grid_div>
@@ -49,12 +51,14 @@ const EventList = () => {
           {raves.map(rave => (
             <ImageListItem>
               <img
+                style={{display: "block"}}
                 src={`${rave.event_banner_url}?w=248&fit=crop&auto=format`}
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={rave.name}
                 loading="lazy"
+                onClick={(e) => {history.push(`/eventpage/${rave._id}`)}}
               />
-              <ImageListItemBar title={rave.name} subtitle={Date(rave.start_date)}/>
+              <ImageListItemBar title={rave.name} subtitle={new Date(rave.start_date).toUTCString()}/>
             </ImageListItem>
           ))}
         </ImageList>
