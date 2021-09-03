@@ -29,17 +29,18 @@ const SingleGroupPage = (props) => {
 
   const { name } = useParams();
 
-  const [groupID, setGroupID] = useState("61311a5a219130dbcd125a19");
+  // const [groupID, setGroupID] = useState("61311a5a219130dbcd125a19");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams({});
-  if (id) {
-    setGroupID(id);
-  }
+  console.log(id, 'this is the group id')
+  // if (id) {
+  //   setGroupID(id);
+  // }
 
   useEffect(() => {
 
-    axios.get(`http://54.176.43.199:3000/groups/${groupID}`)
+    axios.get(`http://54.176.43.199:3000/groups/${id}`)
       .then(function (response) {
         // handle success
         console.log('hello');

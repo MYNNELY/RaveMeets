@@ -22,6 +22,7 @@ import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
 import UserContext from '../userContext.jsx';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 import SingleGroupPage from '../SingleGroupPage/SingleGroupPage.jsx';
 
 
@@ -154,10 +155,10 @@ export default function SearchAppBar() {
                 </MaterialUILink>
               </Grid>
             </Grid>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
+            <SearchBar />
+            {/* <div className={classes.search}>
+
+
               <InputBase
                 placeholder="Search…"
                 classes={{
@@ -166,7 +167,7 @@ export default function SearchAppBar() {
                 }}
                 inputProps={{'aria-label': 'search'}}
               />
-            </div>
+            </div> */}
           </Toolbar>
         </AppBar>
         <main>

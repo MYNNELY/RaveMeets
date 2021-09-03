@@ -27,12 +27,11 @@ const SingleImage = ({singlePhoto}) => {
 
   // console.log(event_details, 'this is all the event details')
   return (
-    <div >
+    <>
       <img className={classes.singleImage} src={singlePhoto.url} />
-      {/* <img> */}
 
 
-    </div>
+    </>
 
   );
 };
