@@ -32,7 +32,7 @@ const GroupsList = () => {
           setGroups(data[0].groups);
         })
         .catch((err) => {
-          console.log(error);
+          console.error(error);
         });
   };
 
