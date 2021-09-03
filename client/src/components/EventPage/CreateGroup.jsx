@@ -70,8 +70,8 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
     username})
       .then((result) => {
         // push to individual group page
-        console.log(result);
-        location.href = '/groups';
+        console.log(result.data._id);
+        location.href = `/groups`;
       })
       .catch((err) => {
         console.log(err);
