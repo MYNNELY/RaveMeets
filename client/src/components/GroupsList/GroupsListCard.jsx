@@ -21,11 +21,13 @@ const useStyles = makeStyles((theme) => ({
     width: '650px',
     maxHeight: '485px',
     overflow: 'hidden',
+    minHeight: '423px',
   },
   mainImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    color: '#FFF',
   },
   topLeft: {
     position: 'absolute',
@@ -94,7 +96,7 @@ const GroupsListCard = ({group}) => {
       {!isHidden &&
     <Grid container spacing={1} className={classes.groupsListCard} key="1">
       <Grid item xs={5} className={classes.groupsListInfo}>
-        <img src={banner} className={classes.mainImage}
+        <img src={banner} alt={groupName} className={classes.mainImage}
           onClick={(e) => {
             history.push(`/groups/${groupId}`);
           }} />
