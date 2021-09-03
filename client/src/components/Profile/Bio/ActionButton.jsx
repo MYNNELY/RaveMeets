@@ -1,5 +1,4 @@
 import React from 'react';
-import EditBioModal from './EditBioModal.jsx';
 import {Button} from '@material-ui/core';
 
 const ActionButton = ({ handleEditModal }) => {
