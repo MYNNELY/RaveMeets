@@ -4,7 +4,7 @@ import { Button, Container, CssBaseline, TextField, FormControlLabel, Checkbox, 
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import UserContext from '../userContext';
+import UserContext from '../userContext.jsx';
 
 const Login = () => {
   let history = useHistory();
@@ -15,8 +15,6 @@ const Login = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const classes = useStyles();
 
-
-
   const onSignInSubmit = (e) => {
     e.preventDefault();
     setError(false);
@@ -26,7 +24,7 @@ const Login = () => {
     })
         .then((result) => {
           setUserInfo({ username })
-          history.push(`/${userInfo}`);
+          history.push(`/${username}`);
         })
         .catch((err) => {
           setError(true);

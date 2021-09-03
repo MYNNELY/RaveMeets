@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import {Paper} from '@material-ui/core';
@@ -6,18 +7,21 @@ import BioSection from './Bio/BioSection.jsx';
 import Groups from './Groups/Groups.jsx';
 import Feed from './ProfileFeed/Feed.jsx';
 import EditBioModal from './Bio/EditBioModal.jsx';
+import UserContext from '../userContext.jsx';
 
 const Profile = () => {
   const [profile, setProfile] = useState();
   const [editModal, setEditModal] = useState(false);
   let {username} = useParams();
+  const {userInfo, setUserInfo} = useContext(UserContext);
 
   const handleEditModal = (e) => {
     setEditModal(!editModal);
   };
 
   useEffect(() => {
-    axios.get(`http://54.176.43.199:3000/u/${username}`)
+    const user = userInfo || username;
+    axios.get(`http://54.176.43.199:3000/u/${user}`)
         .then((results) => {
           setProfile(results.data);
         })
