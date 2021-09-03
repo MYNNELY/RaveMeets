@@ -138,7 +138,7 @@ export default function SearchAppBar() {
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to={{pathname: `/u/${user}`}} className={classes.links}>
+                  to={{pathname: `/${user}`}} className={classes.links}>
               Profile
                 </MaterialUILink>
               </Grid>
@@ -169,7 +169,7 @@ export default function SearchAppBar() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/u/:username">
+            <Route path="/:username">
               <Profile />
             </Route>
             <Route path="/signup">
