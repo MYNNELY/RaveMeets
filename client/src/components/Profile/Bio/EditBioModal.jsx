@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+// import useStorage from '../../../hooks/useStorage';
 import {
   Paper,
   Button,
@@ -32,7 +33,6 @@ const EditBioModal = ({profile, editModal}) => {
   const artistTaste = () => {
     const artistArray = [];
     for (let i in profile[0].artist_taste) {
-      console.log(profile[0].artist_taste[i].artist_name)
       artistArray.push(profile[0].artist_taste[i].artist_name);
     }
     return artistArray.join(', ');
@@ -48,9 +48,12 @@ const EditBioModal = ({profile, editModal}) => {
     'Jazz': musicTaste('Jazz'),
   });
 
-  // const [artistState, setArtistState] = useState(artistTaste());
+  // const url = useStorage(profile.profile_pic_url);
 
   const handleUpdate = (e) => {
+    e.preventDefault();
+    console.log(document.getElementById('upload_picture').file[0]);
+
     const likedGenres = [];
     for (let i in genreState) {
       if (genreState[i]) {
@@ -83,7 +86,7 @@ const EditBioModal = ({profile, editModal}) => {
     location.reload();
   };
 
-  const { RnB, HipHop, Pop, EDM, KPop, Rock, Jazz } = genreState;
+  const {RnB, HipHop, Pop, EDM, KPop, Rock, Jazz} = genreState;
 
   return (
     <Paper
@@ -94,7 +97,7 @@ const EditBioModal = ({profile, editModal}) => {
         display: editModal ? 'flex' : 'none',
         justifyContent: 'center',
         position: 'fixed',
-        marginTop: '20to',
+        marginTop: '20px',
         marginBottom: 'auto',
         width: '500px',
         backgroundColor: '#353535',
@@ -133,7 +136,7 @@ const EditBioModal = ({profile, editModal}) => {
             backgroundColor: 'darkgrey',
           }}
         >
-          Update Picture
+          Upload Picture
           <input
             id='upload_picture'
             type='file'
@@ -230,7 +233,7 @@ const EditBioModal = ({profile, editModal}) => {
             width: '200px',
             height: '30px',
             marginTop: '20px',
-            background: '#C974C4',
+            background: '#F02C6F',
           }}
         >
           Update
