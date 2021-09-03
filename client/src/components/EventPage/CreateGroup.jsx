@@ -85,7 +85,7 @@ const CreateGroup = ({event = {}}) => {
   // let loggedIn = {userInfo: 'momo'};
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
+  let username = localStorage.getItem('username');
   const [groupname, setgroupname] = useState('');
 
   const handleOpen = () => {
@@ -104,7 +104,7 @@ const CreateGroup = ({event = {}}) => {
           color='primary'
           style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
           onClick={(ev) => {
-            loggedIn.userInfo ? handleOpen() : location.href = '/Login';
+            username ? handleOpen() : location.href = '/Login';
           }}
         >
         Create Group
@@ -125,7 +125,7 @@ const CreateGroup = ({event = {}}) => {
         <Fade in={open}>
           <form className={classes.paper} onSubmit={
             (e) => {
-              onGroupSubmit(e, {_id, event_banner_url, username: loggedIn.userInfo.username});
+              onGroupSubmit(e, {_id, event_banner_url, username});
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <CssTextField
