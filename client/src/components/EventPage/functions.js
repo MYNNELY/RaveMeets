@@ -25,3 +25,15 @@ export const getTime = (date1, date2) => {
     return isSameDate(date1, date2);
   }
 };
+
+export const priceRating = (price) => {
+  if (price) {
+    if (price <= 100) {
+      return '$';
+    } else if (price <= 300) {
+      return '$$';
+    } else {
+      return '$$$';
+    }
+  }
+};
