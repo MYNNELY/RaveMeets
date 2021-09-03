@@ -25,6 +25,8 @@ const Profile = () => {
     if (userInfo) {
       if (userInfo.username === username) {
         setMyProfile(true);
+      } else {
+        setMyProfile(false);
       }
     }
 
