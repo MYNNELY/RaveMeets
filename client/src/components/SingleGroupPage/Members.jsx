@@ -21,7 +21,7 @@ const Members = ({ members }) => {
     )
   })
   return (
-    <div style={{backgroundColor: "lightblue"}}>
+    <div style={{width: "1500px"}}>
       <h1>All members</h1>
       {memberElement}
     </div>
