@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GroupsList = () => {
+  /*
   const history = useHistory();
   const {userInfo} = useContext(UserContext);
 
@@ -23,7 +24,7 @@ const GroupsList = () => {
     history.push('/login');
   }
 
-  const {username} = userInfo;
+  const {username = 'andy'} = userInfo;
   const [groups, setGroups] = useState([]);
 
   const getGroups = () => {
@@ -39,8 +40,15 @@ const GroupsList = () => {
   useEffect(() => {
     getGroups();
   }, username);
+  */
 
   const classes = useStyles();
+
+  // hard coded sample data
+  const groups = [{
+    group_name: 'group name',
+    group_id: 123,
+  }];
 
   return (
     <Box component="div" className={classes.groupsListContainer}>
