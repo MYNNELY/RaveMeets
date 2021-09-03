@@ -15,8 +15,6 @@ const Login = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const classes = useStyles();
 
-
-
   const onSignInSubmit = (e) => {
     e.preventDefault();
     setError(false);
@@ -26,7 +24,7 @@ const Login = () => {
     })
         .then((result) => {
           setUserInfo({ username })
-          history.push(`/${userInfo}`);
+          history.push(`/${username}`);
         })
         .catch((err) => {
           setError(true);

@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import React from 'react';
+import React, {useContext} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // import IconButton from '@material-ui/core/IconButton';
@@ -21,6 +21,7 @@ import GroupsList from '../GroupsList/GroupsList.jsx';
 import Profile from '../Profile/Profile.jsx';
 import Login from '../Login/Login.jsx';
 import Signup from '../Signup/Signup.jsx';
+import UserContext from '../userContext.jsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,15 +88,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
-
-  const url = window.location.href.split('/');
-  let user = url[url.length - 1];
-
-  // this will need to be dynamic once we set up log in / signup
-  if (user === 'u') {
-    user = 'akhilsf';
-  }
-  user = 'akhilsf';
+  const {userInfo} = useContext(UserContext);
+  const user = userInfo || 'Login';
 
   return (
     <div className={classes.root}>
@@ -112,7 +106,10 @@ export default function SearchAppBar() {
           </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to="/" className={classes.links}>
-              RAVEmeets
+                <span style={{
+                  fontWeight: 700,
+                  fontSize: '36px',
+                }}>RAVEmeets</span>
               </Link>
             </Typography>
             <Grid
@@ -139,8 +136,8 @@ export default function SearchAppBar() {
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to={{pathname: `${user}`}} className={classes.links}>
-              Profile
+                  to={{pathname: `/${user}`}} className={classes.links}>
+                  {user}
                 </MaterialUILink>
               </Grid>
             </Grid>
