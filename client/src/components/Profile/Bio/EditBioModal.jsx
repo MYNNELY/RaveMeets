@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+// import useStorage from '../../../hooks/useStorage';
 import {
   Paper,
   Button,
@@ -47,9 +48,12 @@ const EditBioModal = ({profile, editModal}) => {
     'Jazz': musicTaste('Jazz'),
   });
 
-  // const [artistState, setArtistState] = useState(artistTaste());
+  // const url = useStorage(profile.profile_pic_url);
 
   const handleUpdate = (e) => {
+    e.preventDefault();
+    console.log(document.getElementById('upload_picture').files);
+
     const likedGenres = [];
     for (let i in genreState) {
       if (genreState[i]) {
@@ -82,7 +86,7 @@ const EditBioModal = ({profile, editModal}) => {
     location.reload();
   };
 
-  const { RnB, HipHop, Pop, EDM, KPop, Rock, Jazz } = genreState;
+  const {RnB, HipHop, Pop, EDM, KPop, Rock, Jazz} = genreState;
 
   return (
     <Paper
