@@ -78,6 +78,7 @@ const Profile = () => {
       <EditBioModal
         profile={profile}
         editModal={editModal}
+        handleEditModal={handleEditModal}
       />
     </div>
   );

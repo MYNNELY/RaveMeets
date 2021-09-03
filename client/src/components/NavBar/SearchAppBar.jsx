@@ -99,7 +99,6 @@ export default function SearchAppBar() {
       u = userInfo.username;
     }
 
-    console.log(userInfo, 'Look here');
     setUser(u);
   }, [userInfo]);
 
