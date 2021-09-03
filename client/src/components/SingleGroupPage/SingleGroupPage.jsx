@@ -32,7 +32,10 @@ const SingleGroupPage = (props) => {
   const [groupID, setGroupID] = useState("61311a5a219130dbcd125a19");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { id } = useParams({});
+  if (id) {
+    setGroupID(id);
+  }
 
   useEffect(() => {
 
@@ -63,24 +66,24 @@ const SingleGroupPage = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Banner imgSource={data.banner_url}/>
+      <Banner imgSource={data.banner_url} />
       <GroupImg2 />
       <Members members={data.members} />
-      <AddFriend data={data}/>
+      <AddFriend data={data} />
       {/*  might need to fix */}
-      <ImagesTogether data={data}/>
-      <EventDetails data={data}/>
+      <ImagesTogether data={data} />
+      <EventDetails data={data} />
       {/* <Button variant="contained" color="primary">
         Hello World
       </Button>
       <Hook /> */}
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
       <div>
 
-      <Chatroom />
+        <Chatroom />
       </div>
 
     </ThemeProvider>
