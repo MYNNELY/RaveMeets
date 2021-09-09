@@ -7,11 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   singleImage: {
-    border: 10,
-    borderRadius: 3,
-    width: 100,
-    height: 100,
-    padding: '0 20px',
+    width: 500,
+    height: 450,
   },
 });
 

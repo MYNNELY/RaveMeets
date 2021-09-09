@@ -6,18 +6,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import SingleImage from './SingleImage.jsx';
 import axios from 'axios';
 // import useStorage from '../../hooks/useStorage.js'
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+// import itemData from './itemData';
 
 
-const useStyles = makeStyles({
-  imagesTogether: {
-    border: 10,
-    borderRadius: 3,
-    width: '95%',
-    height: 150,
-    padding: '0 20px',
+
+
+const useStyles1 = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    width: "1500px",
   },
-});
-
+  imageList: {
+    width: 1000,
+    height: 650,
+  },
+}));
 
 //why can't i just put hook in here?
 
@@ -29,7 +37,7 @@ const useStyles = makeStyles({
 
 const ImagesTogether = ({ data }) => {
   const { event_details } = data;
-  const classes = useStyles();
+  const classes = useStyles1();
   const [caption, setCaption] = useState('');
   const [ImgURL, setImgURL] = useState('');
 
@@ -71,11 +79,14 @@ const ImagesTogether = ({ data }) => {
   }
 
 
-  const imageArray = data.group_photos.map((singlePhoto) => {
+  const imageArray = data.group_photos.map((singlePhoto,i) => {
     console.log(singlePhoto, "inside the map, should have images now");
     return (
+      <ImageListItem key={i} cols={1}>
         <SingleImage singlePhoto={singlePhoto} />
-      )
+      </ImageListItem>
+
+    )
 
   })
   console.log(data._id, 'data needs to have photos');
@@ -84,25 +95,30 @@ const ImagesTogether = ({ data }) => {
   return (
     <div >Our Images
 
-      {imageArray}
       <button onClick={submitPhoto}>Add Image</button>
 
-      <form style={{color: "black"}} onSubmit={console.log('nope')}>
+      <form style={{ color: "black" }} onSubmit={console.log('nope')}>
         <label>
           ImgURL:
-          <input style={{color: "black"}} type="text" id="uploads" onChange={handleChangeURL} />
+          <input style={{ color: "black" }} type="text" id="uploads" onChange={handleChangeURL} />
         </label>
 
 
         <label>
           Caption:
-          <input style={{color: "black"}} type="text" value={caption} onChange={handleChangeCaption} />
+          <input style={{ color: "black" }} type="text" value={caption} onChange={handleChangeCaption} />
         </label>
 
       </form>
 
 
 
+      <div className={classes.root}>
+        <ImageList rowHeight={300} className={classes.imageList} cols={4}>
+          {imageArray}
+
+        </ImageList>
+      </div>
     </div>
 
   );
@@ -110,3 +126,9 @@ const ImagesTogether = ({ data }) => {
 
 
 export default ImagesTogether;
+
+
+
+
+
+
