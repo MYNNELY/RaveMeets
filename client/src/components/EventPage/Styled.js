@@ -66,3 +66,21 @@ export const SidePanelList = styled.div``;
 export const SidePanelListItem = styled.div`
     margin-bottom: 0.5em;
 `;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+`;
+
+export const EventTitle = styled.div`
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 0.1em;
+  letter-spacing: 0.2rem;
+`;
+
+export const TitleLine = styled.div`
+  margin-bottom: 0.3em;
+`;
