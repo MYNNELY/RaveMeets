@@ -52,7 +52,7 @@ const EventList = () => {
             <ImageListItem>
               <img
                 key={index}
-                style={{display: "block"}}
+                style={{display: "block", cursor: 'pointer'}}
                 src={`${rave.event_banner_url}?w=248&fit=crop&auto=format`}
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={rave.name}
