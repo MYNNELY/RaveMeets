@@ -13,11 +13,28 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 
+
 const EditBioModal = ({profile, editModal, handleEditModal}) => {
   if (!profile) {
     return (
       <></>
     );
+  };
+
+  let updateButton;
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageUrlData, setImageUrlData] = useState([]);
+
+  const extractDataFromUpload = (err, url) => {
+    if (err) {
+      console.log('error');
+    } else {
+      // else set extracted url to the imageUrlData
+      // set uploading to false to show that its done uploading and enable the submit button again.
+      console.log(url, 'uploadDone');
+      setImageUrlData(url);
+      setUploadingImage(false);
+    }
   };
 
   const musicTaste = (genre) => {
@@ -51,7 +68,9 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
 
 
   const handlePictureUpload = (e) => {
-    setProfilePic(e.target.files[0].name);
+    setProfilePic([e.target.files]);
+    // console.log(e.target.files[0][0], 'image');
+    setUploadingImage(true);
   };
 
   const handleUpdate = (e) => {
@@ -86,6 +105,47 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
 
   const {RnB, HipHop, Pop, EDM, KPop, Rock, Jazz} = genreState;
 
+  if (uploadingImage) {
+    updateButton = <Button
+      variant='contained'
+      component='label'
+      color='primary'
+      disabled
+      style={{
+        width: '200px',
+        height: '30px',
+        marginTop: '20px',
+        background: '#F50057',
+      }}
+    >
+      Update
+      <input
+        type='submit'
+        hidden
+      />
+    </Button>;
+  } else {
+    updateButton = <Button
+      variant='contained'
+      component='label'
+      color='primary'
+      style={{
+        width: '200px',
+        height: '30px',
+        marginTop: '20px',
+        background: '#F50057',
+      }}
+    >
+      Update
+      <input
+        type='submit'
+        hidden
+      />
+    </Button>;
+  }
+
+
+
   return (
     <Paper
       elevation={3}
@@ -115,6 +175,12 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
         }}>
           Edit Profile
         </div>
+        {uploadingImage &&
+          <ImageUploader
+            files={profilePic[0]}
+            extract={extractDataFromUpload}
+            imageUrlData={imageUrlData} />
+        }
         <Button
           onClick={handleClose}
           style={{
@@ -141,7 +207,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
             accept='image/*'
             hidden
           />
-        </Button>&nbsp;<span>{profilePic}</span>
+        </Button>
         <TextField
           fullWidth
           multiline
@@ -223,23 +289,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
             marginTop: '10px',
           }}
         />
-        <Button
-          variant='contained'
-          component='label'
-          color='primary'
-          style={{
-            width: '200px',
-            height: '30px',
-            marginTop: '20px',
-            background: '#F50057',
-          }}
-        >
-          Update
-          <input
-            type='submit'
-            hidden
-          />
-        </Button>
+        {updateButton}
       </form>
     </Paper>
   );
