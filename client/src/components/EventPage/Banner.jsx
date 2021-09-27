@@ -11,7 +11,7 @@ const Banner = ({url}) => {
   const  closeBanner = () => setOpen(false);
   return (
     <>
-      <StyledBannerContainer>
+      <StyledBannerContainer onClick={() => openBanner()}>
         <StyledBannerImage src={url} alt='Banner image for event' />
       </StyledBannerContainer>
       <Modal
