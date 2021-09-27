@@ -61,8 +61,6 @@ export const SidePanel = styled.div`
     text-align: center;
 `;
 
-export const SidePanelList = styled.div``;
-
 export const SidePanelListItem = styled.div`
     margin-bottom: 0.5em;
 `;

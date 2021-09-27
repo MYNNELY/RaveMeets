@@ -1,6 +1,6 @@
 import React from 'react';
 import {Paper} from '@material-ui/core';
-import {SidePanel, SidePanelList, SidePanelListItem} from './Styled';
+import {SidePanel, SidePanelListItem} from './Styled';
 import PropTypes from 'prop-types';
 
 const SideInfo = ({lineup}) => {
@@ -33,7 +33,7 @@ const SideInfo = ({lineup}) => {
           ></div>
         </div>
       </Paper>
-      <SidePanelList>
+      <div>
         {lineup.map((object, index) => {
           return (
             <SidePanelListItem key={index}
@@ -42,7 +42,7 @@ const SideInfo = ({lineup}) => {
             </SidePanelListItem>
           );
         })}
-      </SidePanelList>
+      </div>
     </SidePanel>
   );
 };
