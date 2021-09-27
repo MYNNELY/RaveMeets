@@ -82,10 +82,8 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
 
 const CreateGroup = ({event = {}}) => {
   const {_id='id', event_banner_url='banner'} = event;
-  const [create, setCreate] = useState(false);
-  const loggedIn = useContext(UserContext);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const username = localStorage.getItem('username');
   const [groupname, setgroupname] = useState('');
 
