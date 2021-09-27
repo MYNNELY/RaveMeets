@@ -48,9 +48,10 @@ const EventList = () => {
       </ImageList>
       <Grid_div>
         <ImageList rowHeight={250} cols={4} >
-          {raves.map(rave => (
+          {raves.map((rave, index) => (
             <ImageListItem>
               <img
+                key={index}
                 style={{display: "block"}}
                 src={`${rave.event_banner_url}?w=248&fit=crop&auto=format`}
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}

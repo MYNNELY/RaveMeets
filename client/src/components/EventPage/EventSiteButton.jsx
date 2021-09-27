@@ -4,31 +4,31 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {MuiThemeProvider, createTheme} from '@material-ui/core/styles';
 
 const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#57c'
-      },
-      secondary: {
-        main: '#800'
-      }
-    }
-  });
+  palette: {
+    primary: {
+      main: '#57c',
+    },
+    secondary: {
+      main: '#800',
+    },
+  },
+});
 
 const EventSiteButton = ({url}) => {
-    return (
-        <MuiThemeProvider theme={theme}>
-            <Button
-                href={url}
-                target='_blank'
-                variant='contained'
-                color='secondary'
-                startIcon={<OpenInNewIcon />}
-                style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
-            >
-                Official site
-            </Button>
-        </MuiThemeProvider>
-    );
+  return (
+    <MuiThemeProvider theme={theme}>
+      <Button
+        href={url}
+        target='_blank'
+        variant='contained'
+        color='secondary'
+        startIcon={<OpenInNewIcon />}
+        style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
+      >
+        Official site
+      </Button>
+    </MuiThemeProvider>
+  );
 };
 
 export default EventSiteButton;
