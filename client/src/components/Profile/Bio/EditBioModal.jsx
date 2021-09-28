@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 
 
-const EditBioModal = ({profile, editModal, handleEditModal}) => {
+const EditBioModal = ({profile, editModal, handleEditModal, setProfileUpdated}) => {
   if (!profile) {
     return (
       <></>
@@ -92,7 +92,12 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
       music_taste: likedGenres,
       artist_taste: likedArtists,
       profile_pic_url: imageUrlData,
-    });
+    })
+      .then(() => {
+        setProfileUpdated((prevState) => prevState + 1);
+        setImageUrlData(null);
+        handleClose();
+      });
   };
 
   const handleGenreChange = (e) => {

@@ -11,6 +11,7 @@ const Profile = () => {
   const [profile, setProfile] = useState();
   const [myProfile, setMyProfile] = useState(false);
   const [editModal, setEditModal] = useState(false);
+  const [profileUpdated, setProfileUpdated] = useState(0);
   let {username} = useParams();
 
   const handleEditModal = (e) => {
@@ -32,7 +33,7 @@ const Profile = () => {
         .catch((error) => {
           console.log(error);
         });
-  }, []);
+  }, [profileUpdated]);
 
   if (!profile) {
     return (
@@ -77,6 +78,7 @@ const Profile = () => {
         profile={profile}
         editModal={editModal}
         handleEditModal={handleEditModal}
+        setProfileUpdated={setProfileUpdated}
       />
     </div>
   );
