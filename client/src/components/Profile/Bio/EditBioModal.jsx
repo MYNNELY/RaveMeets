@@ -23,7 +23,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
 
   let updateButton;
   const [uploadingImage, setUploadingImage] = useState(false);
-  const [imageUrlData, setImageUrlData] = useState([]);
+  const [imageUrlData, setImageUrlData] = useState(null);
 
   const extractDataFromUpload = (err, url) => {
     if (err) {
@@ -31,7 +31,6 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
     } else {
       // else set extracted url to the imageUrlData
       // set uploading to false to show that its done uploading and enable the submit button again.
-      console.log(url, 'uploadDone');
       setImageUrlData(url);
       setUploadingImage(false);
     }
@@ -69,11 +68,11 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
 
   const handlePictureUpload = (e) => {
     setProfilePic([e.target.files]);
-    // console.log(e.target.files[0][0], 'image');
     setUploadingImage(true);
   };
 
   const handleUpdate = (e) => {
+    e.preventDefault();
     const likedGenres = [];
     for (const i in genreState) {
       if (genreState[i]) {
@@ -92,6 +91,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
       bio: document.getElementById('bio_input').value,
       music_taste: likedGenres,
       artist_taste: likedArtists,
+      profile_pic_url: imageUrlData,
     });
   };
 
@@ -144,8 +144,6 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
     </Button>;
   }
 
-
-
   return (
     <Paper
       elevation={3}
@@ -190,24 +188,29 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
           }}
         >&#10006;
         </Button>
-        <Button
-          variant='outlined'
-          component='label'
-          style={{
-            width: '200px',
-            height: '30px',
-            backgroundColor: 'darkgrey',
-          }}
-        >
-          Upload Picture
-          <input
-            onChange={handlePictureUpload}
-            id='upload_picture'
-            type='file'
-            accept='image/*'
-            hidden
-          />
-        </Button>
+        {imageUrlData &&
+          <img src={imageUrlData} height={150}/>
+        }
+        { !imageUrlData &&
+          <Button
+            variant='outlined'
+            component='label'
+            style={{
+              width: '200px',
+              height: '30px',
+              backgroundColor: 'darkgrey',
+            }}
+          >
+            Upload Picture
+            <input
+              onChange={handlePictureUpload}
+              id='upload_picture'
+              type='file'
+              accept='image/*'
+              hidden
+            />
+          </Button>
+        }
         <TextField
           fullWidth
           multiline
