@@ -1,7 +1,6 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {Button, TextField} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import UserContext from '../userContext.jsx';
 import axios from 'axios';
 import {
   makeStyles,
