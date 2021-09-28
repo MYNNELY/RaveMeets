@@ -8,7 +8,7 @@ import {Container} from '@material-ui/core';
 import {useParams} from 'react-router-dom';
 import {InfoContainer, ButtonHolder} from './Styled';
 import EventSiteButton from './EventSiteButton.jsx';
-
+import AttendButton from './AttendButton.jsx';
 import {getEvent} from './functions';
 
 
@@ -30,6 +30,7 @@ const EventPage = () => {
       >
         <Title info={event}></Title>
         <ButtonHolder>
+          <AttendButton />
           <CreateGroup event={event} />
           <EventSiteButton url={event.link || ''}/>
         </ButtonHolder>
