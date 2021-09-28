@@ -13,15 +13,15 @@ const AttendButton = () => {
     setAttend(!attend);
   };
   return (
-    <Button
+    username ?
+    (<Button
       variant='contained'
       onClick={handleClick}
       style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
       color={attend ? 'primary' : 'secondary'}
-      disabled={!username}
     >
       {attend ? 'Attending' : 'Attend'}
-    </Button>
+    </Button>) : null
   );
 };
 
