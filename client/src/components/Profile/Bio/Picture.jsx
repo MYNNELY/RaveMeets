@@ -5,13 +5,11 @@ const Picture = ({profile}) => {
     return (<></>);
   }
 
-  let pictureSource = profile.profile_pic_url || 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
+  let pictureSource = profile[0].profile_pic_url || 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
 
   if (profile[0].username === 'jackwu') {
     pictureSource = 'https://media-exp1.licdn.com/dms/image/C5603AQECKx8uYB7oQA/profile-displayphoto-shrink_800_800/0/1622615030744?e=1635984000&v=beta&t=kpEsNkPPR4MtiwD5hOEUrNe3arDF9lVgT7YiqncPRdY';
   }
-
-  console.log(profile);
 
   return (
     <>

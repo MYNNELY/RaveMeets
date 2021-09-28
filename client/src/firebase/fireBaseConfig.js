@@ -1,18 +1,16 @@
-import firebase from 'firebase/app';
-import 'firebase/storage';
-import 'firebase/firestore';
+import {initializeApp} from 'firebase/app';
+import {getStorage} from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBHUqTDSjYQ3Seg9EBNb72aMoXyiP0xUOY',
-  authDomain: 'ravemeets.firebaseapp.com',
-  projectId: 'ravemeets',
-  storageBucket: 'ravemeets.appspot.com',
-  messagingSenderId: '902811217512',
-  appId: '1:902811217512:web:5154b5751dbe8a741155dd',
-  measurementId: 'G-W79MKEPCW6',
+  apiKey: 'AIzaSyBJJ8dz1D2eviiZZgv-RAFlY5Q-er1Xj4Q',
+  authDomain: 'ravemeets-29773.firebaseapp.com',
+  projectId: 'ravemeets-29773',
+  storageBucket: 'ravemeets-29773.appspot.com',
+  messagingSenderId: '562568943509',
+  appId: '1:562568943509:web:072b74f78939ea09d0489c',
+  measurementId: 'G-1QMSBY0SLL',
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-export const answerImageStorage = firebase.storage();
-export const answerImageFireStore = firebase.firestore();
+export const imageStorage = getStorage(firebaseApp);

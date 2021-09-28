@@ -13,11 +13,27 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 
+
 const EditBioModal = ({profile, editModal, handleEditModal}) => {
   if (!profile) {
     return (
       <></>
     );
+  };
+
+  let updateButton;
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageUrlData, setImageUrlData] = useState(null);
+
+  const extractDataFromUpload = (err, url) => {
+    if (err) {
+      console.log('error');
+    } else {
+      // else set extracted url to the imageUrlData
+      // set uploading to false to show that its done uploading and enable the submit button again.
+      setImageUrlData(url);
+      setUploadingImage(false);
+    }
   };
 
   const musicTaste = (genre) => {
@@ -51,10 +67,12 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
 
 
   const handlePictureUpload = (e) => {
-    setProfilePic(e.target.files[0].name);
+    setProfilePic([e.target.files]);
+    setUploadingImage(true);
   };
 
   const handleUpdate = (e) => {
+    e.preventDefault();
     const likedGenres = [];
     for (const i in genreState) {
       if (genreState[i]) {
@@ -73,6 +91,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
       bio: document.getElementById('bio_input').value,
       music_taste: likedGenres,
       artist_taste: likedArtists,
+      profile_pic_url: imageUrlData,
     });
   };
 
@@ -85,6 +104,45 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
   };
 
   const {RnB, HipHop, Pop, EDM, KPop, Rock, Jazz} = genreState;
+
+  if (uploadingImage) {
+    updateButton = <Button
+      variant='contained'
+      component='label'
+      color='primary'
+      disabled
+      style={{
+        width: '200px',
+        height: '30px',
+        marginTop: '20px',
+        background: '#F50057',
+      }}
+    >
+      Update
+      <input
+        type='submit'
+        hidden
+      />
+    </Button>;
+  } else {
+    updateButton = <Button
+      variant='contained'
+      component='label'
+      color='primary'
+      style={{
+        width: '200px',
+        height: '30px',
+        marginTop: '20px',
+        background: '#F50057',
+      }}
+    >
+      Update
+      <input
+        type='submit'
+        hidden
+      />
+    </Button>;
+  }
 
   return (
     <Paper
@@ -115,6 +173,12 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
         }}>
           Edit Profile
         </div>
+        {uploadingImage &&
+          <ImageUploader
+            files={profilePic[0]}
+            extract={extractDataFromUpload}
+            imageUrlData={imageUrlData} />
+        }
         <Button
           onClick={handleClose}
           style={{
@@ -124,24 +188,29 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
           }}
         >&#10006;
         </Button>
-        <Button
-          variant='outlined'
-          component='label'
-          style={{
-            width: '200px',
-            height: '30px',
-            backgroundColor: 'darkgrey',
-          }}
-        >
-          Upload Picture
-          <input
-            onChange={handlePictureUpload}
-            id='upload_picture'
-            type='file'
-            accept='image/*'
-            hidden
-          />
-        </Button>&nbsp;<span>{profilePic}</span>
+        {imageUrlData &&
+          <img src={imageUrlData} height={150}/>
+        }
+        { !imageUrlData &&
+          <Button
+            variant='outlined'
+            component='label'
+            style={{
+              width: '200px',
+              height: '30px',
+              backgroundColor: 'darkgrey',
+            }}
+          >
+            Upload Picture
+            <input
+              onChange={handlePictureUpload}
+              id='upload_picture'
+              type='file'
+              accept='image/*'
+              hidden
+            />
+          </Button>
+        }
         <TextField
           fullWidth
           multiline
@@ -223,23 +292,7 @@ const EditBioModal = ({profile, editModal, handleEditModal}) => {
             marginTop: '10px',
           }}
         />
-        <Button
-          variant='contained'
-          component='label'
-          color='primary'
-          style={{
-            width: '200px',
-            height: '30px',
-            marginTop: '20px',
-            background: '#F50057',
-          }}
-        >
-          Update
-          <input
-            type='submit'
-            hidden
-          />
-        </Button>
+        {updateButton}
       </form>
     </Paper>
   );
