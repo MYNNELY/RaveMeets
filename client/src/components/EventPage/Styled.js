@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const FlexRow = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin-bottom: 1em;
 `;
 
 export const FlexColumn = styled(FlexRow)`
@@ -10,8 +12,14 @@ export const FlexColumn = styled(FlexRow)`
 `;
 
 export const MainContainer = styled(FlexColumn)`
-  flex-direction: column;
   max-width: 1500px;
+  margin: 2em auto 0;
+`;
+
+export const SideContainer = styled(FlexColumn)`
+  width: 46%;
+  height: 100%;
+  background-color: #36435E;
 `;
 
 export const StyledDescription = styled.p`
@@ -31,8 +39,8 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledBannerContainer = styled.div`
-    width: 50%;
-    height: 600px;
+    width: 52%;
+    height: 100%;
 `;
 
 export const StyledBannerImage = styled.img`

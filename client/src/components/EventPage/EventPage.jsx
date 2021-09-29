@@ -5,7 +5,7 @@ import Description from './Description.jsx';
 import SideInfo from './SideInfo.jsx';
 import Title from './Title.jsx';
 import {useParams} from 'react-router-dom';
-import {MainContainer, FlexRow, InfoContainer, ButtonHolder} from './Styled';
+import {MainContainer, FlexRow, SideContainer} from './Styled';
 import EventSiteButton from './EventSiteButton.jsx';
 import AttendButton from './AttendButton.jsx';
 import {getEvent} from './functions';
@@ -20,8 +20,9 @@ const EventPage = () => {
 
   return (
     <MainContainer>
-      <FlexRow>
+      <FlexRow style={{height: 600}}>
         <Banner url={event.event_banner_url || '#'}/>
+        <SideContainer />
       </FlexRow>
       <Description description={event.description || ''} />
     </MainContainer>
