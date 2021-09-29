@@ -17,7 +17,7 @@ export const MainContainer = styled(FlexColumn)`
 `;
 
 export const SideContainer = styled(FlexColumn)`
-  width: 46%;
+  width: 43%;
   height: 100%;
   background-color: #36435E;
 `;
@@ -39,7 +39,7 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledBannerContainer = styled.div`
-    width: 52%;
+    width: 55%;
     height: 100%;
 `;
 
