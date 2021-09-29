@@ -22,7 +22,9 @@ const EventPage = () => {
     <MainContainer>
       <FlexRow style={{height: 650}}>
         <Banner url={event.event_banner_url || '#'}/>
-        <SideContainer />
+        <SideContainer>
+          <Title info={event}/>
+        </SideContainer>
       </FlexRow>
       <Description description={event.description || ''} />
     </MainContainer>
