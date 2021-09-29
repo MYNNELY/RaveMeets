@@ -34,6 +34,11 @@ export const getTime = (date1, date2) => {
   }
 };
 
+export const getGenres = (genres) => {
+  if (!genres) return null;
+  return genres.join('  •  ');
+};
+
 export const priceRating = (price) => {
   if (price) {
     if (price <= 100) {

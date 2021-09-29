@@ -29,7 +29,11 @@ const Title = ({info}) => {
   return (
     <TitleContainer>
       <FlexRow>
-        <FlexColumn></FlexColumn>
+        <FlexColumn>
+          <EventTitle>{name}</EventTitle>
+          <TitleLine></TitleLine>
+          <TitleLine></TitleLine>
+        </FlexColumn>
         <FlexColumn></FlexColumn>
       </FlexRow>
       <div>google map</div>
