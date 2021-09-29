@@ -4,7 +4,7 @@ export const FlexRow = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1em;
+  margin-bottom: ${props => props.spaceless ? '0' : '1em'};
 `;
 
 export const FlexColumn = styled(FlexRow)`
