@@ -36,7 +36,11 @@ export const getTime = (date1, date2) => {
 
 export const getGenres = (genres) => {
   if (!genres) return null;
-  return genres.join('  •  ');
+  let genreNames = [];
+  genres.forEach(({genre_name}) => {
+    genreNames.push(genre_name);
+  });
+  return genreNames.join('  •  ');
 };
 
 export const priceRating = (price) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {getTime} from './functions';
+import {getTime, getGenres} from './functions';
 import {
   StyledSpan,
   TitleContainer,
@@ -31,7 +31,7 @@ const Title = ({info}) => {
       <FlexRow>
         <FlexColumn>
           <EventTitle>{name}</EventTitle>
-          <TitleLine></TitleLine>
+          <TitleLine>{getGenres(genres)}</TitleLine>
           <TitleLine></TitleLine>
         </FlexColumn>
         <FlexColumn></FlexColumn>
