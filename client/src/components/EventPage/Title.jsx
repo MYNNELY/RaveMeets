@@ -5,31 +5,51 @@ import {
   TitleContainer,
   EventTitle,
   TitleLine,
+  FlexRow,
+  FlexColumn,
+  LineupGrid,
 } from './Styled';
-import {priceRating} from './functions.js';
 import PropTypes from 'prop-types';
+import EventSiteButton from './EventSiteButton.jsx';
+import AttendButton from './AttendButton.jsx';
+import CreateGroup from './CreateGroup.jsx';
 
 const Title = ({info}) => {
   const {
+    _id,
+    event_banner_url,
     name,
     start_date,
     end_date,
     venue,
     genres,
+    link
   } = info;
   const dateTime = getTime(start_date, end_date);
   return (
     <TitleContainer>
-      <EventTitle>{name}</EventTitle>
-      <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
-      <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
-      <TitleLine>{genres?.map((genre, index) => {
-        return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
-      })}</TitleLine>
+      <FlexRow>
+        <FlexColumn></FlexColumn>
+        <FlexColumn></FlexColumn>
+      </FlexRow>
+      <div>google map</div>
+      <LineupGrid></LineupGrid>
+      <FlexRow>
+        <CreateGroup event={{_id, event_banner_url}}/>
+        <EventSiteButton url={link || '#'}/>
+      </FlexRow>
     </TitleContainer>
   );
 };
 
+// <TitleContainer>
+//   <EventTitle>{name}</EventTitle>
+//   <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
+//   <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
+//   <TitleLine>{genres?.map((genre, index) => {
+//     return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
+//   })}</TitleLine>
+// </TitleContainer>
 Title.propTypes = {
   info: PropTypes.object,
 };

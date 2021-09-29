@@ -20,6 +20,7 @@ export const SideContainer = styled(FlexColumn)`
   width: 43%;
   height: 100%;
   background-color: #36435E;
+  align-items: center;
 `;
 
 export const StyledDescription = styled.p`
@@ -88,11 +89,10 @@ export const SidePanelListItem = styled.div`
     margin-bottom: 0.5em;
 `;
 
-export const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
+export const TitleContainer = styled(FlexColumn)`
+  width: 95%;
+  height: 100%;
+  margin: 0;
 `;
 
 export const EventTitle = styled.div`
@@ -104,4 +104,8 @@ export const EventTitle = styled.div`
 
 export const TitleLine = styled.div`
   margin-bottom: 0.3em;
+`;
+
+export const LineupGrid = styled.div`
+
 `;
