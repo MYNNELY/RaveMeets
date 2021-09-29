@@ -17,9 +17,9 @@ export const MainContainer = styled(FlexColumn)`
 export const StyledDescription = styled.p`
     margin: 0;
     line-height: 1.5em;
-    overflow: hidden;
+    overflow-y: scroll;
     max-height: 300px;
-    max-width: 70%;
+    max-width: 100%;
 
     &::-webkit-scrollbar {
         display: none;
