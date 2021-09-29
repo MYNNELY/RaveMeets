@@ -31,9 +31,8 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledBannerContainer = styled.div`
-    width: 100%;
-    height: 400px;
-    margin: 1em 0;
+    width: 50%;
+    height: 600px;
 `;
 
 export const StyledBannerImage = styled.img`

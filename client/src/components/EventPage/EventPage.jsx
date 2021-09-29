@@ -20,7 +20,9 @@ const EventPage = () => {
 
   return (
     <MainContainer>
-      <FlexRow></FlexRow>
+      <FlexRow>
+        <Banner url={event.event_banner_url || '#'}/>
+      </FlexRow>
       <Description description={event.description || ''} />
     </MainContainer>
     // <Container style={{maxWidth: '1500px'}}>
