@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 
-export const StyledDescription = styled.div`
+export const FlexRow = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export const FlexColumn = styled(FlexRow)`
+  flex-direction: column;
+`;
+
+export const MainContainer = styled(FlexColumn)`
+  flex-direction: column;
+  max-width: 1500px;
+`;
+
+export const StyledDescription = styled.p`
+    margin: 0;
     line-height: 1.5em;
     overflow: hidden;
     max-height: 300px;
