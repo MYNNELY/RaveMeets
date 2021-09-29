@@ -18,15 +18,15 @@ const Title = ({info}) => {
     genres = [],
     price = null,
   } = info;
+  const dateTime = getTime(start_date, end_date);
   return (
     <TitleContainer>
       <EventTitle>{name}</EventTitle>
-      <TitleLine>{getTime(start_date, end_date)}</TitleLine>
+      <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
       <TitleLine>{venue.name} - {venue.address}</TitleLine>
       <TitleLine>{genres.map((genre, index) => {
         return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
       })}</TitleLine>
-      <div>{priceRating(price)}</div>
     </TitleContainer>
   );
 };
