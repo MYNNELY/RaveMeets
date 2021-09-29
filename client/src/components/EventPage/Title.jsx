@@ -11,20 +11,19 @@ import PropTypes from 'prop-types';
 
 const Title = ({info}) => {
   const {
-    name = '',
-    start_date = '',
-    end_date = '',
-    venue = {},
-    genres = [],
-    price = null,
+    name,
+    start_date,
+    end_date,
+    venue,
+    genres,
   } = info;
   const dateTime = getTime(start_date, end_date);
   return (
     <TitleContainer>
       <EventTitle>{name}</EventTitle>
       <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
-      <TitleLine>{venue.name} - {venue.address}</TitleLine>
-      <TitleLine>{genres.map((genre, index) => {
+      <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
+      <TitleLine>{genres?.map((genre, index) => {
         return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
       })}</TitleLine>
     </TitleContainer>
