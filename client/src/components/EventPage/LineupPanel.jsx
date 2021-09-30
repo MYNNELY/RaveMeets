@@ -53,7 +53,10 @@ const LineupPanel = ({artists}) => {
         <Fade in={open}>
           <GridModal style={{outline: 'none'}}>
             <HeaderText>Artist Lineup</HeaderText>
-            <GridWrapper style={{height: 'max-content'}}>
+            <GridWrapper style={{
+              height: 'max-content',
+              marginBottom: '1em',
+            }}>
               {artists?.map(({artist_name}, index) => {
                 return <LineupArtist name={artist_name} key={index}/>;
               })}

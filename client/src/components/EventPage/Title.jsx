@@ -13,6 +13,8 @@ import {
   FlexRow,
   FlexColumn,
   MapContainer,
+  EventInfo,
+  ButtonHolder,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -37,7 +39,7 @@ const Title = ({info}) => {
   const dateTime = getTime(start_date, end_date);
   return (
     <TitleContainer>
-      <FlexRow>
+      <EventInfo>
         <FlexColumn>
           <EventTitle>{name ? capitalizeString(name) : null}</EventTitle>
           <TitleLine>{getGenres(genres)}</TitleLine>
@@ -47,7 +49,7 @@ const Title = ({info}) => {
           <EventTitle>{dateTime?.date}</EventTitle>
           <EventTitle>{dateTime?.time}</EventTitle>
         </FlexColumn>
-      </FlexRow>
+      </EventInfo>
       <MapContainer>
         {venue?.address ? <iframe
           onLoad={() => setLoading(false)}
@@ -60,10 +62,10 @@ const Title = ({info}) => {
         {loading ? <LoadingSpinner /> : null}
       </MapContainer>
       <LineupPanel artists={artist_list}/>
-      <FlexRow>
+      <ButtonHolder>
         <CreateGroup event={{_id, event_banner_url}}/>
         <EventSiteButton url={link || '#'}/>
-      </FlexRow>
+      </ButtonHolder>
     </TitleContainer>
   );
 };

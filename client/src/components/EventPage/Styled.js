@@ -55,7 +55,7 @@ export const MapContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 300px;
+  height: 42%;
   background-color: #ddd;
 
   &:hover {
@@ -73,7 +73,7 @@ export const HeaderText = styled.div`
 
 export const GridContainer = styled.div`
   background-color: #021F3C;
-  height: 150px;
+  height: 24%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,8 +114,8 @@ export const PerformerContainer = styled.div`
 `;
 
 export const PerformerIcon = styled.div`
-  height: 55px;
-  width: 55px;
+  height: 50px;
+  width: 50px;
   background-color: #C4C4C4;
   border-radius: 50%;
   margin-left: 1.5em;
@@ -133,6 +133,15 @@ export const FlexRow = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: ${(props) => props.spaceless ? '0' : '1em'};
+`;
+
+export const EventInfo = styled(FlexRow)`
+  height: 17%;
+  margin-bottom: 0;
+`;
+
+export const ButtonHolder = styled(FlexRow)`
+  justify-content: space-evenly;
 `;
 
 export const FlexColumn = styled(FlexRow)`
