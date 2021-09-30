@@ -139,6 +139,4 @@ export const TitleLine = styled.div`
   margin-bottom: 0.3em;
 `;
 
-export const LineupGrid = styled.div`
 
-`;
