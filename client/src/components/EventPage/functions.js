@@ -51,16 +51,5 @@ export const getGenres = (genres) => {
 
 export const refactorAddress = (address) => {
   return address.replaceAll(' ', '+');
-}
-
-export const priceRating = (price) => {
-  if (price) {
-    if (price <= 100) {
-      return '$';
-    } else if (price <= 300) {
-      return '$$';
-    } else {
-      return '$$$';
-    }
-  }
 };
+
