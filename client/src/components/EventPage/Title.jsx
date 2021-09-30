@@ -33,9 +33,12 @@ const Title = ({info}) => {
         <FlexColumn>
           <EventTitle>{name}</EventTitle>
           <TitleLine>{getGenres(genres)}</TitleLine>
-          <TitleLine></TitleLine>
+          <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
         </FlexColumn>
-        <FlexColumn></FlexColumn>
+        <FlexColumn>
+          <EventTitle>{dateTime?.date}</EventTitle>
+          <EventTitle>{dateTime?.time}</EventTitle>
+        </FlexColumn>
       </FlexRow>
       <div>google map</div>
       <LineupPanel artists={artist_list}/>
