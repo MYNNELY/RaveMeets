@@ -10,7 +10,6 @@ export const GridContainer = styled.div`
 `;
 
 export const GridWrapper = styled.div`
-  background-color: #021F3C;
   width: max-content;
   height: 140px;
   display: grid;
