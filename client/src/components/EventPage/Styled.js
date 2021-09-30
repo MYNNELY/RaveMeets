@@ -209,7 +209,9 @@ export const TitleLine = styled.div`
   margin-bottom: 0.3em;
 `;
 
-export const TimeContainer = styled.div`
+export const TimeContainer = styled.div``;
+
+export const TimeLine = styled.span`
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
   margin-right: 1em;

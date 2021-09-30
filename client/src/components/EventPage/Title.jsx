@@ -17,6 +17,7 @@ import {
   ButtonHolder,
   DateContainer,
   TimeContainer,
+  TimeLine,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -49,8 +50,11 @@ const Title = ({info}) => {
         </FlexColumn>
         <FlexColumn>
           <DateContainer>{dateTime?.date}</DateContainer>
-          <TimeContainer>{dateTime?.time[0]}</TimeContainer>
-          <TimeContainer>{dateTime?.time[1]}</TimeContainer>
+          <TimeContainer>
+            <TimeLine>{dateTime?.time[0]}</TimeLine>
+            <TimeLine>-</TimeLine>
+            <TimeLine>{dateTime?.time[1]}</TimeLine>
+          </TimeContainer>
         </FlexColumn>
       </EventInfo>
       <MapContainer>
