@@ -1,5 +1,5 @@
 import React from 'react';
-import {getTime, getGenres} from './functions';
+import {getTime, getGenres, refactorAddress} from './functions';
 import {
   StyledSpan,
   TitleContainer,

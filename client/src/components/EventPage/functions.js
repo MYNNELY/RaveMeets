@@ -43,6 +43,10 @@ export const getGenres = (genres) => {
   return genreNames.join('  •  ');
 };
 
+export const refactorAddress = (address) => {
+  return address.replaceAll(' ', '+');
+}
+
 export const priceRating = (price) => {
   if (price) {
     if (price <= 100) {
