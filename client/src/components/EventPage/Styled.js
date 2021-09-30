@@ -143,6 +143,7 @@ export const StyledDescription = styled.p`
 `;
 
 export const StyledBannerContainer = styled.div`
+    position: relative;
     width: 55%;
     height: 100%;
 `;
@@ -170,6 +171,25 @@ export const EventTitle = styled.div`
 
 export const TitleLine = styled.div`
   margin-bottom: 0.3em;
+`;
+
+export const Star = styled.div`
+  color: ${(props) => props.colored ? 'yellow' : 'transparent'};
+`;
+
+export const AttendButtonContainer = styled.div`
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  transition: transform 0.2s;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
 `;
 
 

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Button} from '@material-ui/core';
 
 const AttendButton = () => {
   const username = localStorage.getItem('username');
@@ -13,15 +12,7 @@ const AttendButton = () => {
     setAttend(!attend);
   };
   return (
-    username ?
-    (<Button
-      variant='contained'
-      onClick={handleClick}
-      style={{fontWeight: '900', fontSize: '0.8rem', maxHeight: '50px'}}
-      color={attend ? 'primary' : 'secondary'}
-    >
-      {attend ? 'Attending' : 'Attend'}
-    </Button>) : null
+    <button></button>
   );
 };
 
