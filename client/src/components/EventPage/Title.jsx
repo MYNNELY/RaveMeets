@@ -19,6 +19,7 @@ import LoadingSpinner from './LoadingSpinner.jsx';
 
 const Title = ({info}) => {
   const apiKey = useContext(MapContext);
+  const [loading, setLoading] = useState(true);
   const {
     _id,
     event_banner_url,
@@ -45,13 +46,15 @@ const Title = ({info}) => {
         </FlexColumn>
       </FlexRow>
       <MapContainer>
-        {venue?.address ? null : <LoadingSpinner />}
         {venue?.address ? <iframe
+          onLoad={() => setLoading(false)}
           width='100%'
           height='100%'
           frameBorder='0' style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${refactorAddress(venue.address)}`} allowFullScreen>
+          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${refactorAddress(venue.address)}`}
+          allowFullScreen>
         </iframe> : null}
+        {loading ? <LoadingSpinner /> : null}
       </MapContainer>
       <LineupPanel artists={artist_list}/>
       <FlexRow>

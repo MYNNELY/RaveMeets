@@ -6,7 +6,9 @@ const spinAnimation = keyframes`
 `;
 
 export const SpinnerContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: 37.5%;
+  left: 42.5%;
   width: 95px;
   height: 95px;
 `;
@@ -30,6 +32,7 @@ export const Spinner = styled(SpinPath)`
 
 export const MapContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
