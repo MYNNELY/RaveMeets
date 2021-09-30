@@ -1,10 +1,43 @@
 import styled from 'styled-components';
 
+export const GridWrapper = styled.div`
+  width: max-content;
+  height: 140px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: auto;
+`;
+
+export const PerformerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  width: 300px;
+  height: 70px;
+  overflow: hidden;
+  border: 1px solid purple;
+`;
+
+export const PerformerIcon = styled.div`
+  height: 55px;
+  width: 55px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 1.5em;
+  margin-right: 1em;
+`;
+
+export const PerformerName = styled.div`
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+`;
+
 export const FlexRow = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: ${props => props.spaceless ? '0' : '1em'};
+  margin-bottom: ${(props) => props.spaceless ? '0' : '1em'};
 `;
 
 export const FlexColumn = styled(FlexRow)`
