@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const GridContainer = styled.div`
+  background-color: #021F3C;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 export const GridWrapper = styled.div`
   background-color: #021F3C;
   width: max-content;
