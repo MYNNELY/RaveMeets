@@ -17,7 +17,6 @@ import LineupPanel from './LineupPanel.jsx';
 
 const Title = ({info}) => {
   const API_KEY = '';
-  const ADDRESS = '';
   const {
     _id,
     event_banner_url,
@@ -44,12 +43,12 @@ const Title = ({info}) => {
         </FlexColumn>
       </FlexRow>
       <MapContainer>
-        <iframe
+        {venue?.address ? <iframe
           width='450'
           height='250'
-          frameborder='0' style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${ADDRESS}`} allowfullscreen>
-        </iframe>
+          frameBorder='0' style={{border: 0}}
+          src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${refactorAddress(venue.address)}`} allowFullScreen>
+        </iframe> : null}
       </MapContainer>
       <LineupPanel artists={artist_list}/>
       <FlexRow>
