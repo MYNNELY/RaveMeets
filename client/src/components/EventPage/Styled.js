@@ -144,6 +144,7 @@ export const StyledDescription = styled.p`
 
 export const StyledBannerContainer = styled.div`
     position: relative;
+    overflow: hidden;
     width: 55%;
     height: 100%;
 `;
@@ -174,22 +175,37 @@ export const TitleLine = styled.div`
 `;
 
 export const Star = styled.div`
-  color: ${(props) => props.colored ? 'yellow' : 'transparent'};
+  font-size: 2rem;
+  color: ${(props) => props.colored ? 'gold' : '#C4C4C4'};
 `;
 
-export const AttendButtonContainer = styled.div`
-  background-color: rgba(0,0,0,0.5);
+export const ButtonBody = styled.div`
+  background-color: rgba(0,0,0,0.4);
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5em 1em;
-  transition: transform 0.2s;
+  padding: 0em 1em 0.5em;
+  transition: background-color 0.2s;
   z-index: 1;
 
   &:hover {
-    transform: scale(1.2);
+    background-color: rgba(0,0,0,0.6);
     cursor: pointer;
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ButtonText = styled.div`
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  position: relative;
+  top: 5px;
 `;
 
 

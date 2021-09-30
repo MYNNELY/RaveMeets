@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyledBannerContainer, StyledBannerImage} from './Styled';
+import AttendButton from './AttendButton.jsx';
 import {makeStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -21,8 +22,10 @@ const Banner = ({url}) => {
   const closeBanner = () => setOpen(false);
   return (
     <>
-      <StyledBannerContainer onClick={() => openBanner()}>
-        <StyledBannerImage src={url} alt='Banner image for event' />
+      <StyledBannerContainer>
+        <AttendButton />
+        <StyledBannerImage onClick={() => openBanner()}
+          src={url} alt='Banner image for event' />
       </StyledBannerContainer>
       <Modal
         open = {open}

@@ -11,7 +11,6 @@ import {
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
-import AttendButton from './AttendButton.jsx';
 import CreateGroup from './CreateGroup.jsx';
 import LineupPanel from './LineupPanel.jsx';
 import LoadingSpinner from './LoadingSpinner.jsx';
