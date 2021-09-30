@@ -16,6 +16,8 @@ import CreateGroup from './CreateGroup.jsx';
 import LineupPanel from './LineupPanel.jsx';
 
 const Title = ({info}) => {
+  const API_KEY = '';
+  const ADDRESS = '';
   const {
     _id,
     event_banner_url,
@@ -41,7 +43,14 @@ const Title = ({info}) => {
           <EventTitle>{dateTime?.time}</EventTitle>
         </FlexColumn>
       </FlexRow>
-      <MapContainer>google map</MapContainer>
+      <MapContainer>
+        <iframe
+          width='450'
+          height='250'
+          frameborder='0' style={{border: 0}}
+          src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${ADDRESS}`} allowfullscreen>
+        </iframe>
+      </MapContainer>
       <LineupPanel artists={artist_list}/>
       <FlexRow>
         <CreateGroup event={{_id, event_banner_url}}/>
