@@ -7,11 +7,13 @@ const spinAnimation = keyframes`
 
 export const SpinnerContainer = styled.div`
   position: relative;
+  width: 95px;
+  height: 95px;
 `;
 
 export const SpinPath = styled.div`
   position: absolute;
-  border: 10px solid gray;
+  border: 10px solid #bec0c0;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -19,7 +21,7 @@ export const SpinPath = styled.div`
 
 export const Spinner = styled(SpinPath)`
   border: 10px solid transparent;
-  border-bottom: 10px solid blue;
+  border-bottom: 10px solid #1c87c9;
   animation-name: ${spinAnimation};
   animation-duration: 1.5s;
   animation-timing-function: linear;
@@ -27,9 +29,12 @@ export const Spinner = styled(SpinPath)`
 `;
 
 export const MapContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 300px;
-  background-color: black;
+  background-color: #ddd;
 `;
 
 export const GridContainer = styled.div`

@@ -4,6 +4,12 @@ export const getEvent = (id, callback) => {
   axios.get(`http://54.176.43.199:3000/events/${id}`).then((data) => callback(data.data[0])).catch((e) => console.log(e));
 };
 
+export const getKey = (callback) => {
+  axios.get('/auth/maps')
+  .then(({data}) => callback(data))
+  .catch((e) => console.error(e));
+}
+
 const isSameDate = (date1, date2) => {
   return date1 === date2 ? date1 : `${date1} - ${date2}`;
 };

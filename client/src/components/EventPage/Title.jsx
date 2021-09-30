@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState, useEffect, useContext} from 'react';
+import MapContext from '../mapContext.jsx';
 import {getTime, getGenres, refactorAddress} from './functions';
 import {
   StyledSpan,
@@ -15,14 +15,10 @@ import EventSiteButton from './EventSiteButton.jsx';
 import AttendButton from './AttendButton.jsx';
 import CreateGroup from './CreateGroup.jsx';
 import LineupPanel from './LineupPanel.jsx';
+import LoadingSpinner from './LoadingSpinner.jsx';
 
 const Title = ({info}) => {
-  const [apiKey, setApiKey] = useState();
-  useEffect(() => {
-    axios.get('/auth/maps')
-    .then(({data}) => setApiKey(data))
-    .catch((e) => console.error(e));
-  }, []);
+  const apiKey = useContext(MapContext);
   const {
     _id,
     event_banner_url,
@@ -49,6 +45,7 @@ const Title = ({info}) => {
         </FlexColumn>
       </FlexRow>
       <MapContainer>
+        {venue?.address ? null : <LoadingSpinner />}
         {venue?.address ? <iframe
           width='100%'
           height='100%'
