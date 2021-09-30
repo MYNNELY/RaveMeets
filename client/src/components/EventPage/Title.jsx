@@ -23,7 +23,8 @@ const Title = ({info}) => {
     end_date,
     venue,
     genres,
-    link
+    link,
+    artist_list,
   } = info;
   const dateTime = getTime(start_date, end_date);
   return (
