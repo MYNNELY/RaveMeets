@@ -39,7 +39,7 @@ const Banner = ({url}) => {
       >
         <Fade in={open}>
           <div style={{width: '70%'}}>
-            <StyledBannerImage src={url} alt='Banner image for event' />
+            <StyledBannerImage src={url} alt='Banner image for event' zoom/>
           </div>
         </Fade>
       </Modal>

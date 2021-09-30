@@ -30,6 +30,10 @@ export const SpinnerContainer = styled.div`
   left: 42.5%;
   width: 95px;
   height: 95px;
+
+  &:hover {
+    pointer: wait;
+  }
 `;
 
 export const SpinPath = styled.div`
@@ -154,7 +158,7 @@ export const StyledBannerImage = styled.img`
     height: 100%;
     object-fit: cover;
     object-position: center;
-    cursor: pointer;
+    cursor: ${(props) => props.zoom ? 'zoom-out' : 'zoom-in'};
 `;
 
 export const TitleContainer = styled(FlexColumn)`
@@ -184,7 +188,7 @@ export const ButtonBody = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0em 1em 0.5em;
+  padding: 0em 2em 0.5em;
   transition: background-color 0.2s;
   z-index: 1;
 
