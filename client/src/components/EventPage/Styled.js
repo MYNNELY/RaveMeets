@@ -136,10 +136,6 @@ export const StyledDescription = styled.p`
     }
 `;
 
-export const StyledSpan = styled.span`
-    margin-right: 1em;
-`;
-
 export const StyledBannerContainer = styled.div`
     width: 55%;
     height: 100%;
@@ -151,43 +147,6 @@ export const StyledBannerImage = styled.img`
     object-fit: cover;
     object-position: center;
     cursor: pointer;
-`;
-
-export const GroupModal = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 600px;
-    border-radius: 10px;
-    background-color: red;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-`;
-
-export const InfoContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-`;
-
-export const ButtonHolder = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 85px;
-`;
-
-export const SidePanel = styled.div`
-    padding: 1em;
-    padding-top: 0;
-    margin-right: 0em;
-    max-width: 20%;
-    text-align: center;
-`;
-
-export const SidePanelListItem = styled.div`
-    margin-bottom: 0.5em;
 `;
 
 export const TitleContainer = styled(FlexColumn)`
