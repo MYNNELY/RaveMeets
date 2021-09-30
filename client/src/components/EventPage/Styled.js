@@ -201,8 +201,22 @@ export const EventTitle = styled.div`
   letter-spacing: 0.2rem;
 `;
 
+export const DateContainer = styled(EventTitle)`
+  font-size 1.5rem;
+`;
+
 export const TitleLine = styled.div`
   margin-bottom: 0.3em;
+`;
+
+export const TimeContainer = styled.div`
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  margin-right: 1em;
+
+  &:last-child {
+    margin-right: 0em;
+  }
 `;
 
 export const Star = styled.div`

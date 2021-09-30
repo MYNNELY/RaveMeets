@@ -15,6 +15,8 @@ import {
   MapContainer,
   EventInfo,
   ButtonHolder,
+  DateContainer,
+  TimeContainer,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -43,11 +45,12 @@ const Title = ({info}) => {
         <FlexColumn>
           <EventTitle>{name ? capitalizeString(name) : null}</EventTitle>
           <TitleLine>{getGenres(genres)}</TitleLine>
-          <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
+          <TitleLine>{venue?.name}</TitleLine>
         </FlexColumn>
         <FlexColumn>
-          <EventTitle>{dateTime?.date}</EventTitle>
-          <EventTitle>{dateTime?.time}</EventTitle>
+          <DateContainer>{dateTime?.date}</DateContainer>
+          <TimeContainer>{dateTime?.time[0]}</TimeContainer>
+          <TimeContainer>{dateTime?.time[1]}</TimeContainer>
         </FlexColumn>
       </EventInfo>
       <MapContainer>

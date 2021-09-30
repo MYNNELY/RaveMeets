@@ -39,7 +39,7 @@ export const getTime = (date1, date2) => {
     const date = isSameDate(stringDate1, stringDate2);
     const time1 = toAmPm(date1[4].substring(0, 5));
     const time2 = toAmPm(date2[4].substring(0, 5));
-    const time = time1 + '-' + time2;
+    const time = [time1, time2];
     return {date, time};
   }
 };
