@@ -28,17 +28,17 @@ const Banner = ({url}) => {
           src={url} alt='Banner image for event' />
       </StyledBannerContainer>
       <Modal
-        open = {open}
-        onClose = {closeBanner}
-        onClick = {closeBanner}
-        BackdropComponent={Backdrop}
+        open={open}
+        onClose={closeBanner}
+        onClick={closeBanner}
         className={classes.modal}
+        BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
         <Fade in={open}>
-          <div style={{width: '70%'}}>
+          <div style={{width: '70%', outline: 'none'}}>
             <StyledBannerImage src={url} alt='Banner image for event' zoom/>
           </div>
         </Fade>

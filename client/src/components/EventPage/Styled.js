@@ -63,6 +63,14 @@ export const MapContainer = styled.div`
   }
 `;
 
+export const HeaderText = styled.div`
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid #fff;
+`;
+
 export const GridContainer = styled.div`
   background-color: #021F3C;
   height: 150px;
@@ -70,6 +78,15 @@ export const GridContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+`;
+
+export const GridModal = styled(GridContainer)`
+  flex-direction: column;
+  height: max-content;
+  width: max-content;
+  padding: 2em;
+  border-radius: 25px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 `;
 
 export const GridWrapper = styled.div`
@@ -158,6 +175,7 @@ export const StyledBannerImage = styled.img`
     height: 100%;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     cursor: ${(props) => props.zoom ? 'zoom-out' : 'zoom-in'};
 `;
 

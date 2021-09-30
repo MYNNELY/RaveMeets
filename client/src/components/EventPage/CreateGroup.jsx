@@ -121,9 +121,11 @@ const CreateGroup = ({event = {}}) => {
         }}
       >
         <Fade in={open}>
-          <form className={classes.paper} onSubmit={
-            (e) => {
-              onGroupSubmit(e, {_id, event_banner_url, username});
+          <form className={classes.paper}
+            styles={{boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'}}
+            onSubmit={
+              (e) => {
+                onGroupSubmit(e, {_id, event_banner_url, username});
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <CssTextField
