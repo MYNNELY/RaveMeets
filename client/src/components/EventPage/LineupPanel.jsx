@@ -7,9 +7,9 @@ const LineupPanel = ({artists}) => {
   return (
     <GridContainer>
       <GridWrapper>
-      {artists?.map(({artist_name}, index) => {
+        {artists?.map(({artist_name}, index) => {
           return <LineupArtist name={artist_name} key={index}/>;
-      })}
+        })}
       </GridWrapper>
     </GridContainer>
   );
