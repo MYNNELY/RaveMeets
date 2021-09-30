@@ -1,4 +1,30 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const spinAnimation = keyframes`
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const SpinnerContainer = styled.div`
+  position: relative;
+`;
+
+export const SpinPath = styled.div`
+  position: absolute;
+  border: 10px solid gray;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+`;
+
+export const Spinner = styled(SpinPath)`
+  border: 10px solid transparent;
+  border-bottom: 10px solid blue;
+  animation-name: ${spinAnimation};
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+`;
 
 export const MapContainer = styled.div`
   width: 100%;

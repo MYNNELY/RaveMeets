@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import {getTime, getGenres, refactorAddress} from './functions';
 import {
   StyledSpan,
@@ -16,7 +17,12 @@ import CreateGroup from './CreateGroup.jsx';
 import LineupPanel from './LineupPanel.jsx';
 
 const Title = ({info}) => {
-  const API_KEY = '';
+  const [apiKey, setApiKey] = useState();
+  useEffect(() => {
+    axios.get('/auth/maps')
+    .then(({data}) => setApiKey(data))
+    .catch((e) => console.error(e));
+  }, []);
   const {
     _id,
     event_banner_url,
@@ -47,7 +53,7 @@ const Title = ({info}) => {
           width='100%'
           height='100%'
           frameBorder='0' style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${refactorAddress(venue.address)}`} allowFullScreen>
+          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${refactorAddress(venue.address)}`} allowFullScreen>
         </iframe> : null}
       </MapContainer>
       <LineupPanel artists={artist_list}/>
