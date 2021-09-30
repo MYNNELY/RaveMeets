@@ -1,28 +1,61 @@
 import React from 'react';
-import {getTime} from './functions';
-import {StyledSpan} from './Styled';
-import {priceRating} from './functions.js';
+import {getTime, getGenres} from './functions';
+import {
+  StyledSpan,
+  TitleContainer,
+  EventTitle,
+  TitleLine,
+  FlexRow,
+  FlexColumn,
+  LineupGrid,
+} from './Styled';
+import PropTypes from 'prop-types';
+import EventSiteButton from './EventSiteButton.jsx';
+import AttendButton from './AttendButton.jsx';
+import CreateGroup from './CreateGroup.jsx';
 
 const Title = ({info}) => {
-  const {name='', start_date='', end_date='', venue={}, genres=[], price=null} = info;
+  const {
+    _id,
+    event_banner_url,
+    name,
+    start_date,
+    end_date,
+    venue,
+    genres,
+    link
+  } = info;
+  const dateTime = getTime(start_date, end_date);
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      marginLeft: '1.5em'}}>
-      <div style={{
-        fontWeight: '500',
-        fontSize: '2rem',
-        marginBottom: '0.1em',
-        letterSpacing: '0.2rem'}}>{name}</div>
-      <div style={{marginBottom: '0.3em'}}>{getTime(start_date, end_date)}</div>
-      <div style={{marginBottom: '0.3em'}}>{venue.name} - {venue.address}</div>
-      <div style={{marginBottom: '0.3em'}}>{genres.map((genre) => {
-        return <StyledSpan>{genre.genre_name}</StyledSpan>
-      })}</div>
-      <div style={{marginBottom: '1.5em'}}>{priceRating(price)}</div>
-    </div>
+    <TitleContainer>
+      <FlexRow>
+        <FlexColumn>
+          <EventTitle>{name}</EventTitle>
+          <TitleLine>{getGenres(genres)}</TitleLine>
+          <TitleLine></TitleLine>
+        </FlexColumn>
+        <FlexColumn></FlexColumn>
+      </FlexRow>
+      <div>google map</div>
+      <LineupGrid></LineupGrid>
+      <FlexRow>
+        <CreateGroup event={{_id, event_banner_url}}/>
+        <EventSiteButton url={link || '#'}/>
+      </FlexRow>
+    </TitleContainer>
   );
+};
+
+// <TitleContainer>
+//   <EventTitle>{name}</EventTitle>
+//   <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
+//   <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
+//   <TitleLine>{genres?.map((genre, index) => {
+//     return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
+//   })}</TitleLine>
+// </TitleContainer>
+Title.propTypes = {
+  info: PropTypes.object,
 };
 
 export default Title;

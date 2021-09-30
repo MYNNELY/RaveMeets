@@ -1,10 +1,21 @@
 /* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import {Button, ImageList, ImageListItem, ImageListItemBar} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import EventTile from './EventTile.jsx';
 import styled from 'styled-components';
+
+const useStyles = makeStyles({
+  event: {
+    cursor: 'pointer',
+    transition: 'opacity 0.2s',
+    '&:hover': {
+      opacity: '0.5',
+    },
+  },
+});
 
 const Banner = styled.img`
 height: 300px;
@@ -31,6 +42,7 @@ flex-wrap: wrap;
 `
 
 const EventList = () => {
+  const classes = useStyles();
   const [raves, setRaves] = useState([]);
   useEffect(() => {
     axios.get('http://54.176.43.199:3000/events')
@@ -47,10 +59,11 @@ const EventList = () => {
       </ImageListItem>
       </ImageList>
       <Grid_div>
-        <ImageList rowHeight={250} cols={4} >
-          {raves.map(rave => (
-            <ImageListItem>
+        <ImageList rowHeight={250} cols={4}>
+          {raves.map((rave, index) => (
+            <ImageListItem className={classes.event}>
               <img
+                key={index}
                 style={{display: "block"}}
                 src={`${rave.event_banner_url}?w=248&fit=crop&auto=format`}
                 srcSet={`${rave.event_banner_url}?w=248&fit=crop&auto=format&dpr=2 2x`}

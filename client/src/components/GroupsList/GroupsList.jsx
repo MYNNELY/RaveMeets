@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Box} from '@material-ui/core';
 import GroupsListCard from './GroupsListCard.jsx';
 import {makeStyles} from '@material-ui/core/styles';
@@ -45,7 +45,7 @@ const GroupsList = () => {
 
   useEffect(() => {
     getGroups();
-  }, username);
+  }, [username]);
 
   const classes = useStyles();
 

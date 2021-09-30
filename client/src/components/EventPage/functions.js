@@ -5,11 +5,17 @@ export const getEvent = (id, callback) => {
 };
 
 const isSameDate = (date1, date2) => {
-  if (date1.date === date2.date) {
-    return `${date1.date} | ${date1.time}-${date2.time}`;
-  } else {
-    return `${date1.date} | ${date1.time} - ${date2.date} | ${date2.time}`;
-  }
+  return date1 === date2 ? date1 : `${date1} - ${date2}`;
+};
+
+const toAmPm = (time) => {
+  let times = time.split(':');
+  let hour = Number(times[0]);
+  let minutes = times[1];
+  if (hour === 0) return `${hour}:${minutes}AM`;
+  if (hour === 12) return `${hour}:${minutes}PM`;
+  if (hour > 12) return `${hour-12}:${minutes}PM`;
+  return `${hour}:${minutes}AM`;
 };
 
 export const getTime = (date1, date2) => {
@@ -18,12 +24,23 @@ export const getTime = (date1, date2) => {
     date2 = new Date(date2).toString();
     date1 = date1.split(' ');
     date2 = date2.split(' ');
-
-    date1 = {date: date1.slice(1, 4).join('-'), time: date1[4].substring(0, 5)};
-    date2 = {date: date2.slice(1, 4).join('-'), time: date2[4].substring(0, 5)};
-
-    return isSameDate(date1, date2);
+    const stringDate1 = date1.slice(1, 3).join(' ');
+    const stringDate2 = date2.slice(1, 3).join(' ');
+    const date = isSameDate(stringDate1, stringDate2);
+    const time1 = toAmPm(date1[4].substring(0, 5));
+    const time2 = toAmPm(date2[4].substring(0, 5));
+    const time = time1 + '-' + time2;
+    return {date, time};
   }
+};
+
+export const getGenres = (genres) => {
+  if (!genres) return null;
+  let genreNames = [];
+  genres.forEach(({genre_name}) => {
+    genreNames.push(genre_name);
+  });
+  return genreNames.join('  •  ');
 };
 
 export const priceRating = (price) => {

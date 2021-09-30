@@ -1,24 +1,27 @@
-import React, { useState, useContext } from 'react';
-import {GroupModal} from './Styled';
+import React, {useState} from 'react';
 import {Button, TextField} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import UserContext from '../userContext.jsx';
 import axios from 'axios';
-
-import { makeStyles, withStyles, MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  withStyles,
+  MuiThemeProvider,
+  createTheme,
+} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import PropTypes from 'prop-types';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#57c'
+      main: '#57c',
     },
     secondary: {
-      main: '#ddd'
-    }
-  }
+      main: '#ddd',
+    },
+  },
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -37,9 +40,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-  multilineColor:{
-    color:'#fff'
-}
+  multilineColor: {
+    color: '#fff',
+  },
 }));
 
 const CssTextField = withStyles({
@@ -55,7 +58,7 @@ const CssTextField = withStyles({
         borderColor: '#9af',
       },
     },
-  }
+  },
 })(TextField);
 
 const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
@@ -78,12 +81,9 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
 
 const CreateGroup = ({event = {}}) => {
   const {_id='id', event_banner_url='banner'} = event;
-  const [create, setCreate] = useState(false);
-  let loggedIn = useContext(UserContext);
-  // let loggedIn = {userInfo: 'momo'};
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  let username = localStorage.getItem('username');
+  const [open, setOpen] = useState(false);
+  const username = localStorage.getItem('username');
   const [groupname, setgroupname] = useState('');
 
   const handleOpen = () => {
@@ -127,7 +127,6 @@ const CreateGroup = ({event = {}}) => {
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <CssTextField
-              // className={classes.margin}
               className={classes.root}
               variant="outlined"
               id="custom-css-outlined-input"
@@ -136,7 +135,7 @@ const CreateGroup = ({event = {}}) => {
               fullWidth
               multiline
               InputProps={{
-                className: classes.multilineColor
+                className: classes.multilineColor,
               }}
               label="Group name"
               InputLabelProps={{style: {color: '#fff'}}}
@@ -145,18 +144,26 @@ const CreateGroup = ({event = {}}) => {
               autoComplete="groupname"
               value={groupname}
               onChange={(e) => setgroupname(e.target.value)}
-             />
+            />
             <Button
               type='submit'
               variant='contained'
-              style={{fontSize: '0.8rem', fontWeight: '900', maxHeight: '50px', backgroundColor:'#035'}}
-            >
+              style={{
+                fontSize: '0.8rem',
+                fontWeight: '900',
+                maxHeight: '50px',
+                backgroundColor: '#035',
+              }}>
               submit</Button>
           </form>
         </Fade>
       </Modal>
     </>
   );
+};
+
+CreateGroup.propTypes = {
+  event: PropTypes.object,
 };
 
 export default CreateGroup;

@@ -1,46 +1,54 @@
 import React from 'react';
 import {Paper} from '@material-ui/core';
-import {SidePanel, SidePanelList, SidePanelListItem} from './Styled';
+import {SidePanel, SidePanelListItem} from './Styled';
+import PropTypes from 'prop-types';
 
 const SideInfo = ({lineup}) => {
-    return (
-        <SidePanel>
-            <Paper
-                style={{
-                background: '#1b2d46',
-                padding: '0.2em 0',
-                marginBottom: '1em',
-                width: '100%',
-                }}
+  return (
+    <SidePanel>
+      <Paper
+        style={{
+          background: '#1b2d46',
+          padding: '0.2em 0',
+          marginBottom: '1em',
+          width: '100%',
+        }}
+      >
+        <div
+          style={{
+            position: 'relative',
+            margin: '12px',
+            fontSize: '18px',
+            fontWeight: 700,
+            color: '#FFFFFF',
+          }}
+        >
+        Lineup
+          <div
+            style={{
+              marginLeft: '12px',
+              fontWeight: 400,
+              fontSize: '14px',
+            }}
+          ></div>
+        </div>
+      </Paper>
+      <div>
+        {lineup.map((object, index) => {
+          return (
+            <SidePanelListItem key={index}
             >
-                <div
-                style={{
-                    position: 'relative',
-                    margin: '12px',
-                    fontSize: '18px',
-                    fontWeight: 700,
-                    color: '#FFFFFF',
-                }}
-                >
-            Lineup
-                <div
-                    style={{
-                    marginLeft: '12px',
-                    fontWeight: 400,
-                    fontSize: '14px',
-                    }}
-                >
-                </div>
-                </div>
-            </Paper>
-            <SidePanelList>
-                {lineup.map(
-                    (object) =>
-                    <SidePanelListItem>{object.artist_name}</SidePanelListItem>
-                )}
-            </SidePanelList>
-        </SidePanel>
-    );
-}
+              {object.artist_name}
+            </SidePanelListItem>
+          );
+        })}
+      </div>
+    </SidePanel>
+  );
+};
+
+SideInfo.propTypes = {
+  lineup: PropTypes.array,
+};
 
 export default SideInfo;

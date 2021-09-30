@@ -1,10 +1,34 @@
 import styled from 'styled-components';
 
-export const StyledDescription = styled.div`
+export const FlexRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: ${props => props.spaceless ? '0' : '1em'};
+`;
+
+export const FlexColumn = styled(FlexRow)`
+  flex-direction: column;
+`;
+
+export const MainContainer = styled(FlexColumn)`
+  max-width: 1500px;
+  margin: 2em auto 0;
+`;
+
+export const SideContainer = styled(FlexColumn)`
+  width: 43%;
+  height: 100%;
+  background-color: #36435E;
+  align-items: center;
+`;
+
+export const StyledDescription = styled.p`
+    margin: 0;
     line-height: 1.5em;
-    overflow: hidden;
+    overflow-y: scroll;
     max-height: 300px;
-    max-width: 70%;
+    max-width: 100%;
 
     &::-webkit-scrollbar {
         display: none;
@@ -16,9 +40,8 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledBannerContainer = styled.div`
-    width: 100%;
-    height: 400px;
-    margin: 1em 0;
+    width: 55%;
+    height: 100%;
 `;
 
 export const StyledBannerImage = styled.img`
@@ -26,6 +49,7 @@ export const StyledBannerImage = styled.img`
     height: 100%;
     object-fit: cover;
     object-position: center;
+    cursor: pointer;
 `;
 
 export const GroupModal = styled.div`
@@ -61,8 +85,27 @@ export const SidePanel = styled.div`
     text-align: center;
 `;
 
-export const SidePanelList = styled.div``;
-
 export const SidePanelListItem = styled.div`
     margin-bottom: 0.5em;
+`;
+
+export const TitleContainer = styled(FlexColumn)`
+  width: 95%;
+  height: 100%;
+  margin: 0;
+`;
+
+export const EventTitle = styled.div`
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 0.1em;
+  letter-spacing: 0.2rem;
+`;
+
+export const TitleLine = styled.div`
+  margin-bottom: 0.3em;
+`;
+
+export const LineupGrid = styled.div`
+
 `;
