@@ -11,11 +11,9 @@ export const GridWrapper = styled.div`
 export const PerformerContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: gray;
   width: 300px;
   height: 70px;
   overflow: hidden;
-  border: 1px solid purple;
 `;
 
 export const PerformerIcon = styled.div`

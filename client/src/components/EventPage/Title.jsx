@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
 import AttendButton from './AttendButton.jsx';
 import CreateGroup from './CreateGroup.jsx';
+import LineupPanel from './LineupPanel.jsx';
 
 const Title = ({info}) => {
   const {
@@ -37,6 +38,7 @@ const Title = ({info}) => {
         <FlexColumn></FlexColumn>
       </FlexRow>
       <div>google map</div>
+      <LineupPanel artists={artist_list}/>
       <FlexRow>
         <CreateGroup event={{_id, event_banner_url}}/>
         <EventSiteButton url={link || '#'}/>
