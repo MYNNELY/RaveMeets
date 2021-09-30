@@ -5,6 +5,25 @@ const spinAnimation = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
+const customScroll = `
+  &::-webkit-scrollbar {
+  width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+  background-color: transparent;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(230,230,230,0.4);
+    border-radius: 25px;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+   background-color: rgba(230,230,230,0.7);
+  }
+`;
+
 export const SpinnerContainer = styled.div`
   position: absolute;
   top: 37.5%;
@@ -56,23 +75,7 @@ export const GridWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   overflow-y: auto;
   overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-button {
-    display: none;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(230,230,230,0.4);
-    border-radius: 25px;
-  }
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(230,230,230,0.7);
-  }
+  ${customScroll}
 `;
 
 export const PerformerContainer = styled.div`
