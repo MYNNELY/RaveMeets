@@ -18,7 +18,7 @@ const AttendButton = () => {
     setAttend(!attend);
   };
   return (
-    <ButtonBody onClick={handleClick}>
+    <ButtonBody onClick={handleClick} colored={attend}>
       <ButtonWrapper>
         <Star colored={attend}>★</Star>
         <ButtonText>Attend</ButtonText>

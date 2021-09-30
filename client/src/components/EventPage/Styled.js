@@ -30,10 +30,6 @@ export const SpinnerContainer = styled.div`
   left: 42.5%;
   width: 95px;
   height: 95px;
-
-  &:hover {
-    pointer: wait;
-  }
 `;
 
 export const SpinPath = styled.div`
@@ -61,6 +57,10 @@ export const MapContainer = styled.div`
   width: 100%;
   height: 300px;
   background-color: #ddd;
+
+  &:hover {
+    pointer: wait;
+  }
 `;
 
 export const GridContainer = styled.div`
@@ -184,7 +184,8 @@ export const Star = styled.div`
 `;
 
 export const ButtonBody = styled.div`
-  background-color: rgba(0,0,0,0.4);
+  background-color: ${(props) => props.colored ?
+    'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.4)'};
   position: absolute;
   top: 0;
   right: 0;
