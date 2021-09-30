@@ -7,7 +7,7 @@ import {
   TitleLine,
   FlexRow,
   FlexColumn,
-  MapContainer
+  MapContainer,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -44,8 +44,8 @@ const Title = ({info}) => {
       </FlexRow>
       <MapContainer>
         {venue?.address ? <iframe
-          width='450'
-          height='250'
+          width='100%'
+          height='100%'
           frameBorder='0' style={{border: 0}}
           src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${refactorAddress(venue.address)}`} allowFullScreen>
         </iframe> : null}
