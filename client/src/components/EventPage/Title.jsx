@@ -1,6 +1,11 @@
 import React, {useState, useContext} from 'react';
 import MapContext from '../mapContext.jsx';
-import {getTime, getGenres, refactorAddress} from './functions';
+import {
+  getTime,
+  getGenres,
+  refactorAddress,
+  capitalizeString,
+} from './functions';
 import {
   TitleContainer,
   EventTitle,
@@ -34,7 +39,7 @@ const Title = ({info}) => {
     <TitleContainer>
       <FlexRow>
         <FlexColumn>
-          <EventTitle>{name}</EventTitle>
+          <EventTitle>{name ? capitalizeString(name) : null}</EventTitle>
           <TitleLine>{getGenres(genres)}</TitleLine>
           <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
         </FlexColumn>

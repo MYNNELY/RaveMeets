@@ -4,6 +4,10 @@ export const getEvent = (id, callback) => {
   axios.get(`http://54.176.43.199:3000/events/${id}`).then((data) => callback(data.data[0])).catch((e) => console.log(e));
 };
 
+export const capitalizeString = (string) => {
+  return string[0].toUpperCase() + string.substring(1);
+};
+
 export const getKey = (callback) => {
   axios.get('/auth/maps')
       .then(({data}) => callback(data))
