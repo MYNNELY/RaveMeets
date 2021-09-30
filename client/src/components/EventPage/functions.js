@@ -6,18 +6,18 @@ export const getEvent = (id, callback) => {
 
 export const getKey = (callback) => {
   axios.get('/auth/maps')
-  .then(({data}) => callback(data))
-  .catch((e) => console.error(e));
-}
+      .then(({data}) => callback(data))
+      .catch((e) => console.error(e));
+};
 
 const isSameDate = (date1, date2) => {
   return date1 === date2 ? date1 : `${date1} - ${date2}`;
 };
 
 const toAmPm = (time) => {
-  let times = time.split(':');
-  let hour = Number(times[0]);
-  let minutes = times[1];
+  const times = time.split(':');
+  const hour = Number(times[0]);
+  const minutes = times[1];
   if (hour === 0) return `${hour}:${minutes}AM`;
   if (hour === 12) return `${hour}:${minutes}PM`;
   if (hour > 12) return `${hour-12}:${minutes}PM`;
@@ -42,7 +42,7 @@ export const getTime = (date1, date2) => {
 
 export const getGenres = (genres) => {
   if (!genres) return null;
-  let genreNames = [];
+  const genreNames = [];
   genres.forEach(({genre_name}) => {
     genreNames.push(genre_name);
   });
@@ -52,4 +52,3 @@ export const getGenres = (genres) => {
 export const refactorAddress = (address) => {
   return address.replaceAll(' ', '+');
 };
-
