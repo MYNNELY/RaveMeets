@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const MapContainer = styled.div`
+  width: 100%;
+`;
+
 export const GridContainer = styled.div`
   background-color: #021F3C;
   height: 150px;

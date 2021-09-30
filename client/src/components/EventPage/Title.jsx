@@ -7,6 +7,7 @@ import {
   TitleLine,
   FlexRow,
   FlexColumn,
+  MapContainer
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -40,7 +41,7 @@ const Title = ({info}) => {
           <EventTitle>{dateTime?.time}</EventTitle>
         </FlexColumn>
       </FlexRow>
-      <div>google map</div>
+      <MapContainer>google map</MapContainer>
       <LineupPanel artists={artist_list}/>
       <FlexRow>
         <CreateGroup event={{_id, event_banner_url}}/>
