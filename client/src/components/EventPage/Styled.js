@@ -1,11 +1,29 @@
 import styled from 'styled-components';
 
 export const GridWrapper = styled.div`
+  background-color: #021F3C;
   width: max-content;
   height: 140px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(230,230,230,0.4);
+    border-radius: 25px;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(230,230,230,0.7);
+  }
 `;
 
 export const PerformerContainer = styled.div`
@@ -19,7 +37,7 @@ export const PerformerContainer = styled.div`
 export const PerformerIcon = styled.div`
   height: 55px;
   width: 55px;
-  background-color: black;
+  background-color: #C4C4C4;
   border-radius: 50%;
   margin-left: 1.5em;
   margin-right: 1em;
