@@ -65,14 +65,6 @@ const Title = ({info}) => {
   );
 };
 
-// <TitleContainer>
-//   <EventTitle>{name}</EventTitle>
-//   <TitleLine>{dateTime?.date} + {dateTime?.time}</TitleLine>
-//   <TitleLine>{venue?.name} - {venue?.address}</TitleLine>
-//   <TitleLine>{genres?.map((genre, index) => {
-//     return <StyledSpan key={index}>{genre.genre_name}</StyledSpan>;
-//   })}</TitleLine>
-// </TitleContainer>
 Title.propTypes = {
   info: PropTypes.object,
 };
