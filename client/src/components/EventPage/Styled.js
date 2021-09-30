@@ -84,6 +84,12 @@ export const PerformerContainer = styled.div`
   width: 300px;
   height: 70px;
   overflow: hidden;
+  transition: background-color 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.3);
+  }
 `;
 
 export const PerformerIcon = styled.div`
