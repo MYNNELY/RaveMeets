@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import MapContext from '../mapContext.jsx';
 import {getTime, getGenres, refactorAddress} from './functions';
 import {
-  StyledSpan,
   TitleContainer,
   EventTitle,
   TitleLine,
