@@ -69,7 +69,7 @@ const GroupsListCard = ({group}) => {
 
   useEffect(() => {
     getGroupInfo();
-  }, group);
+  }, [group]);
 
   //   // hard coded sample data
   // useEffect(() => {

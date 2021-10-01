@@ -13,22 +13,28 @@ import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
 import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
 import UserContext from './userContext.jsx';
+import MapContext from './mapContext.jsx';
+import {getKey} from './EventPage/functions';
 import SearchBar from './SearchBar/SearchBar.jsx';
 
 const App = () => {
   const localStorageUsername = localStorage.getItem('username');
   const [userInfo, setUserInfo] = useState();
+  const [apiKey, setApiKey] = useState();
 
   useEffect(() => {
     if (localStorageUsername) {
       setUserInfo({username: localStorageUsername});
     }
+    getKey(setApiKey);
   }, []);
 
   return (
 
     <UserContext.Provider value={{userInfo, setUserInfo}}>
-      <SearchAppBar />
+      <MapContext.Provider value={apiKey}>
+        <SearchAppBar />
+      </MapContext.Provider>
     </UserContext.Provider>
 
   );
