@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import {alpha, makeStyles} from '@material-ui/core/styles';
+import {useHistory} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -87,7 +88,7 @@ margin-bottom:2px
 
 const SearchBar = ({placeholder}) =>{
   const classes = useStyles();
-
+  const history = useHistory();
   const [search, setSearch] = useState('');
   const [peopleData, setPeopleData] = useState([]);
   const [searchData, setSearchData] = useState([]);
@@ -136,7 +137,8 @@ const SearchBar = ({placeholder}) =>{
           <StyledSearchCardContainerDiv key={key}
             onClick={(e) => {
               e.preventDefault();
-              window.location.href=`http://localhost:3000/u/${user.username}`;
+              setSearch('');
+              history.push(`/u/${user.username}`);
             }}>
             <StyledEventInformation>
               <StyledUserTag>User</StyledUserTag>
@@ -152,7 +154,8 @@ const SearchBar = ({placeholder}) =>{
           <StyledSearchCardContainerDiv key={key}
             onClick={(e) => {
               e.preventDefault();
-              window.location.href=`http://localhost:3000/eventpage/${event._id}`;
+              setSearch('');
+              history.push(`/events/${event._id}`);
             }}>
 
             <StyledEventInformation>

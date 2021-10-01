@@ -13,11 +13,6 @@ const api_secret = process.env.STREAM_API_SECRET;
 const app_id = process.env.STREAM_API_ID;
 const maps_api_key = process.env.MAP_API_KEY;
 
-console.log(api_key, 'what is this');
-
-
-console.log('hello are we here in the right place in auth');
-
 const login = async (req, res)=>{
   try {
     const {username, password} = req.body;
@@ -62,8 +57,7 @@ const signup= async (req, res)=>{
 
 const maps = (req, res) => {
   const key = maps_api_key || 'key not defined';
-  console.log(key);
-  res.status(200).send(maps_api_key);
+  res.status(200).send(key);
 };
 
 module.exports = {signup, login, maps}

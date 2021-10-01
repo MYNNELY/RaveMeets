@@ -11,7 +11,7 @@ const EventPage = () => {
   const {id} = useParams({});
   useEffect( () => {
     getEvent(id, setEvent);
-  }, []);
+  }, [id]);
 
   return (
     <MainContainer>

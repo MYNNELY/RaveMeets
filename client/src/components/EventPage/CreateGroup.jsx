@@ -11,6 +11,7 @@ import {
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import {useHistory} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const theme = createTheme({
@@ -61,7 +62,7 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
+const onGroupSubmit = (e, {_id, event_banner_url, username}, callback) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
@@ -72,7 +73,7 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
     event_banner_url,
     username})
       .then((result) => {
-        location.href = `/grouppage/${result.data._id}`;
+        callback(result.data._id);
       })
       .catch((err) => {
         console.log(err);
@@ -80,12 +81,14 @@ const onGroupSubmit = (e, {_id, event_banner_url, username}) => {
 };
 
 const CreateGroup = ({event = {}}) => {
+  const history = useHistory();
+  const historyPush = (url) => history.push(`/grouppage/${url}`);
   const {_id='id', event_banner_url='banner'} = event;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const username = localStorage.getItem('username');
   const [groupname, setgroupname] = useState('');
-
+  const shdw = '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)';
   const handleOpen = () => {
     setOpen(true);
   };
@@ -122,10 +125,9 @@ const CreateGroup = ({event = {}}) => {
       >
         <Fade in={open}>
           <form className={classes.paper}
-            styles={{boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'}}
-            onSubmit={
-              (e) => {
-                onGroupSubmit(e, {_id, event_banner_url, username});
+            styles={{boxShadow: shdw}}
+            onSubmit={(e) => {
+              onGroupSubmit(e, {_id, event_banner_url, username}, historyPush);
             }}>
             <h2 id="transition-modal-title">Create Group</h2>
             <CssTextField
