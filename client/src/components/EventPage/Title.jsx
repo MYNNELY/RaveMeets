@@ -18,6 +18,7 @@ import {
   DateContainer,
   TimeLine,
   DateTimeContainer,
+  GenreLine,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -40,12 +41,27 @@ const Title = ({info}) => {
     artist_list,
   } = info;
   const dateTime = getTime(start_date, end_date);
-  return (
-    <TitleContainer>
+  const genresArray = getGenres(genres);
+  const allGenres =  (genresArray) => {
+    console.log(genresArray);
+    return genresArray.map((genre, index) => {
+      if (index === 0) {
+        return <GenreLine key={index}>{genre}</GenreLine>
+      } else {
+        return (
+          <>
+            <GenreLine key={index * 100}>•</GenreLine>
+            <GenreLine key={index}>{genre}</GenreLine>
+          </>
+        );
+      }
+    })};
+    return (
+      <TitleContainer>
       <EventInfo>
         <FlexColumn>
           <EventTitle>{name ? capitalizeString(name) : null}</EventTitle>
-          <TitleLine>{getGenres(genres)}</TitleLine>
+          <div>{genresArray ? allGenres(genresArray) : null}</div>
           <TitleLine>{venue?.name}</TitleLine>
         </FlexColumn>
         <DateTimeContainer>

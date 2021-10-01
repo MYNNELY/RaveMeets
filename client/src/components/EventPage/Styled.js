@@ -211,7 +211,10 @@ export const DateContainer = styled(EventTitle)`
 `;
 
 export const TitleLine = styled.div`
-  margin-bottom: 0.3em;
+  margin-bottom: 0.5em;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const TimeLine = styled.span`
@@ -220,8 +223,13 @@ export const TimeLine = styled.span`
   margin-right: 1em;
 
   &:last-child {
-    margin-right: 0em;
+    margin-right: 0;
   }
+`;
+
+export const GenreLine = styled(TimeLine)`
+  font-size: 1rem;
+  letter-spacing: normal;
 `;
 
 export const Star = styled.div`

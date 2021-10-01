@@ -50,7 +50,7 @@ export const getGenres = (genres) => {
   genres.forEach(({genre_name}) => {
     genreNames.push(genre_name);
   });
-  return genreNames.join('  •  ');
+  return genreNames;
 };
 
 export const refactorAddress = (address) => {
