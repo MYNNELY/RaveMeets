@@ -43,7 +43,6 @@ const Title = ({info}) => {
   const dateTime = getTime(start_date, end_date);
   const genresArray = getGenres(genres);
   const allGenres =  (genresArray) => {
-    console.log(genresArray);
     return genresArray.map((genre, index) => {
       if (index === 0) {
         return <GenreLine key={index}>{genre}</GenreLine>
@@ -59,9 +58,12 @@ const Title = ({info}) => {
     return (
       <TitleContainer>
       <EventInfo>
-        <FlexColumn>
+        <FlexColumn spaceless>
           <EventTitle>{name ? capitalizeString(name) : null}</EventTitle>
-          <div>{genresArray ? allGenres(genresArray) : null}</div>
+          <div style={{marginBottom: '0.7rem'}}
+          >
+            {genresArray ? allGenres(genresArray) : null}
+          </div>
           <TitleLine>{venue?.name}</TitleLine>
         </FlexColumn>
         <DateTimeContainer>

@@ -136,8 +136,10 @@ export const FlexRow = styled.div`
 `;
 
 export const EventInfo = styled(FlexRow)`
-  height: 17%;
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  height: max-content;
+  margin: 0.7rem 0 0;
 `;
 
 export const ButtonHolder = styled(FlexRow)`
@@ -146,6 +148,12 @@ export const ButtonHolder = styled(FlexRow)`
 
 export const FlexColumn = styled(FlexRow)`
   flex-direction: column;
+`;
+
+export const TitleContainer = styled(FlexColumn)`
+  width: 95%;
+  height: 100%;
+  margin: 0;
 `;
 
 export const MainContainer = styled(FlexColumn)`
@@ -161,43 +169,37 @@ export const SideContainer = styled(FlexColumn)`
 `;
 
 export const StyledDescription = styled.p`
-    margin: 0;
-    line-height: 1.5em;
-    overflow-y: scroll;
-    max-height: 300px;
-    max-width: 100%;
+  margin: 0;
+  line-height: 1.5em;
+  overflow-y: scroll;
+  max-height: 300px;
+  max-width: 100%;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const StyledBannerContainer = styled.div`
-    position: relative;
-    overflow: hidden;
-    width: 55%;
-    height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 55%;
+  height: 100%;
 `;
 
 export const StyledBannerImage = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    cursor: ${(props) => props.zoom ? 'zoom-out' : 'zoom-in'};
-`;
-
-export const TitleContainer = styled(FlexColumn)`
-  width: 95%;
+  width: 100%;
   height: 100%;
-  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: ${(props) => props.zoom ? 'zoom-out' : 'zoom-in'};
 `;
 
 export const EventTitle = styled.div`
   font-weight: 500;
   font-size: 2rem;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.7rem;
   letter-spacing: 0.2rem;
 `;
 
@@ -211,7 +213,7 @@ export const DateContainer = styled(EventTitle)`
 `;
 
 export const TitleLine = styled.div`
-  margin-bottom: 0.5em;
+  margin-bottom: 0.7rem;
   &:last-child {
     margin-bottom: 0;
   }
@@ -266,5 +268,3 @@ export const ButtonText = styled.div`
   position: relative;
   top: 5px;
 `;
-
-
