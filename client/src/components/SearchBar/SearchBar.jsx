@@ -137,6 +137,7 @@ const SearchBar = ({placeholder}) =>{
           <StyledSearchCardContainerDiv key={key}
             onClick={(e) => {
               e.preventDefault();
+              setSearch('');
               history.push(`/u/${user.username}`);
             }}>
             <StyledEventInformation>
@@ -153,6 +154,7 @@ const SearchBar = ({placeholder}) =>{
           <StyledSearchCardContainerDiv key={key}
             onClick={(e) => {
               e.preventDefault();
+              setSearch('');
               history.push(`/events/${event._id}`);
             }}>
 
