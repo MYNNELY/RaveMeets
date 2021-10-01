@@ -172,10 +172,10 @@ export default function SearchAppBar() {
         </AppBar>
         <main>
           <Switch>
-            <Route path="/events">
+            <Route exact path="/events">
               <EventsList />
             </Route>
-            <Route path="/eventpage/:id">
+            <Route path="/events/:id">
               <EventPage />
             </Route>
             <Route path="/groups">
