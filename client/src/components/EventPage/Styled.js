@@ -201,15 +201,18 @@ export const EventTitle = styled.div`
   letter-spacing: 0.2rem;
 `;
 
+export const DateTimeContainer = styled(FlexColumn)`
+  height: max-content;
+`;
+
 export const DateContainer = styled(EventTitle)`
   font-size 1.5rem;
+  margin-bottom: 0.4em;
 `;
 
 export const TitleLine = styled.div`
   margin-bottom: 0.3em;
 `;
-
-export const TimeContainer = styled.div``;
 
 export const TimeLine = styled.span`
   font-size: 1.2rem;

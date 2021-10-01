@@ -16,8 +16,8 @@ import {
   EventInfo,
   ButtonHolder,
   DateContainer,
-  TimeContainer,
   TimeLine,
+  DateTimeContainer,
 } from './Styled';
 import PropTypes from 'prop-types';
 import EventSiteButton from './EventSiteButton.jsx';
@@ -48,14 +48,14 @@ const Title = ({info}) => {
           <TitleLine>{getGenres(genres)}</TitleLine>
           <TitleLine>{venue?.name}</TitleLine>
         </FlexColumn>
-        <FlexColumn>
+        <DateTimeContainer>
           <DateContainer>{dateTime?.date}</DateContainer>
-          <TimeContainer>
+          <div>
             <TimeLine>{dateTime?.time[0]}</TimeLine>
             <TimeLine>-</TimeLine>
             <TimeLine>{dateTime?.time[1]}</TimeLine>
-          </TimeContainer>
-        </FlexColumn>
+          </div>
+        </DateTimeContainer>
       </EventInfo>
       <MapContainer>
         {venue?.address ? <iframe
