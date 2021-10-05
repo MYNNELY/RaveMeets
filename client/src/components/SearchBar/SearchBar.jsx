@@ -115,11 +115,11 @@ const SearchBar = ({placeholder}) =>{
     <div className={classes.search}>
 
       <div className={classes.searchIcon}>
-        <SearchIcon />
+        <SearchIcon style={{fill: '#021F3C', zIndex: '1'}} />
       </div>
 
       <InputBase
-        placeholder="Search…"
+        placeholder="Search"
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
@@ -204,7 +204,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     'zIndex': '1000',
     'position': 'relative',
-    'borderRadius': theme.shape.borderRadius,
+    'borderRadius': '20px',
     'backgroundColor': alpha(theme.palette.common.white, 0.15),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -224,20 +224,31 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    right: '0',
   },
   inputRoot: {
     color: 'inherit',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
+    padding: theme.spacing(2, 2, 2, 0),
+    border: '1px',
+    borderRadius: '20px',
+    fontSize: '17px',
+    backgroundColor: 'rgb(255, 255, 255, 0.8)',
+    color: '#021F3C',
+    // vertical padding + font size from searchIco
+    paddingLeft: `calc(1em + ${theme.spacing(1)}px)`,
+    // transition: theme.transitions.create('width'),
+    transition: 'background-color 0.1s, width 0.3s',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      'width': '15ch',
+      'width': '18ch',
       '&:focus': {
-        width: '20ch',
+        width: '30ch',
+        backgroundColor: 'rgb(255, 255, 255)',
+      },
+      '&:hover': {
+        backgroundColor: 'rgb(255, 255, 255)',
       },
     },
   },

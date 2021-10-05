@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   toolBar: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     backgroundColor: '#021F3C',
     borderBottom: '2px solid',
     minHeight: '100px',
@@ -42,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     display: 'none',
+    minWidth: '225px',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -119,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       'width': '15ch',
       '&:focus': {
-        width: '20ch',
+        width: '30ch',
       },
     },
   },
@@ -198,7 +202,7 @@ function SearchAppBar(props) {
                 }
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                { location === '/profile'
+                { location === '/profile' || location.includes('/u')
                   ? <MaterialUILink component={Link}
                     onClick={() => handleDirectoryChange('/profile')}
                     to={{pathname: `/${user}`}}
