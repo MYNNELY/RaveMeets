@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     // fontWeight: '500',
   },
   directories: {
-    fontSize: '18px',
+    fontSize: '19px',
     textDecoration: 'none',
     color: '#FFF',
     borderBottom: '1px solid',
@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     transitionDuration: 600,
     paddingBottom: '5px',
     '&:hover': {
-      fontSize: '21px',
       paddingLeft: '15px',
       paddingRight: '15px',
       fontWeight: 'bolder',
@@ -74,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   directoriesActive: {
-    fontSize: '21px',
     textDecoration: 'none',
     color: '#FFF',
     borderBottom: '1px solid',
