@@ -19,6 +19,7 @@ const App = () => {
   const [userInfo, setUserInfo] = useState();
   const [apiKey, setApiKey] = useState();
 
+
   useEffect(() => {
     if (localStorageUsername) {
       setUserInfo({username: localStorageUsername});

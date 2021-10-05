@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 /* eslint-disable require-jsdoc */
 import React, {useState, useContext, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
@@ -71,6 +72,19 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  directoriesActive: {
+    fontSize: '19px',
+    textDecoration: 'none',
+    color: '#FFF',
+    borderBottom: '1px solid',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingBottom: '5px',
+    fontWeight: 'bolder',
+    '&:hover': {
+      textDecoration: 'none',
+    },
+  },
   search: {
     'position': 'relative',
     'borderRadius': theme.shape.borderRadius,
@@ -112,11 +126,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+function SearchAppBar(props) {
   const classes = useStyles();
   const {userInfo} = useContext(UserContext);
   const [user, setUser] = useState('login');
   const [tag, setTag] = useState('Login');
+  const [location, setLocation] = useState(window.location.pathname);
 
   useEffect(() => {
     let u;
@@ -127,10 +142,15 @@ export default function SearchAppBar() {
       setTag(userInfo.username);
     }
     setUser(u);
-  }, [user, userInfo]);
+  }, [user, userInfo, location]);
+
+  const handleDirectoryChange = (directory) => {
+    setLocation(directory);
+  };
 
   return (
     <div className={classes.root}>
+      {console.log(location.includes('/events'))}
       <Router>
         <AppBar position="static" style={{boxShadow: 'none'}}>
           <Toolbar className={classes.toolBar}>
@@ -150,22 +170,47 @@ export default function SearchAppBar() {
               alignItems="center"
             >
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink component={Link}
-                  to="/events" className={classes.directories}>
-              Events
-                </MaterialUILink>
+                { location === '/events' || location.includes('/events')
+                  ? (<MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/events')}
+                    to="/events" className={classes.directoriesActive}>
+                        Events
+                  </MaterialUILink>)
+                  : (<MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/events')}
+                    to="/events" className={classes.directories}>
+                    Events
+                  </MaterialUILink>)
+                }
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink component={Link}
-                  to="/groups" className={classes.directories}>
-              Groups
-                </MaterialUILink>
+                { location === '/groups' || location.includes('/groups')
+                  ? <MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/groups')}
+                    to="/groups" className={classes.directoriesActive}>
+                      Groups
+                  </MaterialUILink>
+                  : <MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/groups')}
+                    to="/groups" className={classes.directories}>
+                    Groups
+                  </MaterialUILink>
+                }
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
-                <MaterialUILink component={Link}
-                  to={{pathname: `/${user}`}} className={classes.directories}>
-                  Profile
-                </MaterialUILink>
+                { location === '/profile'
+                  ? <MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/profile')}
+                    to={{pathname: `/${user}`}}
+                    className={classes.directoriesActive}>
+                      Profile
+                  </MaterialUILink>
+                  : <MaterialUILink component={Link}
+                    onClick={() => handleDirectoryChange('/profile')}
+                    to={{pathname: `/${user}`}} className={classes.directories}>
+                      Profile
+                  </MaterialUILink>
+                }
               </Grid>
             </Grid>
             <SearchBar />
@@ -202,3 +247,5 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+export default SearchAppBar;
