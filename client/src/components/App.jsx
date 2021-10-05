@@ -8,9 +8,6 @@ import {
 import EventsList from './EventsList/EventsList.jsx';
 import GroupsList from './GroupsList/GroupsList.jsx';
 import Profile from './Profile/Profile.jsx';
-import GroupImg from './SingleGroupPage/GroupImg.jsx';
-import GroupImg2 from './SingleGroupPage/GroupImg2.jsx';
-import Chatroom from './SingleGroupPage/Chatroom.jsx';
 import SearchAppBar from './NavBar/SearchAppBar.jsx';
 import UserContext from './userContext.jsx';
 import MapContext from './mapContext.jsx';

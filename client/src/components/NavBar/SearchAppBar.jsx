@@ -31,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   toolBar: {
-    backgroundColor: '#01387A',
+    backgroundColor: '#021F3C',
+    borderBottom: '2px solid',
+    minHeight: '100px',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -43,10 +45,31 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
-  links: {
-    maxWidth: '70%',
+  logo: {
     color: '#FFF',
     textDecoration: 'none',
+    fontWeight: 'bolder',
+    fontSize: '40px',
+  },
+  links: {
+    maxWidth: '70%',
+    // borderBottom: '1px solid',
+    // fontWeight: '500',
+  },
+  directories: {
+    fontSize: '19px',
+    textDecoration: 'none',
+    color: '#FFF',
+    borderBottom: '1px solid',
+    transition: ['padding', 'fontWeight'],
+    transitionDuration: 300,
+    paddingBottom: '5px',
+    '&:hover': {
+      paddingLeft: '15px',
+      paddingRight: '15px',
+      fontWeight: 'bolder',
+      textDecoration: 'none',
+    },
   },
   search: {
     'position': 'relative',
@@ -109,21 +132,11 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
       <Router>
-        <AppBar position="static">
+        <AppBar position="static" style={{boxShadow: 'none'}}>
           <Toolbar className={classes.toolBar}>
-            {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/events" className={classes.links}>
-                <img style={{height: 40}}
-                  src={'./RaveMeetsLogo-01.png'} alt="RAVEmeets"
-                />
+              <Link to="/events" className={classes.logo}>
+                RAVEmeets
               </Link>
             </Typography>
             <Grid
@@ -138,36 +151,24 @@ export default function SearchAppBar() {
             >
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to="/events" className={classes.links}>
+                  to="/events" className={classes.directories}>
               Events
                 </MaterialUILink>
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to="/groups" className={classes.links}>
+                  to="/groups" className={classes.directories}>
               Groups
                 </MaterialUILink>
               </Grid>
               <Grid container item xs={1} spacing={0} justifyContent="center">
                 <MaterialUILink component={Link}
-                  to={{pathname: `/${user}`}} className={classes.links}>
-                  {tag}
+                  to={{pathname: `/${user}`}} className={classes.directories}>
+                  Profile
                 </MaterialUILink>
               </Grid>
             </Grid>
             <SearchBar />
-            {/* <div className={classes.search}>
-
-
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{'aria-label': 'search'}}
-              />
-            </div> */}
           </Toolbar>
         </AppBar>
         <main>
