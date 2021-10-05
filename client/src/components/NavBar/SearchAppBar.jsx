@@ -154,7 +154,8 @@ function SearchAppBar(props) {
         <AppBar position="static" style={{boxShadow: 'none'}}>
           <Toolbar className={classes.toolBar}>
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to="/events" className={classes.logo}>
+              <Link to="/events" className={classes.logo}
+                onClick={() => handleDirectoryChange('/events')}>
                 RAVEmeets
               </Link>
             </Typography>
