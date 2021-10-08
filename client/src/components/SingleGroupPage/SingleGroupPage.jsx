@@ -10,11 +10,15 @@ import {Container,
   VerticalContainerOne,
   VerticalContainerTwo,
 } from './styles';
+import {Paper} from '@material-ui/core';
+import Banner from './Banner.jsx';
+import MembersList from './MembersList.jsx';
 
 const SingleGroupPage = () => {
   const {id} = useParams();
   const [groupData, setGroupData] = useState(null);
 
+  console.log(groupData);
   useEffect(() => {
     getGroupData(id, (err, result) => {
       if (err) {
@@ -25,28 +29,34 @@ const SingleGroupPage = () => {
     });
   }, [id]);
 
-  return (
-    <Container>
-      <EventContainer>
-        <span>Event</span>
-      </EventContainer>
-      <SubContainer>
-        <VerticalContainerOne>
-          <MemberContainer>
-            <span>Members</span>
-          </MemberContainer>
-          <ImagesContainer>
-            <span>Images</span>
-          </ImagesContainer>
-        </VerticalContainerOne>
-        <VerticalContainerTwo>
-          <ChatContainer>
-            <span>Chat</span>
-          </ChatContainer>
-        </VerticalContainerTwo>
-      </SubContainer>
-    </Container>
-  );
+  if (groupData) {
+    return (
+      <Container>
+        <Banner eventDetails = {groupData.event_details}/>
+        <SubContainer>
+          <VerticalContainerOne>
+            <MembersList memberDetails = {groupData.members} />
+            <ImagesContainer style={{
+              backgroundColor: '#1b2d46',
+              borderRadius: '10px',
+            }}>
+            </ImagesContainer>
+          </VerticalContainerOne>
+          <VerticalContainerTwo>
+            <ChatContainer style={{
+              backgroundColor: '#1b2d46',
+              borderRadius: '10px',
+            }}>
+            </ChatContainer>
+          </VerticalContainerTwo>
+        </SubContainer>
+      </Container>
+    );
+  } else {
+    return (
+      <></>
+    );
+  }
 };
 
 export default SingleGroupPage;
